@@ -1,0 +1,286 @@
+Apache Kafka
+============
+What is Kafka
+Where does Kafka come from?
+Why do we need Kafka?
+How does it work?
+
+Apache Kafka is an open-source distributed event streaming platform
+
+event streaming = creating real-time stream + processing real-time stream
+
+for an example when we do a Paytm (UPI payment) transaction for a flight ticket booking or movie ticket booking then that event will go to the Apache Kafka, but I am not only the person who is doing this Paytm transaction - Kafka server will receive millions or trillions of events in each minute/second. 
+
+Sending the stream of continuous data from the Paytm to Kafka server is called Creating or Generating Real-time Stream of Data
+
+Once Kafka server receives the data , it needs to process it. Paytm team created one client application which reads the data from the Kafka server and do some process; for example lets say - Paytm want to  restrict maximum 10 transactions per day (a user should do only 10 transactions per day with Paytm payment system) - if it exceeds the limit - then the client application wants to send a notification to the user. 
+
+In such scenario my client application needs to continuously fetch the data and need to do the validation to check the transaction count of a specific user in each and every second.
+ 
+Continuously listens to the Kafka messages and processes them is called Processing Real-time Stream of Data
+
+In simple words - continuously sending events/messages to the Kafka server and reading them and process them is known as real-time event streaming
+
+
+next word --> Distributed = we can keep multiple Kafka Servers in multiple regions for streaming operations; incase if any server goes down, another server will come-up to pickup the traffic to avoid application downtime
+ 
+=== Where does Kafka come from? ===
+Kafka was originally developed at LinkedIn, and was subsequently open sourced in early 2011; now it comes under Apache Software Foundation
+
+=== Why do we need Kafka? (or messaging system) ====
+
+Just think of a normal scenario. A postman/ courier delivery boy wants to deliver a letter to me (Day-1) and if I am not there - then he will come again on next and in my absence he may come 3rd day and after that he may send the post back to sender. I lost the data/ not received the information. In that case if I keep a letter box, the boy can keep that post in that letter box in my absence and I can collect it whenever I am back.
+
+same way- if one application (Application-1) wants to send some data to Application2 and that application is down- so it cannot receive the data; we need to place a Messaging System like Kafka, RabbitMQ, SQS in between the applications. 
+
+Incase Application2 is not available it can  get the data from Kafka whenever App-2 comes online. Kafka is acting as a letter box between Appication-1 and Application-2
+
+Application-1 ------- Messaging System -------- Application-2
+
+
+==== Lets understand (Why Kafka?) with a complex situation/ scenario ======
+
+ - Lets say we have 4 applications (Frontend, Hadoop, Database Slave, Chat Server) which wants to produce different types of data to the database server. now there wont be any issue , as all application communicates with a single destination; but later if multiple destination comes like Database Server, Security Systems, Realtime Monitoring, Datawarehouse etc , in that situation it is really tough to manage the multiple connections
+
+Challenges - 1) Data Format
+	     2) Connection Type --- HTTP Connection, TCP Connection, JDBC Connection etc - bit complex to maintain it
+   	     3) Number of Connection 
+
+
+==== How does Kafka work? (High - Level overview) =====
+
+- Publisher/ Subscriber Model (Pub/Sub Model)
+
+Publisher will publish the event/messages to the Messaging System like Kafka (Message Broker) , and the message will sit in the Message Broker , now the Subscriber will go to the Message broker and will ask for the messages or Subscriber will listen to the Message Broker to get the messages
+
+
+-----------------------------------
+Kafka Architecture & its Components
+-----------------------------------
+1) Producer	
+2) Consumer	
+3) Broker	
+4) Cluster
+
+5) Topic   --- to categories different type of messages	
+
+6) Partitions	
+7) Offset	
+8) Consumer Groups
+9) Zookeeper
+
+each component have its own roles and responsibilities
+
+
+
+-------------------------------------
+Apache Kafka Installation On Windows
+-------------------------------------
+Before we install Kafka,  - we have different kind of Kafka Server available in market with different type of flavour like
+
+1) Apache Kafka - Open Source - easily downloadable, maximum used 
+2) Confluent Kafka - Commercial distribution with many utilities added - best commercial distribution, also got a community edition
+3) Confluent & AWS - Managed Kafka Service - Amazon MSK - Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a streaming data service that manages Apache Kafka infrastructure and operations, making it easier for developers and DevOps managers to run Apache Kafka applications and Apache Kafka Connect connectors on AWS
+
+Apache Kafka is an open-source, distributed streaming platform for building real-time data pipelines. Confluent Kafka, offered by the company Confluent, is a commercial platform that provides a fully managed, enterprise-ready version of Kafka, including additional features, tools, and services built on top of Apache Kafka. 
+
+
+a) Download Apache Kafka
+https://kafka.apache.org/downloads
+Scala 2.12  - kafka_2.12-3.3.2.tgz (asc, sha512)
+
+extract it and inside /bin folder (.sh for Linux and Mac) and 
+
+confluent.io 
+
+b) Download and Install "Kafka Offset Explorer" - to monitor our Kafka messaging system
+Google it - https://www.kafkatool.com/
+
+
+
+
+
+PRACTICAL - using CLI Tools
+
+1) Start Zookeeper  (in cmd prompt or in powershell)
+
+C:\kafka_2.12-3.9.1> .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+
+-- If the command is successful, Zookeeper will start on port 2181.
+
+
+2) Start Kafka Server
+
+C:\kafka_2.12-3.9.1>.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+default port : 9092
+Now our Kafka Server is up and running, we can create topics to store messages. Also, we can produce or consume data directly from the command prompt.
+
+
+3) Create a Kafka Topic: - producer and consumer need to communicate with each other using topic
+
+-- while creating a topic - we need to specify the partition and replication factor
+
+-- A Kafka topic is logically divided into one or more partitions. Each partition is an ordered, immutable sequence of records (messages). Partitions enable parallel processing of data.
+
+-- replication-factor option determines the number of copies of each partition that will be maintained across different brokers in the Kafka cluster. This is a crucial setting for achieving data durability and high availability
+
+
+C:\kafka_2.12-3.9.1\bin\windows>kafka-topics.bat --bootstrap-server localhost:9092 --create --topic wipro-topic  --partitions 3 --replication-factor 1
+
+-- any number of topics can be created
+
+4) to list the topics
+cmd> kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+
+5) to describe a topic - to understand the number of partitions, replications etc
+cmd> kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic wipro-topic
+
+Replication - In Kafka, replication means that data is written down not just to one broker, but many. The replication factor is a topic setting and is specified at topic creation time. A replication factor of 3 is a commonly used replication factor as it provides the right balance between broker loss and replication overhead. A replication factor is the number of copies of data over multiple brokers. The replication factor value should be greater than 1 always (between 2 or 3)
+
+In-Sync Replica (ISR) - This is a new concept introduced in Kafka. This represents the number of replica in sync with each other in the cluster. This includes both leader and follower replica. The in-sync replica is always recommended to be always greater than 1.
+
+
+======= Next Step: now we want to work with the Producer and Consumer =======
+
+we need to run the Producer and Consumer application using the Command-Line interface
+run the producer to push some messages to the topic and will check - whether it is being consumed by consumer or not
+
+6) Push bulk number of messages by the Publisher to the Topic - and to see whether it is being distributed to different partitions or not
+
+to monitor that -we have installed the Offset Explorer
+
+- open Offset Explorer 
+  - Create a Cluster   localhost:2181  (Zookeeper port) - so that we can monitor everything happening in this cluster
+  - Open Topic - Data tab - run (nothing as there is no data is getting filtered)
+
+
+7) need to start a Producer & consumer - kafka-console-producer.bat & kafka-console-consumer.bat
+
+cmd>kafka-console-producer.bat --broker-list localhost:9092 --topic wipro-topic
+>
+
+--broker-list -- list of kafka servers available
+--topic --- to which topic we need to push the messages
+
+--- asking to push some messages, and we can verify that messages in Kafka Offset Explorer ---- mean while we start the consumer application also , so that parallely we can push the message from here and will go to topic and the consumer can consume from this topic
+	
+cmd> kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic wipro-topic --from-beginning
+
+-- no messages we can see ---
+
+-- in producer console
+>Hi
+>Hello
+>Welcome to Wipro
+-- can see the messages in consumer terminal---
+
+-- check the messages in Offset Explorer --- Topic > Data
+-- which Partition should store the data is taken care by Zookeeper (we dont have any role in it)
+
+
+8) sending bulk data 
+-- stop publisher CTRL+C
+https://www.mockaroo.com/  - to generate random CSV data
+
+cmd>kafka-console-producer.bat --broker-list localhost:9092 --topic wipro-topic <C:\Users\Sunil Joseph\Downloads\MOCK_DATA.csv
+
+-- check in consumer and check in Offset Explorer - check in each partition and refresh
+
+9) send the same data again from publisher
+
+here we understanding the behavior of partitions, distributing the messages to different partitions through the publisher in command-line; and this is the producer-consumer workflow
+
+10) delete topic
+enable topic deletion
+  in server.properties - delete.topic.enable=true
+
+cmd> kafka-topics.bat --bootstrap-server localhost:9092 --delete --topic wipro-topic
+
+-- same way you can work on confluent kafka ---
+-- Apache Kafka No Longer Requires ZooKeeper  --
+
+=============================================================================================
+
+
+
+==== Kafka Producer Application ====
+1. New Spring Starter Project : event-streaming-kafka-producer
+dependencies: Spring Web, Spring Kafka	<artifactId>spring-kafka</artifactId>
+
+
+2. application.properties
+spring.kafka.bootstrap-servers=localhost:9092
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
+
+3. KafkaProducer.java
+
+@Component
+public class KafkaProducer {
+
+    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final String TOPIC_NAME= "any-topic-name"; // Replace with your desired topic name
+
+    public KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    public void sendMessage(String message) {
+        kafkaTemplate.send(TOPIC_NAME, message);
+        System.out.println("Message " + message +
+             " has been sucessfully sent to the topic: " + TOPIC_NAME);
+    }
+}
+
+
+4. Producer to send message to Kafka topic
+
+@RestController
+public class MessageController {
+
+    private final KafkaProducer kafkaProducer;
+
+    public MessageController(KafkaProducer kafkaProducer) {
+        this.kafkaProducer = kafkaProducer;
+    }
+
+    @PostMapping("/send")
+    public void sendMessageToKafka(@RequestBody String message) {
+        kafkaProducer.sendMessage(message);
+    }
+}
+
+
+
+5. ====== Kafka Consumer Application =============== 
+New Spring Starter Project: event-streaming-kafka-consumer
+dependencies: Spring Web, Spring Kafka	<artifactId>spring-kafka</artifactId>
+
+
+
+spring.kafka.bootstrap-servers=localhost:9092
+spring.kafka.consumer.group-id=your-consumer-group-id
+spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+
+
+KafkaConsumer.java
+
+@Component
+public class KafkaConsumer {
+
+    @KafkaListener(topics = "any-topic-name", groupId = "your-consumer-group-id")
+    public void consumeMessage(String message) {
+        System.out.println("Received message: " + message);
+    }
+}
+
+
+To Run the application
+1. start zookeeper
+2. start kafka
+3. create a Topic with the topic name used in the producer and consumer application
+4. Run Producer and Consumer applications
