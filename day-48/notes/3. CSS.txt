@@ -1,0 +1,1232 @@
+9) CSS Float Property
+=====================
+This property is a positioning property. 
+
+It is used to push an element to the left or right, allowing other elements to wrap around it. 
+
+It is generally used with images and layouts.
+
+Elements are floated only horizontally; so it is possible only to float elements left or right, not up or down.
+
+- A floated element may be moved as far to the left or the right as possible. 
+
+- The elements after the floating element will flow around it.
+
+- The elements before the floating element will not be affected.
+
+  float : none | left | right 
+
+Values:
+
+left - floats the element to the left of its container.
+
+right - floats the element to the right of its container.
+
+none -the element does not float. This is the initial value.
+
+
+
+clear property:
+---------------
+- used to avoid elements after the floating elements which flow around it. 	
+
+  clear: left | right | both | none
+
+
+
+
+Example:
+If the image floated to the right, the texts flow around it to the left and if the image floated to the left, the text flows around it to the right.
+
+
+
+Example:1
+ <img>  <p>
+ <p>
+
+<html>  
+<head>  
+<style type="text/css">  
+img
+{
+  float:left;
+  margin-right:20px;
+}
+p.nofloat
+{
+ clear: left;
+}
+</style>  
+</head>  
+<body>  
+<img src='images/im3.jpg' width='200px' height='200px'>
+<p>
+   This is a paragraph..........
+   .............................
+</p>
+
+<p class="nofloat">
+ This is a paragraph
+ ...................
+</p>
+</body>  
+</html>  
+
+
+
+
+
+Example:2
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+img {
+  float: right;
+}
+</style>
+</head>
+<body>
+<h1>The float Property</h1>
+
+<p>In this example, the image will float to the right in the text, and the text in the paragraph will wrap around the image.</p>
+
+<p><img src="images/bg1.jpg" alt="an image" style="width:170px;height:170px;margin-left:15px;" align="center">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p>
+
+</body>
+</html>
+
+
+
+Example:3
+<html>
+<head>
+<style>
+#first-div{
+ background-color:red;
+ width:200px;                
+ float:left;
+}
+#second-div{
+ background-color:blue;
+ width:200px;
+ float:right;
+}            
+.nofloat{
+ clear: both;
+}
+</style>
+</head>
+<body>
+<div id="first-div">
+ <h1>This is heading in first div</h1>
+ <p>This is Paragraph in first div</p>
+</div>
+<div id="second-div">
+ <h1>This is heading in second div</h1>
+ <p>This is Paragraph in second div</p>
+</div>
+<p class="nofloat">This is a Paragraph</p>
+</body>
+</html>
+
+Example:4
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #1D1F1F;
+  font-family: 'Verdana', sans-serif;
+}
+
+.user {
+  width: 400px;
+  height: 165px;
+  margin: 10px 0px;
+  border: 3px solid #E18728;
+  border-radius: 10px;
+  background-color: white;
+}
+
+img {
+  padding: 10px;
+  float: left;
+  width:200px;    
+}
+
+a { display: block; }
+
+</style>
+</head>
+<body>
+
+  <div class="user">
+    <img src="images/bg1.jpg">
+    <h3>Softwave IT</h3>
+    <a href="#">Account</a>
+    <a href="#">Change Password</a>
+    <a href="#">Log Out</a>
+  </div>
+
+</body>
+</html>
+
+
+Example:5
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.left {
+  float: left;
+  margin-right: 20px;
+}
+
+.right {
+  float: right;
+  margin-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  <h1>Images Floating in the Document Flow</h1>
+  
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo sequi veniam ea enim nesciunt doloremque delectus sint consectetur qui magnam. Recusandae, hic quidem officia, asperiores sit libero sapiente totam eum.</p>
+  <img src="images/bg1.jpg" width=200 class="left">
+  <p>Doloribus nisi ratione necessitatibus unde veritatis commodi veniam quas eaque fugiat nihil esse, id? Tempora quis quod impedit quia, facere incidunt, voluptatum dicta in dolores suscipit temporibus quam eos odit?</p>
+    
+  <img src="images/bg3.jpg" width=200 class="right">  
+  <p>Doloribus nisi ratione necessitatibus unde veritatis commodi veniam quas eaque fugiat nihil esse, id? Tempora quis quod impedit quia, facere incidunt, voluptatum dicta in dolores suscipit temporibus quam eos odit?</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo sequi veniam ea enim nesciunt doloremque delectus sint consectetur qui magnam. Recusandae, hic quidem officia, asperiores sit libero sapiente totam eum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam officiis est, tenetur ut aliquid iste necessitatibus nihil vel harum! Temporibus iure reprehenderit ullam, fugit reiciendis delectus vitae natus sint, velit.</p>
+  <p>Dolore atque nam suscipit sint incidunt reprehenderit quod illo ipsum tempora odio excepturi deserunt esse nisi obcaecati quisquam culpa, asperiores beatae id fugiat sit ipsa. Porro voluptates quasi vero veniam.</p>
+  <p>Doloribus nisi ratione necessitatibus unde veritatis commodi veniam quas eaque fugiat nihil esse, id? Tempora quis quod impedit quia, facere incidunt, voluptatum dicta in dolores suscipit temporibus quam eos odit?</p>
+
+</body>
+</html>
+
+
+
+10) CSS Opacity
+===============
+- used to specify the transparency of an element or to specify the clarity of the image.
+
+- the opacity value may be a floating point value between 0 and 1. For example, 0.4 means 40% 
+
+Use case : place an image in the center of the page with opacity 0.3 (30%) and change the opacity to 1 (100%) on mouse over (hover) on the image
+
+
+<html>  
+<head>  
+<style>  
+img.trans {  
+    opacity: 0.4;      
+}  
+</style>  
+</head>  
+<body>  
+<p>Normal Image</p>  
+<img src="rose.jpg" alt="normal rose">  
+<p>Transparent Image</p>  
+<img class="trans" src="rose.jpg" alt="transparent rose">  
+</body>  
+</html>  
+-----------------------------------------------
+
+11) Padding Property
+====================
+- used to define the space between the element content and the element border.
+
+padding-top
+padding-right
+padding-bottom
+padding-left
+padding
+
+values can be "length" | "%"
+
+padding: 10px 20px 30px 40px;
+		
+If we declare all 4 values, the order is as follows:    
+ top     right     bottom     left
+
+padding: 10px 15px 20px
+         top  right&left  bottom
+
+padding: 10px 20px
+	top&bottom  right&left
+
+padding: 10px 
+	all sides
+
+
+12) Width Property
+===================
+- used to set the width of the content area of an element.
+
+  width: "auto | % | length"
+
+
+<style>
+img{
+ width: 200px;
+ height: 160px;
+ border: 2px solid red;
+ margin:auto;
+ display: block;
+}
+</style>
+
+auto 	It is a default value. it is used to calculate the width.
+length 	It is used to define the width in px, cm etc.
+% 	It defines the width of the containing block in %.
+initial 	It is used to set the property to its default value.
+inherit 	It is used to inherit the property from its parent element.
+
+<html>  
+<head>  
+<style>  
+img.normal {  
+    width: auto;  
+}  
+img.big {  
+    width: 50%;  
+}  
+img.small {  
+    width: 200px;  
+}  
+</style>  
+</head>  
+<body>  
+<img class="normal" src="images/gm.jpg" width="95" height="84"><br><br>  
+
+<img class="big" src="images/gm.jpg" width="95" height="84"><br><br>  
+
+<img class="small" src="images/gm.jpg" width="95" height="84">  
+</body>  
+</html>  
+
+
+13) List Properties
+-------------------
+1) list-style-type: "disc | circle | square | decimal | lower-roman |  upper-roman | lower-alpha | upper-alpha | none"
+
+2) list-style-image: url(image_path)
+ - to provide an image as a marker for list item
+
+3) list-style-position: " outside | inside"
+- property specifies the position of the list-item markers (bullet points).
+
+inside-	The bullet points will be inside the list item 	
+
+outside - The bullet points will be outside the list item. This is default
+
+
+<html>
+<head>
+<style type="text/css">
+body
+{
+ font-family:verdana;
+ font-size:20px;
+ line-height:2
+}
+ul
+{
+ list-style-image: url('images/wrong.png');
+ list-style-position: inside; 
+}
+ol
+{
+  list-style-type:upper-roman
+}
+</style>
+</head>
+
+<body>
+<ul>
+<li>India</li>
+<li>Pakistan</li>
+<li>Sri Lanka</li>
+<li>Nepal</li>
+<li>China</li>
+</ul>
+
+<ol>
+ <li>India</li>
+ <li>Pakistan</li>
+ <li>Sri Lanka</li>
+ <li>Nepal</li>
+ <li>China</li>
+</ol>
+</body>
+</html>
+
+example:
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul.a {
+  list-style-position: outside;
+  background-color:red;
+  
+}
+
+ul.b {
+  list-style-position: inside;
+  background-color:red;
+  padding:0px
+}
+</style>
+</head>
+<body>
+
+<h1>The list-style-position Property</h1>
+
+<h2>list-style-position: outside (default):</h2>
+<ul class="a">
+  <li>Core Java</li>
+  <li>Adv Java</li>
+  <li>Hibernate</li>
+</ul>
+
+<h2>list-style-position: inside:</h2>
+<ul class="b">
+  <li>Core Java</li>
+  <li>Adv Java</li>
+  <li>Hibernate</li>
+</ul>
+
+</body>
+</html>
+
+14) Anchors Properties
+----------------------
+a:link - to set the unvisited link properties
+
+a:visited - to set the visited link propeties
+
+a:hover - to set the properties for mouse over on a link
+
+a:focus - properties for a link when the focus comes on top of the link; normally comes when we do without using mouse (we use tab key for focus control)
+
+a:active - to set the properties for an active link (when pressing on a link).
+
+
+
+<html>
+<head>
+<style type="text/css">
+a:link,a:visited
+{
+ text-decoration: none;
+ font-family:verdana;
+ font-size:20px;
+ color:blue;
+}
+a:hover
+{
+ color:red
+}
+a:active
+{
+ color:green
+}
+a:focus
+{
+ color:pink
+}
+</style>
+</head>
+
+<body>
+<a href="font.html">Font CSS Property</a>
+</body>
+</html>
+
+15) Vertical Align
+------------------
+The CSS vertical align property is used to define the vertical alignment of an inline or table-cell box. 
+
+vertical-align : baseline | length in px | % | sub | super | top | bottom | middle | text-top | text-bottom 
+
+CSS Vertical Align Values
+
+baseline 	It aligns the baseline of element with the baseline of parent element. This is a default value.
+length 	It is used to increase or decrease length of the element by the specified length. negative values are also allowed.
+% 	It is used to increase or decrease the element in a percent of the "line-height" property. negative values are allowed.
+sub 	It aligns the element as if it was subscript.
+super 	It aligns the element as if it was superscript.
+top 	It aligns the top of the element with the top of the tallest element on the line.
+bottom 	It aligns the bottom of the element with the lowest element on the line.
+text-top 	the top of the element is aligned with the top of the parent element's font.
+middle 	the element is placed in the middle of the parent element.
+text-bottom 	the bottom of the element is aligned with the bottom of the parent element's font.
+initial 	It sets this property to Its default value.
+inherit 	inherits this property from Its parent element. 
+
+
+<html>  
+<head>  
+<style>  
+p
+{
+font-family:verdana;
+font-size:20px;
+}
+img.top 
+{  
+    vertical-align: text-top;  
+}  
+img.bottom 
+{  
+    vertical-align: text-bottom;  
+}  
+img.middle 
+{  
+    vertical-align: middle;  
+}  
+</style>  
+</head>  
+<body>  
+
+<p>
+<img src="images/bg3.jpg" width="200"/>This is an image with a default alignment.
+</p>   
+
+<p>
+<img src="images/bg3.jpg" width="200" class="top" />This is an image with a text-top alignment.
+</p>   
+
+<p>
+<img src="images/bg3.jpg" width="200" class="bottom"/> This is an image with a text-bottom alignment.
+</p>  
+
+<p>
+<img src="images/bg3.jpg" width="200"class="middle"/>This is an image with a middle alignment.
+</p>  
+</body>  
+</html>  
+
+------------------------
+
+15) CSS Pseudo Elements
+-----------------------
+The pseudo elements are:
+a) first-line
+b) first-letter
+
+The first-line pseudo element styles the first line of text in a block level element.
+
+p:first-line 
+{
+ font-size: medium; 
+ color: #f00;
+}
+
+<p>
+.........
+.........
+.........
+</p>
+
+
+
+The "first-letter" pseudo element styles the first letter of text in a block level element.
+
+p:first-letter 
+{
+ font-family:algerian; 
+ font-size: 50px; 
+ color: #f00;
+}
+
+<p>Naresh Tech</p>
+
+
+Vertical Navigation Bar:
+-----------------------
+<html>
+<head>
+   <style>
+    ul{
+        list-style-type: none;
+        margin:0px;
+        padding:0px;
+        font-family:verdana;
+        font-size:20px;
+        border: 2px solid black;
+        width: 120px;                
+    }
+
+    li a{
+        background-color:lightgreen;
+        text-decoration: none;   
+        padding: 8px 0px 8px 8px;
+        display: block;                
+    }
+    li a:hover{
+        background-color:red;
+        font-variant: small-caps;
+    }
+    li a.active{
+        background-color:green;
+    }
+</style>
+</head>
+<body>
+<ul>
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#">About</a></li>    
+    <li><a href="#">News</a></li>    
+    <li><a href="#">Batches</a></li>    
+    <li><a href="#">Contact</a></li>    
+</ul>
+</body>
+</html>
+
+
+Horizontal Navigation Bar
+-------------------------
+we are using bootstrap font awesome external css to integrate image icons
+
+https://fontawesome.bootstrapcheatsheets.com/
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+<style>
+    body{
+        margin:0px;
+        background-image:url('images/p12.jpg');
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
+    ul{
+     list-style-type:none;
+     font-family:verdana;
+     font-size:20px;
+     padding:0px;    
+     margin:0px;    
+     overflow:hidden;    
+     background-color:orangered;
+     border:1px solid black 
+    }    
+    ul li{
+        float:left;        
+        padding:10px 30px;        
+    }
+    ul li a{
+        text-decoration:none;        
+        display:inline-block;
+    }
+    
+    ul li a:link,ul li a:visited{
+        color:white;
+    }
+
+    .dropdown_list{
+        background-color:orangered;
+        width:200px;
+        position:absolute;
+        display:none;
+        padding:4px;
+    }
+    .dropdown_list a{
+        display:block;
+        margin-bottom:10px;
+        color:black
+    }
+    .dropdown:hover .dropdown_list{
+        display:block;
+    }
+</style>    
+</head>
+<body>
+ <div id="nav">
+   <ul>
+    <li><i class="fa fa-home"></i> <a href="#">Home</a></li>   
+       
+    <li>
+      <i class="fa fa-user"></i> <a href="about.html">About Us</a>
+    </li>      
+       
+    <li class="dropdown">
+        <i class="fa fa-book"></i> 
+        <a href="#">Courses</a>
+        <i class="fa fa-angle-double-right"></i>
+        <div class="dropdown_list">
+            <a href="#"><i class="fa fa-laptop"></i>Core Java</a> 
+            
+            <a href="#"><i class="fa fa-envelope-o"></i>Adv Java</a>   
+            <a href="#">Hibernate</a> 
+            
+            <a href="#">Spring</a>     
+            <a href="#">Python</a>
+        </div>
+    </li>   
+       
+    <li>
+      <i class="fa fa-list-alt"></i> <a href="batches.html">Batches</a>
+    </li>      
+    <li><i class="fa fa-phone"></i>
+       <a href="contact.html">Contact Us</a>
+     </li>      
+   </ul>     
+ </div>    
+</body>    
+</html>
+
+
+    
+
+
+<html>
+<head>
+<style>
+   body{
+     margin:0px;
+   }
+   ul{
+    list-style-type: none;
+    margin:0px;
+    padding:0px;
+    font-family:verdana;
+    font-size:20px;
+    border: 1px solid black;        
+    overflow: hidden;
+    background-color:#333;
+    position: fixed;
+    top:0;
+    width:100%;        
+   }
+   li{
+       float:left;
+   }
+   li:last-child{
+       border-right:none;
+   }       
+   li a{
+       text-decoration:none;
+       display:block;
+       color:white;
+       text-align:center;
+       padding: 14px 26px;   
+       border:1px solid #bbb;
+   }
+   li a:hover{
+       background-color:#111;
+   }
+   li a.active{
+       background-color:green;
+   }
+
+</style>
+</head>
+<body>
+<ul>    
+<li><a href="#" class="active">About</a></li>    
+<li><a href="#">News</a></li>    
+<li><a href="#" >Batches</a></li>    
+<li><a href="#">Contact</a></li>    
+<li style="float:right"><a href="#">Home</a></li>
+</ul>
+
+<div style="height:1500;width:100%;background-color:red"></div>
+
+<h1>Testing</h1>
+</body>
+</html>
+
+
+
+16) Position Property
+=====================
+- used to set position for an element
+- helps to manipulate the location of an element 
+
+position: static | fixed | relative | absolute | sticky | flex ....
+
+(a) static Positioning
+----------------------
+- the default position for HTML elements 
+
+- it always positions an element according to the normal flow of the page. 
+
+- it is not affected by the "top", "bottom", "left" and "right" properties.
+
+	position: static;
+
+Example:
+<style>
+ #static{
+   position: static;
+   top:100px; //no impact in the page
+   border 3px solid red;
+ }
+</style>
+</head>
+<body>
+ <p id="static">This is Static Position</p>
+</body>
+
+
+
+(b) Fixed Positioning
+---------------------
+- an element with position: fixed; is positioned relative to the browser window
+
+- it always stays in the same place even if the page is scrolled. 
+
+- top, right, bottom, and left properties are used to position the element.
+
+	position: fixed;
+
+
+
+<html>
+<head>
+<style>
+  #redCircle{
+        width:200px;
+        height:200px;
+        border-radius:50%;
+        background-color:red;
+        position:fixed;
+        top:200px;
+        left:50px;
+    }
+</style>    
+</head>
+<body>
+<div id="redCircle"></div>  
+
+<!- to make the page scrollable-->
+<div style="background-color:cyan;height:2500;width:500px"> </div>    
+
+<h1>Page end!</h1>
+</body>    
+</html>
+ 
+
+<html>  
+<head>  
+<style>  
+body
+{
+background-color:cyan;	
+}
+p
+{
+ font-family:verdana;
+ font-size:25px;	
+}
+p.pos_fixed 
+{  
+ top: 150px;  
+ right: 90px;  
+ color: blue;  
+ position:fixed;
+}  
+</style>  
+</head>  
+<body>  
+<img src="images/im3.jpg" width=200px height=200px style="position:fixed;top:200px;left:300px">  
+<p>Some text...</p><p>Some text...</p><p>Some text...</p><p>........</p><p>.... ...</p> 
+<br><br><br><br><br><br><br>
+<p>........</p>
+<p>........</p>
+<p>........</p>
+<p>........</p>  
+<p>........</p>
+<p>........</p>
+<p>........</p><p>........</p>
+<br><br><br><br><br><br><br>
+<p>........</p>
+<p>........</p>
+<p>Some text...</p>
+<p>Some text...</p>
+<p>Some text...</p>  
+<p class="pos_fixed">This is the fix positioned text.</p>  
+</body>  
+</html>  
+
+
+Example-3:
+<html>
+<head>
+<style>
+body{
+ font-family:verdana;          
+}    
+.parent 
+{
+ color: white;
+ padding: 20px;
+ //position: relative;
+ background-color: red;
+ margin-top: 50px;
+}
+.element {
+ font-size:30px;  
+ background-color: green;
+ opacity: .85;
+ padding: 2px;
+ color: rgba(255,255,255,.9);
+ position: fixed;
+ bottom: 10;
+ left: 0;
+ right: 0;
+}
+
+
+p {
+ margin:auto;
+ max-width: 600px;
+ margin-top: 40px;
+ line-height: 1.5;
+ text-align:justify;    
+}
+
+</style>    
+</head>
+<body>
+
+
+<div class="parent">
+Parent element
+<div class="element">Child element</div>
+</div>
+<p>Lorem ipsum dolor sit amet,.............</p>
+</body>    
+</html>
+
+(c) Relative Positioning
+-------------------------
+The relative positioning property is used to set the element relative to its normal position. 
+
+.element {
+  position: relative;
+  top: 20px;
+}
+
+Relative to its original position the element above will now be moved down from the top by 20px.
+
+<style>
+#static{
+ position: static;
+ border: 3px solid red;        
+}
+#relative{
+ position:relative;
+ left: 30px;
+ top: 50px;
+ border: 3px solid blue;
+}
+</style>    
+</head>
+<body>
+ <p id="static">This is Static Position</p>    
+ <p id="relative">This is Relative Position</p>    
+</body>    
+
+
+<html>  
+<head>  
+<style>  
+h2.left
+{  
+    position: relative;  
+    left: -30px;  
+}  
+h2.right 
+{  
+    position: relative;  
+    left: 30px;  
+}  
+</style>  
+</head>  
+<body>  
+ <h2>This is a heading with no position</h2>  
+
+ <h2 class="left">This heading is positioned left according to its normal position</h2>  
+
+ <h2 class="right">This heading is positioned right according to its normal position</h2>  
+
+ <p>The style "left:-30px" subtracts 30 pixels from the element's original left position.</p>  
+
+ <p>The style "left:30px" adds 30 pixels to the element's original left position.</p>  
+</body>  
+</html>  
+
+Example: 
+
+
+(d) Absolute Positioning
+------------------------
+If a child element has an absolute position then the parent element will behave as if the child is not there at all
+
+.element {
+  position: absolute;
+}
+
+Note: The absolute positioning is used to position an element relative to the first parent element that has a position other than "static".
+
+With the absolute positioning, we can place an element anywhere on a page.
+
+
+
+<html>  
+<head>  
+<style>  
+h2 
+{  
+    position: absolute;  
+    left: 150px;  
+    top: 250px;  
+}  
+</style>  
+</head>  
+<body>  
+ <h2>This heading has an absolute position</h2>  
+ <h2>This is a heading</h2> 
+</body>  
+</html>  
+
+
+<html>
+<head>
+<style>
+    .relative{
+        position:relative;
+        width:400px;
+        height:200px;
+        border: 2px solid red;
+    }
+    .absolute{
+        position:absolute;
+        top:80px;
+        right: 0px;
+        width:400px;
+        height:200px;
+        border: 2px solid red;
+    }    
+    img{
+        position: absolute;
+        left: 0px;
+        right:0px;
+        z-index:-1;
+    }
+</style>    
+</head>
+<body>
+<div class="relative">This is position relative</div>    
+<div class="absolute">This is position absolute</div>    
+
+<h1>This is a Heading</h1>    
+<img src="images/bg3.jpg" width="200px" height="130px">    
+<p>This is an image</p>    
+</body>    
+</html>
+
+
+Example:
+<html>  
+<head>  
+<style>  
+.parent {
+  border: 2px solid #0074d9;
+  color: #0074d9;
+  padding: 20px;
+}
+
+.element {
+  border: 1px dotted #000;
+  background-color: #eee;
+  padding: 20px;
+  color: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+</style>  
+</head>  
+<body>  
+<div class="parent">
+Parent element
+<div class="element">Child element</div>
+</div>
+</body>  
+</html>  
+
+Difference between Relative and Absolute Positioning
+-----------------------------------------
+-based on how the position is being calculated.
+
+1) relative: position an element based on its current position without changing layout.
+
+2) absolute: position an element based on its closest positioned (other than "static" positioned) parent  position.
+
+
+
+
+
+
+
+For example:
+
+<body>
+  <div style="position:absolute; left: 20px; top: 20px;"></div>
+</body>
+
+...the <div> would be positioned 20px from the top of the browser viewport, and 20px from the left edge of same.
+
+However, if I did something like this:
+
+ <div id="outer" style="position:relative">
+   <div id="inner" style="position:absolute; left: 20px; top: 20px;"></div>
+ </div>
+
+...then the inner div would be positioned 20px from the top of the outer div, and 20px from the left edge of same, because the outer div isn't positioned with position:static because we've explicitly set it to use position:relative.
+
+<html>
+<head>
+<style>
+    #outer{
+        border:3px solid red;
+        position:relative;
+        height:100px;
+        margin-top:100px;
+    }  
+    #inner{
+        border:3px solid blue;
+        position:absolute;
+        left:20px;
+        top:20px;
+    }
+</style>    
+</head>
+<body>
+<body>
+    
+  <div id="outer">
+   <div id="inner">
+       This is inner div
+  </div>
+ </div>
+</body>
+</body>    
+</html>
+
+e) Sticky Positioning
+---------------------
+- Sticky positioning allows you to position an element relative to anything on the document and then, once a user has scrolled past a certain point in the browser, fix the position of the element to that location so it remains persistently displayed like an element with a fixed value.
+
+.element {
+  position: sticky; 
+  top: 50px;
+}
+
+
+The element will be relatively positioned until the scroll location of the browser reaches a point where the element will be 50px from the top of the viewport. At that point, the element becomes sticky and remains at a fixed position 50px top of the screen.
+
+Note: Internet Explorer, Edge 15 and earlier versions do not support sticky positioning
+
+
+<html>
+<head>
+<style>
+div.sticky {  
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  background-color: #cae8ca;
+  border: 2px solid #4CAF50;
+}
+</style>
+</head>
+<body>
+
+<p>Lorem...........</p>
+
+
+
+
+
+
+
+ 
+All CSS Position Properties
+
+1) bottom 	It is used to set the bottom margin edge for a positioned box. 	auto, length, %, inherit
+2) 	clip 	It is used to clip an absolutely positioned element. 	shape, auto, inherit
+3) 	cursor 	It is used to specify the type of cursors to be displayed. 	url, auto, crosshair, default, pointer, move, e-resize, ne-resize, nw-resize, n-resize, se-resize, sw-resize, s-resize, w-resize, text, wait, help
+4) 	left 	It sets a left margin edge for a positioned box. 	auto, length, %, inherit
+5) 	overflow 	This property is used to define what happens if content overflow an element's box. 	auto, hidden, scroll, visible, inherit
+6) 	position 	It is used to specify the type of positioning for an element. 	absolute, fixed, relative, static, inherit
+7) 	right 	It is used to set a right margin edge for a positioned box. 	auto, length, %, inherit
+8) 	top 	It is used to set a top margin edge for a positioned box. 	auto, length, %, inherit
+9) 	z-index 	It is used to set stack order of an element. 	number, auto, inherit
+
+
+Drop down Box
+-------------
+<html>
+<head>
+<style>
+.dropbtn{
+    background-color: green;
+    color:white;
+    padding:15px;
+    font-size:16px;
+    font-family:verdana;
+    border: none;
+    cursor:pointer;
+}
+.dropdown{
+    display:inline-block;
+    position:relative;
+}
+.dropdown-content{
+    position: absolute;
+    background-color:gray;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 160px;
+    display:none;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+.dropdown-content a{
+    color:black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display:block;
+}
+.dropdown-content a:hover{
+    background-color: green;
+}
+</style>
+</head>
+<body>
+<div class="dropdown">
+<button class="dropbtn">Dropdown</button>
+<div class="dropdown-content">
+<a href="#">About</a>
+<a href="#">News</a>    
+<a href="#">Batches</a>
+<a href="#">Contact</a>
+<a href="#">Home</a>
+</div>
+</div>
+
+</body>
+</html>
