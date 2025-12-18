@@ -1,0 +1,2383 @@
+HTML 5
+======
+HTML5 is developed by World Wide Web Consortium (W3C) and the Web Hypertext Application Technology Working Group (WHATWG).
+
+Before the development of HTML5, we were in compulsion to work in Photoshop and Flash application, but with the development of HTML5, these works is reduced.
+
+New Features of HTML 5
+----------------------
+1) New Semantic Elements
+
+2) Forms 2.0 - Improvements to HTML web forms where new attributes and new input types are introduced for <input> tag
+
+3) Persistent Local Storage - To achieve without resorting to third-party plugins.
+Cookies (vs) Local storage and Session storage
+
+4) WebSocket - A next-generation bidirectional communication technology for web applications.
+
+5) Server-Sent Events - HTML5 introduces events which flow from web server to the web browsers and they are called Server-Sent Events (SSE).
+
+6) Canvas - This supports a two-dimensional drawing surface that we can program with JavaScript.
+
+7)  Audio & Video - You can embed audio or video on your web pages without resorting to third-party plugins.
+
+8)  Geolocation - we can choose to share their physical location with your web application.
+
+9)  Microdata - This lets you create your own vocabularies beyond HTML5 and extend your web pages with custom semantics.
+
+10) Drag and drop - Drag and drop the items from one location to another location on a the same webpage.
+
+11) Better support for Search Engines
+ etc
+
+
+HTML5 Semantic Elements
+======================
+Semantics is the process of adding meaning through language. 
+
+According to the definition of W3C -a semantic element clearly describes its meaning to both the browser and the developer.
+
+Examples of non-semantic elements: <div> and <span> - Tells nothing about its content.
+
+Examples of semantic elements: <form>, <table>, and <img> - clearly defines its content.
+
+
+HTML5 sectioning elements : <article>, <aside>, <nav>, and <section>
+
+HTML5 semantic grouping elements : <footer>, <header> and main>
+-----------------------------------------------------
+			<header>
+-----------------------------------------------------
+			 <nav>
+-----------------------------------------------------
+	|		
+	|		<section>
+<aside>	|		
+	|		<article>
+-----------------------------------------------------
+			<footer>
+-----------------------------------------------------			
+
+
+1) <header> - This tag represents the header of a page , section. Used to display the company logo, company description and any sub-title of the company
+
+2) <nav> - defines a set of navigation links, used for top navigation purpose
+ <nav>
+   <ul>
+     <li><a href="#">Home</a></li>
+     <li><a href="aboutus.html">About Us</a></li>
+     <li><a href="careers.html">Careers</a></li>
+     <li><a href="contact.html">Contact Us</a></li>
+   </ul>
+ </nav>
+
+3) <section> - used to divide the web page into various sections. This tag represents a generic document or application section. 
+
+4) <article> - This tag represents a complete or an independent piece of content of a document, such as a blog entry or newspaper article. This can be inside <section>
+
+<!-- Sports Section -->
+<section>
+ <h2>Sports</h2>
+ <article>
+  <h4>Football</h4>
+  <p>...</p>
+  <p>...</p>
+ </article>
+ <article>
+  <h4>Cricket</h4>
+  <p>...</p>
+  <p>...</p>
+ </article>
+</section>
+
+5) <aside> - This tag represents a piece of content that is only slightly related to the rest of the page; for complementary content such as sidebars. The aside content should be related to the surrounding content
+
+<aside>
+ <ul>
+  <li><a href="html.html">HTML</a></li>
+  <li><a href="css.html">CSS</a></li>
+  <li><a href="js.html">Java Script</a></li>
+ </ul>
+</aside>
+
+6) <figure> - used to display an image in a gallery format. The purpose of <figcaption> element is to add a visual explanation to an image. An <img> and <figcaption> can be grouped together in a <figure> element
+<figure>
+ <img src="images/logo.jpg">
+ <figcaption>Company Logo</figcaption>
+</figure>
+
+7) <dialog> - This tag can be used to mark up a conversation.
+
+8) <footer> - This tag represents a footer for a section or page and can contain information about the author, copyright information, etc.
+etc
+
+Tips For Semantically Structured Content
+----------------------------------------
+1. The outermost sectioning element is always the <body></body> tag.
+
+2. Sections in HTML5 can be nested.
+
+3. Each section has its own heading hierarchy. 
+
+4. The sections defined by the <nav></nav>, and the <aside></aside> tags don't belong to the main outline of the HTML document
+
+5. Each section (body, section, article, aside, nav) can have their own <header></header> and <footer></footer> tags, that defines the header (such as logo, author s name, dates, meta info, etc.) and the footer (copyright, notes, links, etc.) of that section.
+
+HTML 5 document structure:
+
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <meta charset="utf-8">
+      <title>...</title>
+   </head>
+	
+   <body>
+      <header>...</header>
+      <nav>...</nav>
+		
+      <article>
+         <section>
+            ...
+         </section>
+      </article>
+		
+      <aside>...</aside>
+      <figure>...</figure> 
+      <footer>...</footer>
+      
+   </body>
+</html>
+
+
+
+Example with proper semantic sectioning
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML5 Page Structure</title>
+<meta charset="UTF-8">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Our Website!</h1>
+        <p>Here is our logo and slogan.</p>
+    </header>
+     
+    <nav>
+        <header>
+            <h2>Choose Your Interest</h2>
+        </header>
+        <ul>
+            <li><a href="#">Menu 1</a></li>
+            <li><a href="#">Menu 2</a></li>
+            <li><a href="#">Menu 3</a></li>
+        </ul>
+    </nav>
+     
+    <article>
+        <header>
+            <h1>Title of Article</h1>
+            <h2>Subtitle of Article</h2>
+        </header>
+         
+        <section>
+            <h3>First Logical Part (e.g. "Theory")</h3>
+            <p>Paragraph 1 in first section</p>
+             
+            <h4>Some Other Subheading in First Section</h4>
+            <p>Paragraph 2 in first section</p>
+        </section>
+         
+        <section>
+            <h3>Second Logical Part (e.g. "Practice")</h3>
+            <p>Paragraph 1 in second section</p>
+            <p>Paragraph 2 in second section</p>
+        </section>
+     
+        <footer>
+            <h4>Author Bio</h4>
+            <p>Paragraph in Article's Footer</p>
+        </footer>
+     
+    </article>
+     
+    <aside>
+       <h2>Get To Know Us Better</h2>
+       <section>
+            <h3>Popular Posts</h3>
+            <ul>...</ul>
+        </section>
+         
+        <section>
+            <h3>Partners</h3>
+            <ul>...</ul>
+        </section>
+         
+        <section>
+            <h3>Testimonials</h3>
+            <ul>...</ul>
+        </section>
+     
+    </aside>
+     
+    <footer>
+        <ul>
+            <li>Copyright</li>
+            <li>Social Media Links</li>
+        </ul>
+    </footer>
+ 
+</body>
+</html>
+
+
+Migration from HTML4 to HTML5
+-----------------------------
+    In HTML4 		In HTML5
+
+<div id="header"> 	<header>
+<div id="menu"> 	<nav>
+<div id="content"> 	<section>
+<div id="post"> 	<article>
+<div id="footer"> 	<footer>
+
+
+The difference between <article> <section> and <div>
+
+The <section> element is defined as a block of related elements.
+
+The <article> element is defined as a complete, self-contained block of related elements.
+
+The <div> element is defined as a block of child elements.
+
+
+Elements Removed in HTML5
+-------------------------
+Element Removed | Use instead in HTML5
+---------------   --------------------
+<acronym> 		<abbr>
+<applet> 		<object>
+<basefont> 		CSS
+<big> 			CSS
+<center> 		CSS
+<font> 			CSS
+<frame> 	 
+<frameset> 		<iframe> 
+<noframes> 	 
+<strike> 		CSS
+<tt> 			CSS
+
+
+----------------------------------------------------
+HTML5 - Audio & Video
+=====================
+The HTML5 <audio> and <video> tags are used to add media to a website.
+
+HTML Audio Tag
+=============
+HTML <audio> tag is used to define sounds such as music and other audio clips. Currently there are three supported file format for HTML 5 audio tag.
+
+(a)  .mp3  (b) .wav   (c) .ogg
+
+Multiple <source> elements can link to different audio files. The browser will use the first recognized format.
+
+
+Attributes of <audio>:
+
+controls	- It defines the audio controls which is displayed with play/pause buttons.
+
+autoplay	- It specifies that the audio will start playing as soon as it is ready.
+
+loop	- It specifies that the audio file will start over again, every time when it is completed.
+
+muted	- It is used to mute the audio output.
+
+
+<!DOCTYPE>
+<html>  
+<body>  
+<audio controls loop>  
+  <source src="rain.ogg" type="audio/ogg"> 
+  <source src="rain.mp3" type="audio/mpeg"> Your browser does not support the html audio tag.  
+</audio>  
+</body>
+</html>  
+
+<!DOCTYPE>
+<html>  
+<body>  
+<audio controls loop>  
+  <source src="../images/song1.mp3" type="audio/mpeg"> Your browser does not support the html audio tag.  
+</audio>  
+</body>
+</html>  
+
+
+Using Java Script
+
+<html>
+<body>
+
+<audio id="myAudio">
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<p>Click the buttons to play or pause the audio.</p>
+
+<button onclick="playAudio()" type="button">Play Audio</button>
+<button onclick="pauseAudio()" type="button">Pause Audio</button> 
+
+<script>
+var x = document.getElementById("myAudio"); 
+
+function playAudio() { 
+  x.play(); 
+} 
+
+function pauseAudio() { 
+  x.pause(); 
+} 
+</script>
+
+</body>
+</html>
+
+
+
+HTML5 Video Tag
+===============
+
+The HTML <video> tag is used for streaming video files such as a movie clip, song clip on the web page.
+
+Currently, there are three video formats supported for HTML5 <video> tag:
+
+(a) .mp4   (b) .webM   (c) .ogg
+
+Attributes of <video>
+
+> controls
+> height	
+> width
+> poster	 - It specifies the image which is displayed on the screen when the video is not played.
+> autoplay
+> loop
+> muted
+
+<!DOCTYPE>
+<html>  
+<body>  
+<video controls poster="../images/bg3.jpg" loop>  
+  <source src="../images/sample.mp4" type="video/mp4">
+  <source src="zetta.webm" type="video/webM">  
+  Your browser does not support the html video tag.  
+</video>  
+</body>
+</html>  
+
+Playing a YouTube Video in HTML
+-------------------------------
+> Upload the video to YouTube
+> Take a note of the video id
+>  Define an <iframe> element in your web page
+>  Let the src attribute point to the video URL
+>  Use the width and height attributes to specify the dimension of the player
+>  Add any other parameters to the URL
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<iframe width="420" height="325" src="......." frameborder="0" allowfullscreen></iframe>
+</body>
+</html>
+
+**************************************************
+
+
+HTML Graphics
+=============
+
+The HTML <canvas> element is used to draw graphics on a web page.  The <canvas> element is only a container for graphics.
+
+A canvas is a rectangular area on an HTML page. By default, a canvas has no border and no content.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+</body>
+</html>
+
+Drawing with JavaScript
+------------------------------------
+The canvas element has a DOM method called getContext(), used to obtain the rendering context and its drawing functions. This function takes one parameter, the type of context "2d".
+
+(a) Filling a Rectangle
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #336699">Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(10,10,150,75);
+</script>
+
+</body>
+</html>
+
+
+(b) Drawing a Line in <canvas>
+
+.............
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();
+</script>
+
+
+(c) To draw a triangle in <canvas> in the click event of Button
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" height="120" style="border:1px solid #c3c3c3"></canvas>
+<br><br>
+<button onclick="drawTriangle()">Draw Triangle</button>
+
+<script>
+var c= document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+
+function drawTriangle()
+{
+ctx.beginPath();
+ctx.moveTo(25,25);
+ctx.lineTo(105,25);
+ctx.lineTo(25,105);
+ctx.closePath();
+ctx.fillStyle="#FF0000";
+ctx.fill();
+ctx.stroke();
+}
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#test 
+{
+ width:100px;
+ height:100px;
+ margin: 0px auto;
+}
+</style>
+      
+<script type="text/javascript">
+function drawTriangle()
+{
+var canvas= document.getElementById
+('mycanvas');
+            
+if (canvas.getContext)
+{
+// use getContext to use the canvas for drawing
+var ctx=canvas.getContext('2d');
+            
+// Filled triangle
+ctx.beginPath();
+ctx.moveTo(25,25);
+ctx.lineTo(105,25);
+ctx.lineTo(25,105);
+ctx.fill();
+// Stroked triangle
+ctx.beginPath();
+ctx.moveTo(125,125);
+ctx.lineTo(125,45);
+ctx.lineTo(45,125);
+ctx.closePath();
+ctx.stroke();
+//ctx.fill();
+}
+else 
+{
+alert('You need Safari or Firefox 1.5+ to see this.');
+}
+}
+</script>
+</head>
+   
+<body id="test" onload="drawTriangle()">
+<canvas id="mycanvas"></canvas>
+</body>
+</html>
+
+beginPath() - This method resets the current path.
+moveTo(x, y) - This method creates a new subpath with the given point.
+closePath() - This method marks the current subpath as closed, and starts a new subpath with a point the same as the start and end of the newly closed subpath.
+fill() - This method fills the subpaths with the current fill style.
+stroke() - This method strokes the subpaths with the current stroke style.
+lineTo(x, y) - This method adds the given point to the current subpath, connected to the previous one by a straight line.
+
+
+(d) To draw lines of different width
+
+<html>
+<head>      
+<style>
+#test 
+{
+ width: 100px;
+ height:100px;
+ margin: 0px auto;
+}
+</style>
+      
+<script type="text/javascript">
+
+function drawShape()
+{
+// get the canvas element using the DOM
+var canvas=document.getElementById
+('mycanvas');
+            
+// Make sure we don't execute when canvas isn't supported
+if(canvas.getContext)
+{
+// use getContext to use the canvas for drawing
+var ctx=canvas.getContext('2d');
+               
+for(i=0;i<10;i++)
+{
+ctx.lineWidth=i+1;
+ctx.beginPath();
+ctx.moveTo(5+i*14,5);
+ctx.lineTo(5+i*14,140);
+ctx.stroke();
+}
+}
+else 
+{
+alert('You need Safari or Firefox 1.5+ to see this lines in Canvas.');
+}
+}
+</script>
+</head>
+   
+<body id="test" onload="drawShape()">
+<canvas id="mycanvas"></canvas>
+</body>
+</html>
+
+
+To Draw a Circle
+----------------
+<html>
+<head>      
+<style>
+
+</style>
+      
+<script type="text/javascript">
+
+function drawShape()
+{
+var canvas=document.getElementById('mycanvas');
+            
+var ctx=canvas.getContext('2d');
+               
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();
+}
+</script>
+</head>
+   
+<body onload="drawShape()">
+<canvas id="mycanvas" width="200" height="180" style="border:1px solid #c3c3c3"></canvas>
+</body>
+</html>
+
+
+To Draw a Text
+--------------
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" 
+height="100" style="border:2px solid #ff0000;">Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c= document.getElementById("myCanvas");
+
+var ctx=c.getContext("2d");
+
+ctx.font="32px Arial";
+ctx.fillText("Hello HTML5",10,50);
+</script>
+</body>
+</html>
+
+
+To Stroke a Text
+----------------
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" 
+height="100" style="border:1px solid 
+#d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+
+var ctx = c.getContext("2d");
+
+ctx.font = "30px Arial";
+ctx.strokeText("Hello HTML 5",10,50);
+</script>
+
+</body>
+</html>
+
+
+To Draw Linear Gradient
+-----------------------
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" 
+height="100" style="border:1px solid 
+#d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c= document.getElementById("myCanvas");
+
+var ctx = c.getContext("2d");
+// Create gradient
+var grd= ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"yellow");
+// Fill with gradient
+ctx.fillStyle = grd;
+ctx.fillRect(10,10,150,80);
+</script>
+
+</body>
+</html>
+
+
+To Draw Circular Gradient
+-------------------------
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+// Create gradient
+var grd = ctx.createRadialGradient(75,50,5,90,60,100);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"white");
+
+// Fill with gradient
+ctx.fillStyle = grd;
+ctx.fillRect(10,10,150,80);
+</script>
+
+</body>
+</html>
+
+
+To Draw Image
+-------------
+<!DOCTYPE html>
+<html>
+<body>
+<img id="tm" src="images/tajmahal.jpg" alt="The Taj Mahal" width="220" height="190">
+
+<canvas id="myCanvas" width="250" height="300" style="border:1px solid #d3d3d3;"></canvas>
+
+<p>
+<button onclick="myCanvas()">Place the Image </button>
+</p>
+
+<script>
+function myCanvas()
+{
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+
+var img=document.getElementById("tm");
+ctx.drawImage(img,10,10);
+}
+</script>
+
+</body>
+</html>
+
+
+
+3.2 HTML5 SVG
+=============
+
+> SVG stands for Scalable Vector Graphics
+
+> SVG is used to define graphics for the Web
+
+> It describe two-dimensional vector and mixed vector graphics in XML
+
+> SVG images and their behaviors are defined in XML text files. So as XML files, you can create and edit an SVG image with text editor
+
+> The <svg> element  is a container for SVG graphics.
+
+> SVG has several methods for drawing paths, boxes, circles, text, and graphic images.
+
+Differences between SVG and Canvas
+----------------------------------
+SVG is a language for describing 2D graphics in XML.
+
+Canvas draws 2D graphics with JavaScript
+
+SVG is XML based, which means that every element is available within the SVG DOM. You can attach JavaScript event handlers for an element.
+
+In SVG, each drawn shape is remembered as an object. If attributes of an SVG object are changed, the browser can automatically re-render the shape.
+
+Canvas is rendered pixel by pixel. In canvas, once the graphic is drawn, it is forgotten by the browser. If its position should be changed, the entire scene needs to be redrawn, including any objects that might have been covered by the graphic.
+
+Comparison of Canvas and SVG
+----------------------------
+Canvas: 	
+
+> Resolution dependent
+> No support for event handlers
+> Poor text rendering capabilities
+> You can save the resulting image as .png or .jpg
+> Well suited for graphic-intensive games
+
+SVG:
+
+> Resolution independent
+> Support for event handlers
+> Best suited for applications with large rendering areas (Google Maps)
+> Slow rendering if complex (anything that uses the DOM a lot will be slow)
+> Not suited for game applications
+
+SVG Circle
+---------------
+<!DOCTYPE html>  
+<html>  
+<body>  
+<svg width="100" height="100">  
+  <circle cx="50" cy="50" r="40" stroke="yellow" stroke-width="4" fill="red" />  
+</svg>   
+</body>  
+</html>  
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#svgelem 
+{
+ position: relative;
+ left: 50%;
+ -webkit-transform: translateX(-20%);
+ -ms-transform: translateX(-20%);
+ transform: translateX(-20%);
+}
+</style>
+</head>
+
+<body>
+<h1 align="center">HTML5 SVG Circle</h1>
+		
+<svg id="svgelem" height="200">
+<circle id="redcircle" cx="50" cy="50" r="40" fill="red" stroke="green" stroke-width="6"/>
+</svg>
+
+</body>
+</html>
+
+SVG Rectangle
+-------------
+<!DOCTYPE html>  
+<html>  
+<body>  
+<svg width="200" height="100">  
+<rect width="200" height="100" stroke="yellow" stroke-width="4" fill="red" />  
+</svg>   
+</body>  
+</html>  
+
+
+SVG Rounded Rectangle
+---------------------
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg width="400" height="180">
+<rect x="50" y="20" rx="10" ry="10" width="250" height="100"  style="fill:red;stroke:black;stroke-width:5;opacity:0.9" />
+Sorry, your browser does not support inline SVG.
+</svg>
+
+</body>
+</html>
+
+SVG Line
+-------------
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg id="svgelem" height="200">
+<line x1="0" y1="0" x2="200" y2="100" style="stroke:red;stroke-width:4"/>
+Sorry, your browser does not support inline SVG.
+</svg>
+
+</body>
+</html>
+
+
+SVG Ellipse
+----------------
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg id="svgelem" height="200" 
+xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="100" cy="50" rx="100" 
+ry="50" fill="red" />
+</svg>
+
+</body>
+</html>
+
+
+SVG Polygon
+------------------
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg id="svgelem" height="200">
+<polygon  points="1,10 10,80 100,100 80,70 70,10" fill="red" />
+
+</svg>
+</body>
+</html>
+
+
+<svg id="svgelem" height="200" xmlns="http://www.w3.org/2000/svg">
+<polygon  points="20,10 300,20, 170,50" fill="red" />
+</svg>
+
+
+
+SVG Polyline
+------------------
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg id="svgelem" height="200" 
+xmlns="http://www.w3.org/2000/svg">
+<polyline points="0,0 0,20 20,20 20,40 
+40,40 40,60" fill="red" />
+</svg>
+</body>
+</html>
+
+
+SVG Gradients
+---------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#svgelem
+{
+position: relative;
+left: 50%;
+-webkit-transform: translateX(-40%);
+-ms-transform: translateX(-40%);
+transform: translateX(-40%);
+}
+</style>
+</head>
+	
+<body>
+	
+<h1 align="center">HTML5 SVG Gradient 
+Ellipse</h1>
+		
+<svg id="svgelem" height="200">
+<defs>
+<radialGradient id="gradient" cx="50%" 
+cy="50%" r="50%" fx="50%" fy="50%">
+<stop offset="0%" style="stop-color:rgb(200,200,200); stop-opacity:0"/>
+<stop offset="100%" style="stop-color:rgb(0,0,255); stop-opacity:1"/>
+</radialGradient>
+</defs>
+			
+<ellipse cx="100" cy="50" rx="100" 
+ry="50" style="fill:url(#gradient)" />
+</svg>
+		
+</body>
+</html>
+
+
+SVG Star
+-------------
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg width="300" height="200">
+<polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:lime;stroke:blue;stroke-width:4;fill-rule:evenodd;" />
+Sorry, your browser does not support inline SVG.
+</svg>
+ 
+</body>
+</html>
+
+
+Example-2
+---------------
+<html>
+<head>
+<style>
+#svgelem
+{
+position: relative;
+left: 50%;
+-webkit-transform: translateX(-40%);
+-ms-transform: translateX(-40%);
+transform: translateX(-40%);
+}
+</style>
+</head>
+
+<body>	
+<h1 align="center">HTML5 SVG Star</h2>
+      
+<svg id="svgelem" height="200" xmlns="http://www.w3.org/2000/svg">
+<polygon points="100,10 40,180 190,60 
+10,60 160,180" fill="red"/>
+</svg>
+      
+</body>
+</html>
+
+
+
+SVG Logo
+--------------
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg height="130" width="500">
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%"      style="stop-color:rgb(255,255,0);stop-opacity:1" />
+<stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+</linearGradient>
+
+</defs>
+
+<ellipse cx="100" cy="70" rx="100" ry="55" fill="url(#grad1)" />
+<text fill="#ffffff" font-size="45" font-family="Verdana" x="30" y="86">Zetta</text>
+Sorry, your browser does not support inline SVG.
+</svg>
+
+</body>
+</html>
+
+
+
+
+5. HTML <progress> Tag
+====================
+HTML5 <progress> tag is used to display the progress of a task.  It is mostly used to show the progress of a file uploading on the web page.
+
+Attributes
+
+value	- It defines that how much work the task has been completed.
+
+max	- It defines that how much work the task requires in total.
+
+min
+
+Example - 1
+
+<!DOCTYPE html>
+<html>  
+<body>  
+<progress></progress>  
+</body>
+</html>  
+
+Example - 2
+
+<!DOCTYPE html>
+<html>  
+<body>  
+Downloading progress:  
+<progress value="43" max="100"></progress>  
+</body>
+</html>  
+
+Example - 3
+
+<!DOCTYPE html>
+<html>  
+<head>
+<style>
+progress
+{
+ width:300px;
+ height:30px
+}
+</style>
+</head>
+<body>  
+<progress value="50" max="100"></progress>  
+</body>
+</html>  
+
+
+Create a dynamic <progress> using JS
+--------------------------------------------------------
+<!DOCTYPE html>
+<html>  
+<body>  
+<script>
+var pval=1;
+function showProgress()
+{
+var prg=document.getElementById ('progress');
+
+if(pval<100)
+{
+ pval=pval+1;
+ prg.value=pval;  
+}
+setTimeout('showProgress()',500);
+}
+</script>
+
+<progress id="progress" min="1" max="100" value="0"> </progress>  
+
+<br><br>
+
+<button onclick="showProgress()"> Download File </button>
+</body>
+</html>  
+
+
+
+6. HTML <meter> Tag
+=================
+HTML <meter> tag is used to measure data within a given range. 
+
+Attributes:
+
+value	- It is a mandatory attribute which is used to specify a value in numbers. The number may be integer or floating point number.
+
+form	- It specifies one or more forms to which meter element belongs to.
+
+high	- It specifies a range that is considered as high value.
+
+low	- It specifies a range that is considered as low value.
+
+max	- It specifies the maximum value defined in the range.
+
+min	- It specifies the minimum value defined in the range.
+
+optimum	- It specifies the optimum value for the gauge. It is an optional attribute.
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<p>Display a gauge:</p>  
+<meter value="30" min="1" max="100">30 out of 100</meter><br>  
+<meter value="0.8">80%</meter>  
+</body>
+</html>
+
+
+Styling Meter
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+meter
+{  
+ width: 500px;  
+ height: 30px; 
+ border-radius:10px;
+}  
+</style>
+</head>
+<body>
+<p>Display a gauge:</p>  
+
+<meter value="30" min="1" max="100">30 out of 100</meter>
+<br>  <br>
+<meter value="0.8">80%</meter>  
+</body>
+</html>
+
+
+<progress> tag is used for a specific task at hand. <meter> tag is best used for task unrelated guages, such as disk space or memory usage
+
+According to the latest HTML5 working draft, the progress tag is best used to display the progress of a specific task at hand. meter is best used for task-unrelated guages, such as disk space or memory usage. The progress element represents the completion progress of a task. The meter element represents a scalar measurement within a known range, or a fractional value; for example disk usage, the relevance of a query result, or the fraction of a voting population to have selected a particular candidate.
+
+
+7. HTML5 Geolocation
+==================
+The HTML5 Geolocation API is used to get the geographical position of a user. The position is not available unless the user approves it.
+
+Steps Involved:
+
+(a)  Check if Geolocation is supported
+
+(b)  If supported, call the getCurrentPosition() method. If not, display a message to the user
+
+(c)  If the getCurrentPosition() method is successful, it returns a coordinates object to the function specified in the parameter 
+
+(d) The specified function outputs the Latitude and Longitude
+
+
+The Geolocation.getCurrentPosition() method is used to get the current position of the device.
+
+navigator.geolocation.getCurrentPosition(success[, error[, options]])
+
+success -  A callback function that takes a Position object as its input parameter.
+
+error -  An optional callback function that takes a PositionError object as its input parameter.
+
+options -  An optional PositionOptions object. This optional paramter specifies a set of options for retrieving the location information. You can specify 
+(a) Accuracy of the returned location information 
+(b) Timeout for retrieving the location information and 
+(c) Use of cached location information 
+
+Webpage to get the current location's latitude and longitude - 
+
+CurrentLocation.html
+-------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body
+{
+ font-family:Verdana;
+ font-size: 25px;
+}
+</style>
+</head>
+
+<body>
+<div id="latitude">geo location not supported </div>
+<div id="longitude">geo location not supported </div>
+
+<script type="text/javascript">
+var lat=document.getElementById("latitude");
+var lon=document.getElementById("longitude");
+
+if(navigator.geolocation) 
+{
+ navigator.geolocation.getCurrentPosition(onSuccess, onFailure,{timeout:5000});
+}
+
+function onSuccess(position)
+{				
+lat.innerHTML = position.coords.latitude;
+lon.innerHTML = position.coords.longitude;
+}
+
+function onFailure(error)
+{
+if(error.code==error.PERMISSION_DENIED) //1
+{
+lat.innerHTML=lon.innerHTML="Permission Denied";
+}
+if(error.code==error.POSITION_UNAVAILABLE)  //2
+{
+lat.innerHTML=lon.innerHTML="Network or Satellite Down";
+}
+if(error.code==3) //error.TIMEOUT
+{
+lat.innerHTML=lon.innerHTML="GeoLocation timed out";
+}
+if(error.code==error.UNKNOWN_ERROR) //4
+{
+lat.innerHTML=lon.innerHTML="Other Error";
+}
+}
+</script>
+</body>
+</html>
+
+*******************************************
+Displaying the current location in a Map:
+------------------------------------------------------------
+
+To display the result in a map, you need access to a map service, like Google Maps.
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*
+{
+ font-family:verdana;
+ font-size:24px;
+}
+</style>
+</head>
+
+<body>
+<p id="loc">Click the button to get your 
+position.</p>
+
+<button onclick="getLocation()">Get the Location </button>
+
+<br><br>
+
+<div id="mapholder"></div>
+
+<script>
+var x=document.getElementById("loc");
+
+function getLocation() 
+{
+if(navigator.geolocation) 
+{
+navigator.geolocation.getCurrentPosition
+(showPosition,showErrors);
+} 
+else 
+{
+ x.innerHTML="Geolocation is not supported by this browser.";
+}
+}
+
+function showPosition(position) 
+{
+var latlon=position.coords.latitude + " : " + position.coords.longitude;
+
+var img_url="http://maps.googleapis.com/maps/api/staticmap?center="+ latlon+ "&zoom=15&size=400x300&sensor=false";
+
+document.getElementById("mapholder").innerHTML="<img src='"+img_url+"'>";
+}
+
+function showErrors(error) 
+{
+alert('2');
+switch(error.code) 
+{
+case error.PERMISSION_DENIED:
+x.innerHTML = "User denied the request for Geolocation."
+break;
+case error.POSITION_UNAVAILABLE:
+x.innerHTML = "Location information is unavailable."
+break;
+case error.TIMEOUT:
+x.innerHTML = "The request to get user location timed out."
+break;
+case error.UNKNOWN_ERROR:
+x.innerHTML = "An unknown error occurred."
+break;
+}
+}
+</script>
+
+</body>
+</html>
+
+
+watchPosition() - Returns the current position of the user and continues to return updated position as the user moves (like the GPS in a car).
+
+ navigator.geolocation.watchPosition(showPosition);
+
+clearWatch() - Stops the watchPosition() method.
+
+
+Display the Dynamic Map in the web page
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html
+{ 
+ height: 100% 
+}
+body 
+{ 
+height: 100%; 
+margin: 0px; 
+padding: 0px 
+}
+#mymap
+{
+width: 70%;
+height: 70%; 
+}
+</style>
+		
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"> </script>
+		
+<script type="text/javascript">
+		
+if(navigator.geolocation)
+{
+navigator.geolocation.getCurrentPosition(showLocation,maperror, {timeout:5000});
+}
+			
+function showLocation(position)
+{
+var latlng=new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+
+var myOptions=
+{
+zoom: 17,
+center: latlng,
+mapTypeId:google.maps.MapTypeId.ROADMAP
+};
+
+var loc=document.getElementById("mymap");
+
+var map=new google.maps.Map(loc, myOptions);
+
+var marker=new google.maps.Marker({
+position: latlng, 
+map: map, 
+});
+}
+			
+function maperror(whicherror)
+{
+var mymap=document.getElementById("mymap");
+if(whicherror.code==1) 
+{ 
+mymap.innerHTML="Permission Denied";
+}
+if (whicherror.code==2) 
+{ 
+mymap.innerHTML="Network or Satellites Down"; 
+}
+if(whicherror.code==3) 
+{ 
+mymap.innerHTML="GeoLocation timed out"; }
+if(whicherror.code==0) 
+{ 
+mymap.innerHTML="Other Error"; 
+}
+}
+</script>
+</head>
+<body>
+<div id="mymap">Geo Location Not Supported</div>
+</body>
+</html>
+
+*********************************************************
+
+8. HTML5 Drag and Drop
+====================
+
+Drag and Drop (DnD)  allows the user to click and hold the mouse button down over an element, drag it to another location, and release the mouse button to drop the element there.
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1
+{
+width:350px;
+height:70px;
+padding:10px;
+border:1px solid #aaaaaa;
+}
+</style>
+
+<script>
+function allowDrop(ev) 
+{
+ ev.preventDefault();
+}
+
+function drag(ev) 
+{
+  //alert(ev.target.id);
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) 
+{
+ ev.preventDefault();
+ var data = ev.dataTransfer.getData("text");
+ ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<p>Drag the Tagmahal image into the 
+rectangle:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<br><br><br><br>
+<img id="drag1" src="images/tajmahal.jpg" draggable="true" ondragstart="drag(event)" width="236" height="69">
+
+</body>
+</html>
+
+
+What to Drag - ondragstart and setData()
+
+The ondragstart attribute calls a function, drag(event), that specifies what data to be dragged.
+The dataTransfer.setData() method sets the value of the dragged data into a reference
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+} 
+
+In this case, the reference is "text" and the value is the id of the draggable element ("drag1").
+
+Where to Drop - ondragover ::
+
+The ondragover event specifies where the dragged data can be dropped.
+
+By default, data/elements cannot be dropped in other elements. To allow a drop, we must prevent the default handling of the element.
+
+This is done by calling the event.preventDefault() method for the ondragover event:
+event.preventDefault()
+
+
+Do the Drop - ondrop
+
+When the dragged data is dropped, a drop event occurs.
+In the example above, the ondrop attribute calls a function, drop(event):
+
+function drop(ev) 
+{
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+
+Code explained:
+
+> Call preventDefault() to prevent the browser default handling of the data (default is open as link on drop)
+> Get the dragged data with the dataTransfer.getData() method. This method will return any data that was set to the same reference in the setData() method
+> The dragged data is the id of the dragged element ("drag1")
+>  Append the dragged element into the drop element
+
+
+****************************************
+9. HTML5 - Web Storage
+===================
+HTML5 introduces two mechanisms, similar to HTTP cookies, for storing structured data on the client side and to overcome the following drawbacks.
+
+(a) Cookies are included with every HTTP request, thereby slowing down your web application by transmitting the same data.
+
+(b) Cookies are limited to less amount of data . 
+
+The two web storages of HTML 5 are 
+ (a) session storage and 
+ (b) local storage
+
+Unlike cookies, the storage limit of web storage is far larger (at least 5MB) and information is never transferred to the server.
+
+Local storage is per domain. All pages, from one origin, can store and access the same data.
+
+
+HTML web storage provides two objects for storing data on the client:
+
+(a)  window.localStorage - stores data with no expiration date
+
+(b)  window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
+
+
+1) Local Storage:
+	- data will be available forever, until you manually erase it (or) user deletes it.
+
+2) Session Storage
+	- data will be cleared automatically, when you close the browser window.
+
+Note:  'localStorage' and 'sessionStorage' are the pre-defined objects.
+
+
+
+To set / store the data in localStorage
+
+  (a)  localStorage.variable = value;
+		(or)
+  (b) localStorage.setItem("variable", value);
+
+
+To set / store the data in sessionStorage:
+
+  (a) sessionStorage.variable = value;
+		(or)
+  (b) sessionStorage.setItem("variable",value);
+
+To get the data from localStorage:
+
+  (a) localStorage.variable
+		(or)
+  (b) localStorage.getItem("variable");
+
+
+To get the data from sessionStorage:
+
+  (a) sessionStorage.variable
+		(or)
+  (b) sessionStorage.getItem("variable");
+
+Erasing the data:
+   localStorage.x = null;
+   sessionStorage.x = null;
+
+
+Local Storage
+---------------------
+The Local Storage is designed for storage that spans multiple windows, and lasts beyond the current session. In particular, Web applications may wish to store megabytes of user data, such as entire user-authored documents or a user's mailbox, on the client side for performance reasons.
+
+Again, cookies do not handle this case well, because they are transmitted with every request.
+
+HTML5 introduces the localStorage attribute which would be used to access a page's local storage area without no time limit and this local storage will be available whenever you would use that page.
+
+Example to set a local storage variable ("hits") and access that variable every time this page is accessed, even next time when you open the window -
+
+<!DOCTYPE HTML>
+<html>
+<body>
+<script type="text/javascript">
+if(localStorage.hits)
+{
+localStorage.hits=Number(localStorage.hits)+1;
+}
+else
+{
+localStorage.hits=1;
+}
+document.write("<h1>Total Hits :" + localStorage.hits+"</h1>" );
+</script>
+		
+<p>Refresh the page to increase number of hits.</p>
+<p>Close the window and open it again and check the result.</p>
+
+</body>
+</html>
+
+
+Delete Web Storage
+
+localStorage.clear() method is used for removing all the contents and settings of localStorage
+
+
+<!DOCTYPE HTML>
+<html>
+<body>
+<script type="text/javascript">
+localStorage.clear();
+// Reset number of hits.
+if( localStorage.hits )
+{
+localStorage.hits = Number(localStorage.hits) +1;
+}
+else
+{
+localStorage.hits = 1;
+}
+document.write("Total Hits :" + localStorage.hits );
+</script>
+		
+<p>Refreshing the page would not to increase hit counter.</p>
+<p>Close the window and open it again and check the result.</p>
+
+</body>
+</html>
+
+
+Example:
+
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body, input
+{
+font-family: verdana;
+font-size: 25px;
+}
+</style>
+</head>
+
+<body>
+<form>
+<fieldset>
+First Name:<br>
+<input type="text" name="fname" id="fname">
+<br>
+				
+Last Name:<br>
+<input type="text" name="lname" id="lname">
+<br>
+				
+Age:<br>
+<input type="text" name="age" id="age">
+<br>
+				
+<input type="button" id="button1" value="Set Data" onclick="fun1()">
+				
+<input type="button" id="button2"  value="Get Data" onclick="fun2()">
+</fieldset>
+</form>
+
+<script>
+function fun1()
+{
+var a, b, c;
+//get values from text boxes
+a=document.getElementById("fname").value;
+b=document.getElementById("lname").value;
+c=document.getElementById("age").value;
+			
+//store data into localStorage
+localStorage.firstname=a;
+localStorage.lastname=b;
+localStorage.age=c;
+
+//(or)
+/*
+localStorage.setItem("firstname", a);
+localStorage.setItem("lastname", b);
+localStorage.setItem("age", c);
+*/
+				
+//clear the text boxes
+document.getElementById("fname").value="";
+document.getElementById("lname").value="";
+document.getElementById("age").value="";
+alert("Saved");
+}
+			
+
+function fun2()
+{
+var a, b, c;
+
+//get values from local storage
+a=localStorage.firstname;
+b=localStorage.lastname;
+c=localStorage.age;
+
+//(or)
+/*
+a=localStorage.getItem("firstname");
+b=localStorage.getItem("lastname");
+c=localStorage.getItem("age");
+*/
+				
+//display data
+document.getElementById("fname").value=a;
+document.getElementById("lname").value=b;
+document.getElementById("age").value=c;
+}
+</script>
+</body>
+</html>
+
+
+Session Storage
+-----------------------
+The Session Storage is designed for scenarios where the user is carrying out a single transaction, but could be carrying out multiple transactions in different windows at the same time.
+Example
+
+For example, if a user buying plane tickets in two different windows, using the same site. If the site used cookies to keep track of which ticket the user was buying, then as the user clicked from page to page in both windows, the ticket currently being purchased would "leak" from one window to the other, potentially causing the user to buy two tickets for the same flight without really noticing.
+
+HTML5 introduces the sessionStorage attribute which would be used by the sites to add data to the session storage, and it will be accessible to any page from the same site opened in that window i.e session and as soon as you close the window, session would be lost.
+
+
+<!DOCTYPE HTML>
+<html>
+<body>
+<script type="text/javascript">
+if( sessionStorage.hits)
+{
+sessionStorage.hits = Number(sessionStorage.hits) +1;
+}
+else
+{
+sessionStorage.hits = 1;
+}
+document.write("Total Hits :" + sessionStorage.hits );
+</script>
+	
+<p>Refresh the page to increase number of hits.</p>
+<p>Close the window and open it again and check the result.</p>
+</body>
+</html>
+
+Example:
+
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body, input
+{
+font-family: verdana;
+font-size: 25px;
+}
+</style>
+</head>
+
+<body>
+<form>
+<fieldset>
+First Name:<br>
+<input type="text" name="fname" id="fname">
+<br>
+				
+Last Name:<br>
+<input type="text" name="lname" id="lname">
+<br>
+				
+Age:<br>
+<input type="text" name="age" id="age">
+<br>
+				
+<input type="button" id="button1" value="Set Data" onclick="fun1()">
+				
+<input type="button" id="button2"  value="Get Data" onclick="fun2()">
+</fieldset>
+</form>
+
+<script>
+function fun1()
+{
+var a, b, c;
+//get values from text boxes
+a=document.getElementById("fname").value;
+b=document.getElementById("lname").value;
+c=document.getElementById("age").value;
+			
+//store data into sessionStorage
+sessionStorage.firstname = a;
+sessionStorage.lastname = b;
+sessionStorage.age = c;
+
+//(or)
+/*
+sessionStorage.setItem("firstname", a);
+sessionStorage.setItem("lastname", b);
+sessionStorage.setItem("age", c);
+*/
+			
+//clear the text boxes
+document.getElementById("fname").value="";
+document.getElementById("lname").value="";
+document.getElementById("age").value="";
+alert("Saved");
+}
+			
+
+function fun2()
+{
+var a, b, c;
+
+//get values from sessionStorage
+a = sessionStorage.firstname;
+b = sessionStorage.lastname;
+c = sessionStorage.age;
+
+//(or)
+/*
+a = sessionStorage.getItem("firstname");
+b = sessionStorage.getItem("lastname");
+c = sessionStorage.getItem("age");
+*/
+				
+//display data
+document.getElementById("fname").value=a;
+document.getElementById("lname").value=b;
+document.getElementById("age").value=c;
+}
+</script>
+</body>
+</html>
+
+
+The sessionStorage object is equal to the localStorage object, except that it stores the data for only one session. The data is deleted when the user closes the specific browser tab.
+
+
+
+*********************************************
+
+HTML5 - Web Workers
+==================
+
+A web worker is a JavaScript running in the background, without affecting the performance of the page.
+
+JavaScript was designed to run in a single-threaded environment, meaning multiple scripts cannot run at the same time.
+
+When a script is executing inside a Web Worker it cannot access the web page's window object (window.document), which means that Web Workers don't have direct access to the web page and the DOM API. 
+
+
+How Web Workers Work?
+-------------------------------------
+(a) Web Workers are initialized with the URL of a JavaScript file, which contains the code that the worker will execute.
+
+   var worker=new Worker('loop.js');
+
+If your application has multiple supporting javascript files, you can import them importScripts() method which takes file name(s) as argument separated by comma as follows -
+
+importScripts("helper.js", "anotherHelper.js");
+
+(b) Once the Web Worker is started, communication between web worker and its parent page is done using the postMessage() method. Depending on your browser/version, postMessage() can accept either a string or JSON object as its single argument.
+
+(c) Message passed by Web Worker is accessed using "onmessage" event in the main page. 
+
+Example:
+
+workers.js
+----------------
+var i = 0;
+function timedCount() 
+{
+ i = i + 1;
+ postMessage("Value - "+i);
+ setTimeout("timedCount()",1000);
+}
+timedCount();
+
+
+WorkersTest1.html
+----------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML5 Web Worker</title>
+
+<script type="text/javascript">
+
+var work;
+    
+function startWorker()
+{
+if(typeof(Worker) !== "undefined") 
+{
+ if(typeof(work)=="undefined") 
+ {
+ // Initialize web worker
+   work=new Worker("workers.js");
+      
+// Run update() function, when we get a message from worker
+work.onmessage=update;
+        
+// Tell worker to get started
+//worker.postMessage("start");
+ }
+ }
+}
+    
+function update(event)
+{
+// Update the page with current message from worker
+
+document.getElementById("result").innerHTML = event.data;
+}
+    
+function stopWorker()
+{
+// Stop the worker
+work.terminate();
+}
+</script>
+</head>
+<body>
+<h1 align=center>Web Worker Example</h1>
+<button onclick="startWorker()"> Start web worker</button>
+
+<button onclick="stopWorker()"> Stop web worker</button>
+
+<h2>Result place here</h2>
+<div id="result" style="font-family:verdana;font-size:24px;">
+<!--Received messages will be inserted here-->
+</div>
+
+</body>
+</html>                                		
+
+
+Design a Dynamic clock using Worker
+
+workers.js
+---------------
+function timedCount() 
+{
+ var d=new Date();
+ var i=d.getHours()+' : '+d.getMinutes()+' : '+           d.getSeconds();
+ postMessage(i);
+ setTimeout("timedCount()",1000);
+}
+timedCount();
+
+
+
+
+
+			OR
+Check Web Worker Support
+
+Before creating a web worker, check whether the user's browser supports it:
+if(typeof(Worker) !== "undefined") {
+    // Yes! Web worker support!
+    // Some code.....
+} else {
+    // Sorry! No Web Worker support..
+} 
+
+
+Create a Web Worker File
+
+Now, let's create our web worker in an external JavaScript.
+
+Here, we create a script that counts. The script is stored in the "demo_workers.js" file:
+var i = 0;
+
+function timedCount() {
+    i = i + 1;
+    postMessage(i);
+    setTimeout("timedCount()",500);
+}
+
+timedCount(); 
+
+The important part of the code above is the postMessage() method - which is used to post a message back to the HTML page.
+
+Note: Normally web workers are not used for such simple scripts, but for more CPU intensive tasks.
+Create a Web Worker Object
+
+Now that we have the web worker file, we need to call it from an HTML page.
+
+The following lines checks if the worker already exists, if not - it creates a new web worker object and runs the code in "demo_workers.js":
+if(typeof(w) == "undefined") {
+    w = new Worker("demo_workers.js");
+}
+
+Then we can send and receive messages from the web worker.
+
+Add an "onmessage" event listener to the web worker.
+w.onmessage = function(event){
+    document.getElementById("result").innerHTML = event.data;
+};
+
+When the web worker posts a message, the code within the event listener is executed. The data from the web worker is stored in event.data.
+Terminate a Web Worker
+
+When a web worker object is created, it will continue to listen for messages (even after the external script is finished) until it is terminated.
+
+To terminate a web worker, and free browser/computer resources, use the terminate() method:
+w.terminate();
+Reuse the Web Worker
+
+If you set the worker variable to undefined, after it has been terminated, you can reuse the code:
+w = undefined;
+
+
+ <!DOCTYPE html>
+<html>
+<body>
+
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+<br><br>
+
+<script>
+var w;
+
+function startWorker() {
+    if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+            w = new Worker("demo_workers.js");
+        }
+        w.onmessage = function(event) {
+            document.getElementById("result").innerHTML = event.data;
+        };
+    } else {
+        document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+    }
+}
+
+function stopWorker() {
+    w.terminate();
+    w = undefined;
+}
+</script>
+
+</body>
+</html>
+
+
+Checking for Browser Support
+
+Following is the syntax to detect a Web Worker feature support available in a browser
+
+<!DOCTYPE HTML>
+<html>
+   <head>
+   
+      <title>Big for loop</title>
+      
+      <script src="/js/modernizr-1.5.min.js"></script>
+      
+      <script>
+	  function myFunction(){
+         if (Modernizr.webworkers) {
+            alert("Congratulation!! you have web workers support." );
+         }
+         
+         else{
+            alert("Sorry!! you do not have web workers support." );
+         }
+		 }
+      </script>
+   </head>
+   
+   <body>
+   
+      <button onclick="myFunction()">Click me</button>
+      
+   </body>
+</html>
+
+
+Handling Errors
+-----------------------
+The following shows an example of an error handling function in a Web Worker JavaScript file that logs errors to the console. 
+
+worker.onerror=function (event) 
+{
+   console.log(event.message, event);
+   alert('Error - '+event.message);
+};
+
+
+<!DOCTYPE HTML>
+<html>
+   <head>
+      
+      <title>Big for loop</title>
+      
+      <script>
+         var worker = new Worker('bigLoop.js');
+         
+         worker.onmessage = function (event) {
+            alert("Completed " + event.data + "iterations" );
+         };
+         
+         worker.onerror = function (event) {
+            console.log(event.message, event);
+         };
+         
+         function sayHello(){
+            alert("Hello sir...." );
+         }
+      </script>
+      
+   </head>
+   <body>
+   
+      <input type="button" onclick="sayHello();" value="Say Hello"/>
+      
+   </body>
+</html>
+******************************************************
+
+HTML5 - Server Sent Events
+=======================
+Traditional web applications generate events which are dispatched to the web server. For example a simple click on a link in the webpage in client's browser requests a new page from the server.
+
+HTML5 introduces events which flow from web server to the client's web browsers and they are called Server-Sent Events (SSE). 
+
+SSE is used to get continuous updates from server & display the updated information on the page, while running the page on the browser.
+
+Ex:   Cricket score board, Stock market updates etc.
+
+A server-sent event is when a web page automatically gets updates from a server.
+
+To use Server-Sent Events in a web application, we would need to add an <eventsource> element to the document.
+
+The src attribute of <eventsource> element should point to an URL which should provide a persistent HTTP connection that sends a data stream containing the events.
+
+Create a PHP program to generate the current date and time
+
+SSE.php
+------------
+<?php
+header('Content-Type: text/event-stream');
+header('Cache-Control: no-cache');
+ini_set('date.timezone','Asia/Calcutta');
+
+$time=date('r');
+echo "data: The server time is: {$time}\n\n";
+flush();
+?>
+
+
+SSE.html
+-------------
+<html>
+<head>    
+<style>
+#result
+{
+ font-family:verdana;
+ font-size:25px;
+ color:maroon;
+}
+</style>    
+</head>
+
+<body>
+<h1>Server updates</h1>
+<div id="result"></div>
+   
+<script>
+if(typeof(EventSource)!=="undefined") 
+{
+var source=new EventSource("SSE.php");
+         
+source.onmessage=function(event) 
+{
+document.getElementById("result").innerHTML += event.data+"<br>";
+};
+
+}//if
+else 
+{
+document.getElementById("result").innerHTML = "Sorry, your browser does not support SSE";
+}
+</script>
+</body>
+</html>
+
+
+
+
+    Set the "Content-Type" header to "text/event-stream"
+    Specify that the page should not cache
+    Output the data to send (Always start with "data: ")
+    Flush the output data back to the web page
+
+
+
+Code in ASP (VB) (SSE.asp):
+
+<%
+Response.ContentType = "text/event-stream"
+Response.Expires = -1
+Response.Write("data: The server time is: " & now())
+Response.Flush()
+%> 
+
+
+The EventSource Object
+
+In the examples above we used the onmessage event to get messages. But other events are also available:
+Events 	Description
+onopen 	When a connection to the server is opened
+onmessage 	When a message is received
+onerror 	When an error occurs
+
+
+*****************************************************
+HTML5 - WebSockets
+=================
+
+Web Sockets is a next-generation bidirectional communication technology for web applications which operates over a single socket and is exposed via a JavaScript interface in HTML 5 compliant browsers.
+
+Once you get a Web Socket connection with the web server, you can send data from browser to server by calling a send() method, and receive data from server to browser by an onmessage event handler.
+
+Following is the API which creates a new WebSocket object.
+
+var Socket = new WebSocket(url, [protocal] );
+
+Here first argument, url, specifies the URL to which to connect. The second attribute, protocol is optional, and if present, specifies a sub-protocol that the server must support for the connection to be successful.
+WebSocket Attributes
+
+Following are the attribute of WebSocket object. Assuming we created Socket object as mentioned above -
+Attribute 	Description
+Socket.readyState 	
+
+The readonly attribute readyState represents the state of the connection. It can have the following values -
+
+    A value of 0 indicates that the connection has not yet been established.
+
+    A value of 1 indicates that the connection is established and communication is possible.
+
+    A value of 2 indicates that the connection is going through the closing handshake.
+
+    A value of 3 indicates that the connection has been closed or could not be opened.
+
+Socket.bufferedAmount 	
+
+The readonly attribute bufferedAmount represents the number of bytes of UTF-8 text that have been queued using send() method.
+WebSocket Events
+
+Following are the events associated with WebSocket object. Assuming we created Socket object as mentioned above -
+Event 	Event Handler 	Description
+open 	Socket.onopen 	This event occurs when socket connection is established.
+message 	Socket.onmessage 	This event occurs when client receives data from server.
+error 	Socket.onerror 	This event occurs when there is any error in communication.
+close 	Socket.onclose 	This event occurs when connection is closed.
+WebSocket Methods
+
+Following are the methods associated with WebSocket object. Assuming we created Socket object as mentioned above -
+Method 	Description
+Socket.send() 	
+
+The send(data) method transmits data using the connection.
+Socket.close() 	
+
+The close() method would be used to terminate any existing connection.
+WebSocket Example
+
+A WebSocket is a standard bidirectional TCP socket between the client and the server. The socket starts out as a HTTP connection and then "Upgrades" to a TCP socket after a HTTP handshake. After the handshake, either side can send data.
+Client Side HTML & JavaScript Code
+
+At the time of writing this tutorial, there are only few web browsers supporting WebSocket() interface. You can try following example with latest version of Chrome, Mozilla, Opera and Safari.
+
+<!DOCTYPE HTML>
+<html>
+   <head>
+	
+      <script type="text/javascript">
+         function WebSocketTest()
+         {
+            if ("WebSocket" in window)
+            {
+               alert("WebSocket is supported by your Browser!");
+               
+               // Let us open a web socket
+               var ws = new WebSocket("ws://localhost:9998/echo");
+				
+               ws.onopen = function()
+               {
+                  // Web Socket is connected, send data using send()
+                  ws.send("Message to send");
+                  alert("Message is sent...");
+               };
+				
+               ws.onmessage = function (evt) 
+               { 
+                  var received_msg = evt.data;
+                  alert("Message is received...");
+               };
+				
+               ws.onclose = function()
+               { 
+                  // websocket is closed.
+                  alert("Connection is closed..."); 
+               };
+            }
+            
+            else
+            {
+               // The browser doesn't support WebSocket
+               alert("WebSocket NOT supported by your Browser!");
+            }
+         }
+      </script>
+		
+   </head>
+   <body>
+   
+      <div id="sse">
+         <a href="javascript:WebSocketTest()">Run WebSocket</a>
+      </div>
+      
+   </body>
+</html>
+
+Install pywebsocket
+
+Before you test above client program, you need a server which supports WebSocket. Download mod_pywebsocket-x.x.x.tar.gz from pywebsocket which aims to provide a Web Socket extension for Apache HTTP Server ans install it following these steps.
+
+    Unzip and untar the downloaded file.
+
+    Go inside pywebsocket-x.x.x/src/ directory.
+
+    $python setup.py build
+
+    $sudo python setup.py install
+
+    Then read document by:
+        $pydoc mod_pywebsocket
+
+This will install it into your python environment.
+Start the Server
+
+Go to the pywebsocket-x.x.x/src/mod_pywebsocket folder and run the following command -
+
+$sudo python standalone.py -p 9998 -w ../example/
+
+This will start the server listening at port 9998 and use the handlers directory specified by the -w option where our echo_wsh.py resides.
+
+Now using Chrome browser open the html file your created in the beginning. If your browser supports WebSocket(), then you would get alert indicating that your browser supports WebSocket and finally when you click on "Run WebSocket" you would get Goodbye message sent by the server script.
+
+
+

@@ -1,0 +1,647 @@
+Table Properties
+----------------
+a) width: length
+
+b) border: 2px solid black;
+
+c) border-collapse: separate | collapse
+
+d) border-spacing: length
+- if border-collapse is "separate", you can specify how far cells should be spaced out from each other. CSS form of "cellspacing" attribute of <table>.
+
+e) table-layout: auto | fixed
+- the width of the table and its cells depends on the content inside. If you change this to "fixed", the table and column widths are set by the widths of table and col elements or by the width of the first row of cells. 
+
+If content in subsequent cells can't fit, then use  "overflow" property.
+
+f) caption-side: top | bottom
+- specifies the placement of a table caption
+
+
+1) Table Borders
+table, th, td {
+  border: 1px solid black;
+}
+
+2) Collapse Table Borders
+table {
+  border-collapse: collapse;
+}
+
+If you only want a border around the table, only specify the border property for <table>
+
+3) Table Width and Height
+table {
+  width: 100%;
+}
+
+th {
+  height: 50px;
+}
+
+4) Horizontal Alignment
+th {
+  text-align: left;
+}
+
+5) Vertical Alignment
+td {
+  height: 50px;
+  vertical-align: bottom;
+}
+
+6) Table Padding
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+7) Horizontal Dividers
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+
+8) Hoverable Table
+tr:hover {
+ background-color: red;
+}
+
+9) Striped Tables
+tr:nth-child(even) {
+   background-color: lightgreen;
+}
+
+
+10) Table Color
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+etc
+
+
+
+
+
+
+11) 
+<style type="text/css">
+ table, th, td{
+   border: 1px solid black;
+ }
+ table{ 
+  border-collapse: collapse;
+  width:100%;  
+ }
+ th{
+   height:50px;
+ }
+ td{
+  height: 50px;
+  vertical-align:bottom
+ }
+ td, th{
+  padding:15px;
+ }
+ tr:hover{
+  // background-color:#0cf4be;
+ }
+ td:hover{
+  color:red;
+ }
+</style>
+<table>
+ <tr>
+  <th>First Name</th>
+  <th>Last Name</th>
+ </tr>
+ <tr>
+  <td>Sunil</td>
+  <td>Joseph</td>
+ </tr>
+ <tr>
+  <td>Sanjay</td>
+  <td>Kumar</td>
+ </tr>
+</table>
+
+td:nth-child(1){
+  background-color:red;
+ }
+
+<style>
+td, th {
+  width: 80px;
+  height: 28px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+th {
+  background: lightblue;
+  border-color: white;
+}
+table{
+ border:1px solid red;
+}
+</style>
+<table>
+  <tr>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td>4</td>
+    <td>6</td>
+    <td>8</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td>6</td>
+    <td>9</td>
+    <td>12</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td>8</td>
+    <td>12</td>
+    <td>16</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <th>5</th>
+    <td>10</td>
+    <td>15</td>
+    <td>20</td>
+    <td>25</td>
+  </tr>
+</table>
+
+table-layout
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+} 
+
+th,td {
+  border: 1px solid black;
+}
+
+table.a {
+  table-layout: auto;
+  width: 10px;  
+}
+
+table.b {
+  table-layout: fixed;
+  width: 180px;  
+}
+
+table.c {
+  table-layout: auto;
+  width: 100%;  
+}
+
+table.d {
+  table-layout: fixed;
+  width: 100%;  
+}
+</style>
+</head>
+<body>
+
+<h1>The table-layout Property</h1>
+
+<table class="a">
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+
+<h2>table-layout: fixed; width: 180px:</h2>
+<table class="b">
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+
+<h2>table-layout: auto; width: 100%:</h2>
+<table class="c">
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+
+<h2>table-layout: fixed; width: 100%:</h2>
+<table class="d">
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+-------------------------------
+CSS Box Model 
+-------------
+- a box that wraps around every HTML element. 
+- It consists of: 
+    margins, borders, padding, and the actual content. 
+
+
+The size of the box itself is calculated like:
+
+Width 	= actual width + padding_left + padding_right + border_left + border_right + margin_left + margin_right
+
+
+Width and Height of an Element
+
+When you set the width and height properties of an element with CSS, you just set the width and height of the content area. To calculate the full size of an element, you must also add padding, borders and margins.
+
+div {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+}
+
+320px (width)
++ 20px (left + right padding)
++ 10px (left + right border)
++ 0px (left + right margin)
+= 350px  (area occupied horizontally)
+
+
+
+The total width of an element should be calculated like this:
+
+Total element width = width + left padding + right padding + left border + right border + left margin + right margin
+
+The total height of an element should be calculated like this:
+
+Total element height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin
+
+
+
+<style>
+ div{
+  background-color: lightgray;
+  width: 300px;
+  padding: 30px;
+  border: 25px solid blue;
+ }
+</style>
+</head>
+<body>
+<div>
+ <p> Sports </p>
+</div>
+image
+div
+
+The Default Width of Block Level Boxes
+
+If you don't declare a width, and the box has static or relative positioning, the width will remain 100% in width and the padding and border will push inwards instead of outward. But if you explicitly set the width of the box to be 100%, the padding will push the box outward as normal. 
+
+
+To see every single "box" that makes up a page
+
+* {
+   border: 1px solid red !important;
+}
+-----------------------------
+Rounded Corners
+---------------
+border-radius - used to provide "rounded corners" for any element
+
+(a) border-radius	- for setting four border radius property
+
+(b) border-top-left-radius
+
+(c) border-top-right-radius
+
+(d) border-bottom-right-radius
+
+(e) border-bottom-left-radius
+
+
+Example - 1:
+
+<html>
+<head>
+<style>
+p
+{
+ padding: 20px;
+ width: 300px;
+ height: 40px;
+ font-size:25px;
+ text-align:center;
+}
+
+#p1 
+{
+ border-radius: 25px;
+ background: #8AC007;
+}
+
+#p2 
+{
+ border-radius: 25px;
+ border: 2px solid #8AC007;
+}
+
+#p3 
+{
+ border-radius: 25px;
+ background: url(images/tiles.jpeg);
+}
+</style>
+</head>
+
+<body>
+<p id="p1">Rounded corners</p>
+<p id="p2">Rounded corners</p>
+<p id="p3">Rounded corners</p>
+</body>
+</html>
+
+
+Specify Each Corner
+
+1. border-radius: 5px 15px 50px 30px  
+: first value applies to top-left, second value applies to top-right, third value applies to bottom-right, and fourth value applies to bottom-left corner
+
+2. border-radius: 15px 50px 30px 
+: first value applies to top-left, second value applies to top-right and bottom-left, and third value applies to bottom-right
+
+3. border-radius: 15px 50px 
+: first value applies to top-left and bottom-right corner, and the second value applies to top-right and bottom-left corner
+
+4. border-radius: 25px 
+: all four corners are rounded equally
+
+Example - 2:
+
+<html>
+<head>
+   
+<style>
+#p1 
+{
+border-radius: 15px 50px 30px 5px;
+background: #a44170;
+padding: 20px; 
+width: 100px;
+height: 100px; 
+}
+#p2 
+{
+border-radius: 15px 50px 30px;
+background: #a44170;
+padding: 20px;
+width: 100px;
+height: 100px; 
+}
+#p3 
+{
+border-radius: 15px 50px;
+background: #a44170;
+padding: 20px; 
+width: 100px;
+height: 100px; 
+}
+</style>
+</head>
+
+<body>
+<p id="p1">Rounded corners</p>
+<p id="p2">Rounded corners</p>
+<p id="p3">Rounded corners</p>
+</body>
+</html>
+
+
+
+To create elliptical corners:
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#p1 
+{
+border-radius: 50%;
+background: #73AD21;
+padding: 20px; 
+width: 200px;
+height: 150px;
+} 
+</style>
+</head>
+<body>
+
+<p>Ellipse border - border-radius: 50%:</p>
+<p id="p1"></p>
+
+</body>
+</html>
+
+
+CSS3 Border Images
+border-image: url(border.png)
+
+background-image: url(images/flower.gif),url(images/tiles.jpeg);
+ background-position: right bottom, left top;
+ background-repeat: no-repeat, repeat;
+
+
+-----------------------------
+Image Gallery
+
+<html>
+<head>
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="gallery">
+  <a target="_blank" href="img_5terre.jpg">
+    <img src="5terre.jpg"  width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_forest.jpg">
+    <img src="img_forest.jpg" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_lights.jpg">
+    <img src="img_lights.jpg" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_mountains.jpg">
+    <img src="img_mountains.jpg" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+</body>
+</html>
+===============================
+Image Gallery
+
+<html>
+<head>
+ <style>
+  .img{
+    margin: 5px;
+    border: 1px solid black;
+    float: left;
+    width: 180px;
+  }
+  .img img{
+   width: 100%;
+   height: 130px;
+  }
+  .img:hover{
+    border: 1px solid red;
+  }
+  .desc{
+    padding: 15px;
+    text-align:center
+  }
+ </style>
+</head>
+<body>
+   <h1>Image Gallery</h1>
+   <div class="img">
+    <img src="images/bg1.jpg" width="600" height="400">
+    <div class="desc">Image Descritpion Here</div>
+   </div>
+
+   <div class="img">
+    <img src="images/bg2.jpg" width="600" height="400">
+    <div class="desc">Image Descritpion Here</div>
+   </div>
+
+   <div class="img">
+    <img src="images/bg3.jpg" width="600" height="400">
+    <div class="desc">Image Descritpion Here</div>
+   </div>
+
+   <div class="img">
+    <img src="images/im3.jpg" width="600" height="400">
+    <div class="desc">Image Descritpion Here</div>
+   </div>
+ </body>
+</html>
+
+
+

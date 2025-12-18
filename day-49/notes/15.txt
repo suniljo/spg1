@@ -1,0 +1,1033 @@
+CSS Transitions
+===============
+CSS transitions allows you to change property values smoothly, over a given duration.
+
+    transition
+    transition-delay
+    transition-duration
+    transition-property
+    transition-timing-function
+
+
+To create a transition effect, you must specify two things:
+    1. the CSS property you want to add an effect to
+    2. the duration of the effect
+
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s;
+}
+
+div:hover {
+  width: 300px;
+}
+
+
+
+transform Property:
+------------------
+it applies a 2D or 3D transformation to an element. 
+this property allows you to rotate, scale, move (translate), skew, etc., elements.
+
+1) translate(left, top)
+- moves an element from its current position
+
+translateX(left position)  - defines a translation, using only the value for the X-axis	
+translateY(top position)   - defines a translation, using only the value for the Y-axis
+
+skewX(a) 	defines a 2D skew transformation along the X-axis 	
+skewY(a) 	defines a 2D skew transformation along the Y-axis
+
+rotateX(angle) 	defines a 3D rotation along the X-axis 	
+rotateY(angle) 	defines a 3D rotation along the Y-axis
+rotate(angle) 	defines a 2D rotation, the angle is specified in the parameter
+
+scaleX(x) 	scales an element horizontally (the width) 	
+scaleY(y) 	scales an element vertically (the height)
+scale(x,y) 	scales an element horizontally and vertically (width and height)
+
+div{
+ transform: translate(550px, 100px);
+}
+
+
+
+
+CSS 3 Animations:
+-----------------
+- It allows animation of HTML elements without using JavaScript or Flash!
+
+- animation lets an element gradually change from one style to another.
+
+- to use animation, we must first specify some "keyframes" for the animation.
+
+
+@keyframes Rule
+---------------
+- When you specify CSS styles inside the @keyframes rule, the animation will gradually change from the current style to the new style at certain times.
+- define the @keyframe
+- To get an animation to work, you must bind the animation to an element.
+- apply the keyframe to an HTML element by using the CSS property 
+"animation-name"
+
+    @keyframes
+    animation-name
+    animation-duration
+    animation-delay       - property specifies a delay for the start of an animation.
+    animation-iteration-count  - property specifies the number of times an animation should run.
+    animation-direction  - normal | reverse | alternate | alternate-reverse - The animation is played backwards first, then forwards
+    animation-timing-function - property specifies the speed curve of the animation. - ease | linear | ease-in | ease-out | ease-in-out | 
+    animation
+
+animation short-hand property
+animation: example 5s linear 2s infinite alternate;
+
+
+Example - 1:
+- animation that lasts for 4 seconds and should gradually change the "background-color" of the <div> element from "red" to "yellow" infinite times and each time it should be alternative direction (from-to and to-from):
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#div1 
+{
+ width: 100px;
+ height: 100px;
+ background-color: red;
+ border:2px solid black;
+}
+@keyframes anim1 
+{
+ from {
+    background-color: red;
+ }
+ to {
+   background-color: yellow;
+ }
+}
+
+#div1:hover
+{
+ animation-name: anim1;
+ animation-duration: 4s; 
+}
+</style>
+</head>
+<body>
+ <div id="div1"></div>
+</body>
+</html>
+
+The default value of "animation-duration" property is 0
+
+In the previous page - we can change the keywords "from" and "to" with  0% (start) and 100% (complete)
+
+@keyframes anim1 
+{
+ 0% {
+   background-color: red;
+ }
+ 100% {
+   background-color: yellow;
+ }
+}
+
+
+Example-2
+To change the background-color and position of the <div> element when the animation is 25% complete, 50% , 75% and 100% complete
+
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#div1 
+{
+ width: 100px;
+ height: 100px;
+ background-color: red;
+ border:2px solid black;
+
+ animation-name: anim;
+ animation-duration: 15s;
+ animation-iteration-count: infinite;
+ animation-direction: alternate; 
+
+ position: relative;
+}
+
+@keyframes anim 
+{
+   0%   {
+    background-color: red;
+    left:0px;
+    top:0px;
+   }
+   25%  {
+    background-color: yellow;
+    left:300px;
+    top:0px;
+   }
+   50%  {
+    background-color: blue;
+    left:300px;
+    top:200px;
+   }
+   100% {
+    background-color: green;
+    left:0px;
+    top:0px;
+   }
+}
+</style>
+</head>
+<body>
+ <div id="div1"></div>
+</body>
+</html>
+
+animation-name:
+
+animation-duration:
+
+animation-delay : - specifies a delay for the start of an animation
+	animation-delay: 3s;
+
+animation-iteration-count : 3 | infinite;
+
+animation-direction: reverse | alternate
+
+animation-timing-function : ease | linear | ease-in | ease-out | ease-in-out - [specifies the speed curve of the animation]
+
+ease - specifies an animation with a slow start, then fast, then end slowly (this is default)
+
+linear - specifies an animation with the same speed from start to end
+
+ease-in - specifies an animation with a slow start
+ease-out - specifies an animation with a slow end
+ease-in-out - specifies an animation with a slow start and end
+
+
+
+Shorthad property for animation:
+--------------------------------
+{
+ animation: name duration timing-function delay iteration_count direction;
+}
+
+Example:
+#section{
+  animation: anim1 15s linear 5s infinite reverse;  
+}
+
+
+
+
+transform Property:
+------------------
+it applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move (translate), skew, etc., elements.
+
+1) translate(left, top)
+- moves an element from its current position
+
+translateX(left position)	
+translateY(top position)
+
+
+
+
+div{
+ transform: translate(550px, 100px);
+}
+ 
+
+
+Rotate:
+<html>
+<head>
+<style> 
+.element {
+  display: inline-block;
+  background-color: #0074d9;
+  height: 100px;
+  width: 100px;
+  margin-right: 5px;
+  margin-left: 5px;
+  animation: roll 3s infinite;
+  transform: rotate(30deg);
+  opacity: .7;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="element">
+</div>
+<div class="element">
+</div>
+<div class="element">
+</div>
+</body>
+</html>
+
+
+
+<html>
+<head>
+<style> 
+.element {
+  display: inline-block;
+  background-color: #0074d9;
+  height: 100px;
+  width: 100px;
+  opacity: .7;
+  border: 3px solid rgba(0,0,0,.3); 
+  margin-bottom: 30px;
+}
+
+.one { 
+  transform: rotateX(40deg);
+  animation: one 2s infinite;
+  animation-direction: alternate;
+}
+
+.two {
+  transform: rotateY(40deg);
+  animation: two 2s infinite;
+  animation-direction: alternate;
+  background-color: #831a4a;
+}
+
+.three {
+  transform: rotateZ(100deg);
+  animation: three 2s infinite;
+  animation-direction: alternate;
+  background-color: #439772;
+}
+
+@keyframes one {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(50deg);
+  }
+}
+
+@keyframes two {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(70deg);
+  }
+}
+
+@keyframes three {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(100deg);
+  }
+}
+</style>
+</head>
+<body>
+
+
+<div class="element one">
+  rotateX
+</div>
+<div class="element two">
+  rotateY
+</div>
+<div class="element three">
+  rotateZ
+</div>
+
+
+</body>
+</html>
+
+----------------------
+     .letter{
+         transition: all 0.8s
+     }
+     #div1:hover .letter {
+         transform: scale(2,2)
+     }
+ </style>    
+</head>
+    
+<body>
+ <h1>Zettamine</h1>    
+    
+ <img src="images/water1.gif" id="logo">    
+    
+    <div id="div1"><span class="letter" style="display:block">A</span></div>    
+    
+--------------------------------------------
+example:
+
+<html>
+<head>
+ <link rel="stylesheet" type=text/css href=styles.css/>    
+</head>
+<body>
+    <ul>
+     <li></li>  
+     <li></li>  
+     <li></li>  
+     <li></li>  
+     <li></li>  
+     <li></li>      
+    </ul>
+</body>    
+</html>
+
+css:
+
+ul{
+    margin-top:100px;
+    margin-left:100px;
+}
+ul li{
+    width:10px;
+    height:10px;
+    display:inline-block;
+    background-color: black;
+    border-radius:50%;
+    margin:30px;
+    border: 2px solid white;
+    animation: glow 2s infinite linear;
+}
+@keyframes glow{
+    0%,50%,75%,100%{
+        transform: scale(0.3, 0.3)
+    }
+    25%{
+        transform: scale(5, 5)
+    }
+}
+
+ul li:nth-child(1){
+    animation-delay:0.1s;
+    background-color:blue;
+    box-shadow: 0 0 30px blue
+}
+ul li:nth-child(2){
+    animation-delay:0.2s;
+    background-color:red;
+    box-shadow: 0 0 30px red
+}
+ul li:nth-child(3){
+    animation-delay:0.3s;
+    background-color:green;
+    box-shadow: 0 0 30px green
+}
+ul li:nth-child(4){
+    animation-delay:0.4s;
+    background-color:purple;
+    box-shadow: 0 0 30px purple
+}
+ul li:nth-child(5){
+    animation-delay:0.5s;
+    background-color:yellow;
+    box-shadow: 0 0 30px yellow
+}
+ul li:nth-child(6){
+    animation-delay:0.6s;
+    background-color:orangered;
+    box-shadow: 0 0 30px orangered
+}
+
+
+--------------------------------------------
+
+
+CSS Transitions
+----------------
+CSS transitions allows you to change property values smoothly (from one value to another), over a given duration
+
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  background: red; 
+  border:2px solid blue;    
+  transition: width 7s;
+}
+
+div:hover {
+  width: 400px;
+}
+</style>
+</head>
+<body>
+ <h1>CSS | Transition Property</h1>
+ <div></div>
+</body>
+</html>
+
+
+
+
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s, height 4s;
+}
+
+div:hover {
+  width: 300px;
+  height: 300px;
+}
+</style>
+</head>
+<body>
+<h1>The transition Property</h1>
+<div></div>
+</body>
+</html>
+
+
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  background: red; 
+  transition: width 2s, height 2s, transform 2s;
+}
+
+div:hover {
+  width: 300px;  
+  height: 300px;
+  transform: rotate(180deg);
+}
+</style>
+</head>
+<body>
+
+<h1>Transition + Transform</h1>
+
+<p>Hover over the div element below:</p>
+
+<div></div>
+</body>
+</html>
+
+
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+  transition-delay: 1s;
+}
+
+div:hover {
+  width: 300px;
+}
+</style>
+</head>
+<body>
+
+<h1>The transition Properties Specified One by One</h1>
+
+<p>Hover over the div element below, to see the transition effect:</p>
+
+<div></div>
+<body>
+</html>
+
+or by using the shorthand property transition:
+
+div {
+  transition: width 2s linear 1s;
+}
+
+==========================
+Example: circles
+
+<html>
+<head>
+<style>
+#circle-1, #circle-2{
+ width:100px;
+ height:100px;
+ border-style:solid;
+ border-radius:50%;     
+  box-shadow:0px 0px 15px black; 
+  background:linear-gradient(red,black);
+ border-width:20px 40px;
+ border-color:coral yellow;
+ padding:10px; 
+ margin:30px;
+ float:left;  
+ text-align:center;
+ line-height:100px;
+ font-size:30px;
+ color:white;
+ font-weight:bolder
+}    
+#circle-1{
+  animation: rotates 5s infinite linear         
+}    
+#circle-2{
+  animation: rotates 5s infinite linear reverse        
+}        
+@keyframes rotates
+{
+    0%{
+        transform:rotate(0deg)
+    }
+    100%{
+        transform:rotate(360deg)
+    }
+}
+</style>    
+</head>
+<body>
+ <div id="circle-1">NIT</div>    
+ <div id="circle-2">NAC</div>    
+    
+</body>    
+</html>
+
+============================
+Example: Car
+<html>
+<head>
+<style>
+h1{
+ border:2px solid black;   
+ box-shadow:0px 0px 15px black; 
+ background:linear-gradient(red,black);
+ padding:10px 20px; 
+ margin:30px; 
+ text-align:center;
+ font-size:30px;
+ color:white;
+ font-weight:bolder;
+ border-radius:15px;      
+}  
+h1:hover{
+ animation: myanim 5s infinite alternate;             
+}    
+    #car{
+        animation: drive1 10s linear infinite alternate;
+    }   
+ @keyframes myanim{
+  0%{
+   transform:scale(0.3,0.3)
+  }
+  100%{
+   transform:scale(2, 2)
+  }     
+  
+ }    
+ @keyframes drive1{
+  0%{
+   transform:translateX(0px)
+  }
+  100%{            
+    transform:translateX(1300px)
+  }
+ }        
+</style>    
+</head>
+<body>
+ 
+  <h1 style="display:block;width:20px;">N</h1>       
+ 
+    <div>
+<img src="images/car2.png" width="60" id="car" style="margin:0px"> 
+<div style="display:inline-block;padding:0px;margin:0px;width:100%;height:40px;background-image:url(images/nature.jpg);background-size:100% 100%"></div> 
+    </div>
+</body>    
+</html>
+
+=========================
+Example: Letters
+
+<html>
+<head>
+<style>
+    div{
+        margin:100px;
+    }    
+    span{
+        font-family:verdana;
+        font-size:30px;
+        border:2px solid black;
+        padding:5px 21px;
+        border-radius:15px;
+        margin-right:35px;
+        display:inline-block;
+        color:white;
+        font-weight:bolder;
+        animation:moves 3s infinite;
+    }
+    
+    @keyframes moves{
+        0%{
+            transform:translateY(0px)
+        }
+        50%{
+          transform:translateY(120px)
+        } 
+        100%{
+            transform:translateY(0px)
+        }        
+    } 
+    
+    div span:nth-child(1){
+        background:linear-gradient(45deg,black,red);
+        box-shadow:0px 0px 20px red;
+        animation-delay:0s
+    }
+    div span:nth-child(2){
+        background:linear-gradient(45deg,black,blue);
+        box-shadow:0px 0px 20px blue;
+        animation-delay:0.3s
+    }    
+    div span:nth-child(3){
+        background:linear-gradient(45deg,black,orange);
+        box-shadow:0px 0px 20px orange;
+        animation-delay:0.6s
+    }
+    div span:nth-child(4){
+        background:linear-gradient(45deg,black,yellow);
+        box-shadow:0px 0px 20px yellow;
+        animation-delay:0.9s
+    }    
+</style>    
+</head>
+<body>
+ <div>
+   <span>H</span>     
+   <span>T</span>     
+   <span>M</span>     
+   <span>L</span>     
+ </div>    
+</body>    
+</html>
+
+
+
+======== Responsive Page using CSS ================
+
+sm -  small mobile - 576px
+md - medium device - 768px
+lg - large device --992px
+xl - extra large - 1200px
+
+
+Responsive web design is about creating web pages that look good on all devices!
+
+A responsive web design will automatically adjust for different screen sizes and viewports.
+
+Responsive Web Design is about using HTML and CSS to automatically resize, hide, shrink, or enlarge, a website, to make it look good on all devices (desktops, tablets, and phones)
+
+To create a responsive website, add the following <meta> tag to all your web pages:
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+ <img src="img_girl.jpg" style="width:100%;"> 
+ <img src="img_girl.jpg" style="max-width:100%;height:auto;"> 
+
+
+
+Media Queries
+-------------
+In addition to resize text and images, it is also common to use media queries in responsive web pages.
+
+With media queries you can define completely different styles for different browser sizes.
+
+
+@media 
+
+    <style>
+        @media (max-width: 500px) {
+            body{
+                background-color:limegreen;
+            }
+        }
+
+        @media (min-width: 501px) and (max-width: 700px){
+            body{
+                background-color:blue;
+            }
+        }
+
+        @media (min-width:701px) and (max-width:1100px){
+            body{
+                background-color:orangered;
+            }
+        } 
+       
+        @media (min-width:1101px){
+            body{
+                background-color:darkred
+            }
+        }
+    </style>
+
+
+
+    <style>
+        body{
+            text-align:center;
+            color:white;
+            margin:0px;
+        }
+        h2{
+            display: none;
+        }
+        p{
+            font-size:20px;
+        }
+        img{
+            width:100%;
+        }
+
+        @media (max-width: 500px) {
+            body{
+                background-color:limegreen;
+            }
+            div h2:last-child{
+                display:block;
+            }
+            h1{
+                font-size:15px
+            }
+        }
+        @media (min-width: 501px) and (max-width: 700px){
+            body{
+                background-color:blue;
+            }
+            div h2:nth-child(3){
+                display:block;
+            }            
+            h1{
+                font-size:20px
+            }
+        }
+        @media (min-width:701px) and (max-width:1100px){
+            body{
+                background-color:orangered;
+            }
+            div h2:nth-child(2){
+                display:block;
+            }
+            h1{
+                font-size:25px
+            }
+        }        
+        @media (min-width:1101px){
+            body{
+                background-color:darkred
+            }
+            div h2:nth-child(1){
+                display:block;
+            }
+            h1{
+                font-size:30px
+            }
+        }
+    </style>
+    <title>Responsive Page</title>
+</head>
+<body>
+    <h1>Scree Size : <span id="screen"></span></h1>
+    <div>
+        <h2>X-Large Screen</h2>
+        <h2>Laptop Screen</h2>
+        <h2>Tablet Screen</h2>
+        <h2>Mobile Screen</h2>
+    </div>
+    <div>
+        <img src="../HTML/images/computer8.jpeg" alt="">
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptatibus, voluptas aspernatur doloribus illo, dolorem accusamus dolorum deleniti eaque in minus? Nobis explicabo nesciunt quod dignissimos provident molestias voluptates tempore deserunt? Natus corporis quod fugiat nesciunt! Minima, voluptatibus, exercitationem a quod totam, repellendus voluptate similique provident asperiores aliquam consequatur deserunt eligendi delectus esse corporis veniam? Quos doloremque aliquid ut ipsam!</p>
+    </div>
+
+    <script>
+        window.addEventListener('resize', function(){
+            let in_width = window.innerWidth
+            let in_height = window.innerHeight
+            document.querySelector('#screen').innerHTML = 'Width: '+in_width+' | Height: '+in_height
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+CSS Flex Box
+------------
+- flexible box
+
+- To define a layout module like block, inline , table , positioned etc
+
+- The Flexible Box Layout Module, makes it easier to design flexible responsive layout structure without using float or positioning
+
+- flex-container & flex-item
+
+display:flex
+
+flex-direction: row | row-reverse | column | column-reverse
+ - defines in which direction the container wants to stack the flex items.
+
+flex-wrap: nowrap | wrap | wrap-reverse
+ - property specifies whether the flex items should wrap or not.
+
+flex-flow 
+ - property is a shorthand property for setting both the flex-direction and flex-wrap properties
+flex-flow: row wrap;
+
+align-items: stretch | flex-start | center | flex-end
+- The align-items property is used to align the flex items vertically
+The stretch value stretches the flex items to fill the container (this is default)
+The center value aligns the flex items in the middle of the container
+The flex-start value aligns the flex items at the top of the container
+The flex-end value aligns the flex items at the bottom of the container
+
+justify-content: flex-start | center | flex-end | space-between | space-around | space-evenly 
+ -property is used to align the flex items
+The flex-start value aligns the flex items at the beginning of the container (this is default)
+The center value aligns the flex items at the center of the container
+The flex-end value aligns the flex items at the end of the container
+The space-around value displays the flex items with space before, between, and after the lines
+The space-between value displays the flex items with space between the lines
+
+align-content: stretch | space-between | space-around | center | flex-start | flex-end | 
+- The align-content property is used to align the flex lines
+.flex-container {
+  display: flex;
+  height: 600px;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+
+Flex Item Properties
+--------------------
+The direct child elements of a flex container automatically becomes flexible (flex) items
+
+ <div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div> 
+<style>
+.flex-container {
+  display: flex;
+  background-color: #f1f1f1;
+}
+
+.flex-container > div {
+  background-color: DodgerBlue;
+  color: white;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+</style>
+
+
+The flex item properties are:
+
+(1) order
+- specifies the order of the flex items
+ <div class="flex-container">
+  <div style="order: 3">1</div>
+  <div style="order: 2">2</div>
+  <div style="order: 4">3</div>
+  <div style="order: 1">4</div>
+</div> 
+
+(2) flex-grow
+ - specifies how much a flex item will grow relative to the rest of the flex items.
+ <div class="flex-container">
+  <div style="flex-grow: 1">1</div>
+  <div style="flex-grow: 1">2</div>
+  <div style="flex-grow: 8">3</div>
+</div> 
+
+(3) flex-shrink
+- specifies how much a flex item will shrink relative to the rest of the flex items
+- default value is 1
+
+ <div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div style="flex-shrink: 0">3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+  <div>10</div>
+</div> 
+
+(4) flex-basis
+ - specifies the initial length of a flex item
+ <div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div style="flex-basis: 200px">3</div>
+  <div>4</div>
+</div> 
+
+(5) flex
+- The flex property is a shorthand property for the flex-grow, flex-shrink, and flex-basis properties
+
+Make the third flex item not growable (0), not shrinkable (0), and with an initial length of 200 pixels:
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div style="flex: 0 0 200px">3</div>
+  <div>4</div>
+</div> 
+
+        .container h1:nth-child(1){
+            flex:3;
+        }

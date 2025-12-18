@@ -1,0 +1,90 @@
+body{
+    margin:0px;
+    font-family:'Arial',sans-serif;    
+}
+header{
+    background:linear-gradient(45deg,darkslategray,darkviolet);
+    color:white;
+    padding:10px;
+}
+header img{
+    width:180px;    
+    height:90px;
+    float:left;
+    margin-right:10px;
+}
+header h1{
+    padding-top:5px;
+}
+/*settings for main navigation*/
+.main-nav{
+ background:linear-gradient(45deg,black,darkslategray);
+ padding:5px;
+}
+.main-nav a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    display:inline-block;
+    width:150px;
+    text-align:center;
+    margin:0px 20px;
+    padding:10px 0px;
+    border-radius:15px;
+}
+.main-nav a:hover{
+    background:linear-gradient(45deg,black,limegreen);
+    box-shadow:0 0 10px white;
+}
+
+/*--------- side bar settings ------------*/
+aside{
+    width:200px;
+    background:linear-gradient(45deg,darkslategray,darkviolet);
+    height:100vh;
+    text-align:center;
+    padding-top:20px;
+    float:left;
+    position:sticky;
+    top:10px;
+}
+aside a{
+    color:white;
+    font-size:20px;
+    text-decoration:none;
+    display:block;
+    padding:10px;
+    margin:auto;    
+    margin-bottom:25px;
+    width:80%;    
+}
+aside a:hover{
+    background:linear-gradient(45deg,black,limegreen);
+    border-radius:20px;
+    box-shadow:0 0 10px white;
+}
+
+/*---------- main content part ------------*/
+section{
+    margin-left:210px;
+}
+section article p{
+    text-align:justify;
+    margin:15px;    
+}
+
+/*----- footer settings ------ */
+footer{
+    clear:both;
+    background:linear-gradient(45deg,black,darkslategray);
+    color:white;
+    text-align:center;
+    padding:10px;
+}
+footer h3{
+    margin:10px 0px;
+}
+footer a{
+    text-decoration: none;
+    color:yellow;
+}

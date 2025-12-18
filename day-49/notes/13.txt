@@ -1,0 +1,401 @@
+CSS UNITS
+=========
+Two type of units: 
+ 1) relative units and  
+ 2) absolute units
+
+(1) Relative Lengths - specify a length relative to another length property.
+
+em  - relative to the font-size of the element 
+(2em means 2 times the size of the current font size) 
+
+Example:
+<html>
+<head>
+<style type="text/css">
+p {
+ font-size: 16px;
+ line-height: 3em;     
+}
+div { 
+ font-size: 30px;
+ border: 5px solid red;
+ padding: 20px;
+}
+span {
+ font-size: 2em; 
+}
+</style>
+</head>
+<body>
+<p>This is a Paragraph <br>
+   This is another line
+</p>
+<div>
+ Zettamine <span>Begumpet</span> Hyderabad
+</div>
+</body>
+</html>
+
+
+For example, the font size <h1> heading elements may be set to 3em and the body kept at 1em, making sure that under all display conditions heading text will be 3 times as large as the body's. It must be noted that when used as a font-size property value, the em unit refers to the font size of the parent element. Thus, in our example, a <span> element inside an <h1> with font-size: 2em would end up with text 6 times larger than in the body.
+
+
+<html>
+<head>
+<style>
+body
+{
+  font-family:verdana;
+  font-size:20px;
+}
+div
+{
+  font-size:2em;
+}
+</style>
+</head>
+<body>
+<div>
+ One
+ <div>
+   Two
+    <div>
+      Three
+    </div>
+ </div>
+</div>
+</body>
+</html>
+
+
+Absolute Lengths
+===============
+The absolute length units are fixed , will appear as exactly that size.
+
+1) cm 	centimeters  (1cm = 37.8px)
+
+2) mm 	millimeters (1mm == 0.1cm == 3.78px)
+
+3) in 	inches (1in = 96px = 2.54cm) 
+
+4) px  	pixels (1px = 1/96th of 1in) 
+
+5) pt 	points (1pt = 1/72 of 1in) 
+
+6) pc 	picas (1pc = 12 pt) 
+
+
+
+CSS Selectors
+==============
+1) Universal Selector
+2) Type Selectors 
+3) Class Selector  
+4) ID Selector  #id 	
+5) Group Selector    element,element 	
+
+6) Descendant selectors
+div p 
+{
+}
+
+selects all <p> elements inside <div> element
+
+<html>
+<head>
+<style>
+div  p {
+  background-color: yellow;
+}
+</style>
+</head>
+<body>
+<h1>ZettaMine Labs</h1>
+<div>
+  <h2>My name is Sanjay</h2>
+  <p>I live in Hyderabad</p>
+</div>
+
+<div>
+  <span>
+    <p>I did my post graduation</p>
+  </span>
+</div>
+<p>I work in software industry</p>
+</body>
+</html>
+
+
+7) Child selectors - element > element
+div > p 	
+selects all <p> elements where the parent is a <div> element
+
+<style>
+div > p {
+  background-color: yellow;
+}
+</style>
+
+
+8) Adjacent Selectors - element + element
+div + p 	
+selects <p> elements that are placed immediately after <div> elements
+
+<style>
+div + p {
+  background-color: yellow;
+}
+</style>
+
+
+9) element1 ~ element2 selector
+p ~ ul 	
+selects all <ul> after <p>
+
+
+<style>
+div ~ p {
+  background-color: yellow;
+}
+</style>
+
+
+Example:
+
+<html>
+<head>
+<style> 
+p ~ ul {
+  background: #ff0000;
+}
+</style>
+</head>
+<body>
+
+<div>A div element.</div>
+<ul>
+  <li>Item-1</li>
+  <li>Item-2</li>
+</ul>
+
+<p>The first paragraph.</p>
+<ul>
+  <li>Item-1</li>
+  <li>Item-2</li>
+</ul>
+
+<h2>Another list</h2>
+<ul>
+  <li>Item-1</li>
+  <li>Item-2</li>
+</ul>
+</body>
+</html>
+
+
+10) Attribute selectors
+[target] 	
+selects all elements with a "target" attribute
+
+a[title] {
+  color: green;
+} 
+this will only select the anchor tag that have a "title" attribute
+
+<html>
+<head>
+<style>
+ a[target] {
+   background-color: yellow;
+ }
+</style>
+</head>
+<body>
+<a href="https://www.zettamine.com">Zetta</a>
+<br>
+<a href="http://www.google.com" target="_blank"> google.com</a>
+<br>
+
+<a href="http://www.wikipedia.org" target="_top"> wikipedia.org</a>
+</body>
+</html>
+
+
+(b) 
+[target="_blank"] 	
+Selects all elements with target="_blank" 
+
+Example:
+a[href="https://www.zettamine.com"] 
+{
+  color: red; 
+}
+- matches any "a" element whose "href" attribute value is exactly equal to "https://www.zzettamine.com" 	
+
+
+(c) [attribute ~= value] 	
+[title ~= "zetta"] 	
+-selects all elements with a "title" attribute containing the word "zetta"
+
+(d) [attribute ^= value] 	
+a[href ^= "https"] 	
+-selects every <a> element whose "href" attribute value begins with "https"
+
+(e) [attribute $= value] 	
+a[href $= ".com"] 	
+-selects every <a> element whose "href" attribute value ends with ".com"
+
+(f) [attribute *= value] 	
+a[href *= "zetta"] 	
+-selects every <a> element whose "href" attribute value contains the substring "zetta"
+
+
+
+11)  pseudo-class selectors
+--------------------------
+
+(a) :first-child 	
+p:first-child  
+- selects every <p> element that is the first child of its parent 
+
+(b) :last-child 
+p:last-child  
+- selects every <p> element that is the last child of its parent 
+
+
+example:
+<html>
+<head>
+<style>
+p:first-child {
+  background-color: yellow;
+}
+</style>
+</head>
+<body>
+<h1>Zettamine</h1>
+<div>
+  <h2>My name is Sanjay</h2>
+  <p>I live in Hyderabad</p>  [second child]
+</div>
+<p>I did my post graduation</p>
+<p>I work in software industry</p>
+</body>
+</html>
+
+
+<html>
+<head>
+<style>
+ul 
+{
+  width: 200px;
+  background: #292929;
+  color: white;
+  font-size:27px;
+  list-style: none;
+}
+
+li:first-child {
+  color:red;
+}
+
+li:last-child {
+  color:green; 
+}
+</style>
+</head>
+<body>
+ <ul>
+  <li>List Item -1</li>
+  <li>List Item -2</li>
+  <li>List Item -3</li>
+  <li>List Item -4</li>
+ </ul>
+</body>
+</html>
+
+
+
+:nth-child(n) 	
+
+li:nth-child(2) 	
+- selects  <li> element that is the second child of its parent
+
+li:nth-child(even) {background: #CCC}
+li:nth-child(odd) {background: #FFF}
+
+tbody tr:nth-child(even) {background: #CCC}
+tbody tr:nth-child(odd) {background: #FFF}
+
+
+
+13) :after 
+p:after  
+- insert some content after each <p> element 	
+
+14) :before  
+p:before 
+- insert content before each <p> element 	
+
+li:after{
+ content: "@ NIT"
+}
+
+body:after {
+    content: "THE END";
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    font-size:30px;
+    font-weight:bolder;
+}
+
+
+
+
+
+
+<html>
+<head>
+<style>
+p:after { 
+    content: " - Remember this";
+}
+</style>
+</head>
+<body>
+
+<p>My name is Donald</p>
+<p>I live in Ducksburg</p>
+</body>
+</html>
+
+
+:first-letter 	
+p::first-letter - selects the first letter of every <p> element 	
+
+:first-line 	
+p::first-line - selects the first line of every <p> element 	
+
+:focus 	input:focus 	
+Selects the input element which has focus 	
+
+:hover 	a:hover 	
+Selects links on mouse over 	
+
+:link 	a:link 	
+Selects all unvisited links 	
+
+:visited 	
+a:visited 	Selects all visited links 	
+
+-------------------------------------
+
+
+
+
+
+
+
