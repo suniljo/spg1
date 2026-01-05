@@ -1,0 +1,543 @@
+Java Script
+===========
+HTML - Content
+CSS  - Presentation
+JS   - Dynamic effects/ Programming
+
+> What is Java Script?
+> What can we do with Java Script?
+> Where does Java Script code run?
+> Java Script Vs ECMA Script.
+
+Requirement : Online Calculator
+
+Started : 1995  |  Brendan Eich
+Netscape Vs Microsoft
+
+- Live Script
+- Java Script
+- ECMA Script
+
+ECMA - European Computers Manufacturing Association (ES)
+ECMAScript 5 (2009) / ES5
+ECMA-2015 / ES6
+ECMA-2016 / ES7
+ECMA-2017 / ES8
+ECMA-2018 
+ECMA-2019
+ECMA-2020
+ES.Next
+
+JavaScript is a light weight, scripting and an interpreted programming language with Object Oriented capabilities
+
+JavaScript is used to make interactive web sites
+
+JavaScript works in all browsers.
+
+JavaScript can react to events 
+
+JavaScript can read and write HTML elements 
+
+JavaScript can be used to validate data in the client side. (Client side Validation)
+
+
+Why Java Script?
+----------------
+Using java script , we can develop:
+
+1) client side applications-
+   Single Page Applications (SPA), 
+   Angular JS, React JS, Vue JS, Backbone JS etc
+
+2) server side applications
+   Node.js, Express.js etc
+
+3) browser extensions
+   Blocker for Chrome, 
+   Eye Dropper
+   Color Zilla etc
+
+4) desktop applications
+   Web Torrent Desktop,
+   Wordpress Desktop etc
+   ElectronJS
+
+5) mobile applications
+  Phone GAP, Cordova, Titanium, jQuery Mobile etc
+
+6) Databases
+    MongoDB, Firebase etc
+
+7) IoT (Internet Of Things) applications
+- JS is the top programming language used for building IOT applications
+
+8) Machine Learning
+   -Tensorflow
+
+etc
+-----------------------------------------
+Java Script Engine
+ Firefox : Spider Monkey
+ Chrome  : V8 Engine
+ IE      : Chakra
+ etc
+
+-----------------------------------------
+Java Script Language:
+---------------------
+ 1) Programming Concept
+   - variables, data types, operators, control statements, arrays, objects, functions, etc
+
+ 2) DOM Manipulations
+   - DOM, Events, Event Handling, Listeners etc
+
+ 3) Advanced Java Script
+   - Scopes, Closures, Promises, Callbacks, OOPS , Asyc/Await, Exception Handling , Collections etc
+
+ 
+
+
+-----------------------------------------
+
+JavaScript - Syntax
+-------------------
+- JavaScript can be inline
+Ex:
+<button onclick="alert('Welcome to Java Script!')"> Click Me! </button>
+
+-> Java Script can be internal
+-> Java Script can be external
+
+	OR
+
+JavaScript can be written inside the 
+ <script type="text/javascript" src="js filename">
+   ...  
+ </script> 
+
+
+Attributes of <script>
+----------------------
+(1) type="text/javascript"
+
+(2) src=URL 	
+-specifies the URL of an external script file
+
+<script type="text/javascript">
+</script>
+
+Enabling JavaScript in Browsers
+-------------------------------
+
+I) Firefox-
+
+(a) Open Firefox browser 
+(b) type "about:config" in the address bar
+
+ In the search bar, type : "javascript.enabled"
+ To enable or to disable - just double click on that
+
+
+II) Google Chrome -
+
+(a) Click the Chrome menu at the top right hand corner of your browser.
+
+(b) Settings
+
+(c) "Advanced Settings"
+
+(d) Under the Privacy section, click the "Content settings/ Site Settings" 
+
+(e) In the "Javascript" section ..
+
+
+
+III) To enable JavaScript in Internet Explorer -
+
+(a) In IE > Tools (menu- ALT+T)( > Internet Options 
+
+    Select Security tab from the dialog box.
+
+    Click the "Custom Level" button.
+
+    > Scripting option.
+
+    > Select Enable radio button under Active Scripting.
+
+    > OK
+
+
+
+
+
+Warning for Non-JavaScript Enabled Browsers
+-------------------------------------------
+If Java Script is not enabled in the browser, then we can display a warning message to the user using <noscript> tag
+
+Example:
+
+<html>
+ <body>
+  <noscript>
+   <p style="font-family:verdana;font-size:22px;color:red">Java Script is NOT Enabled in this  Browser</p>
+  </noscript>
+ </body>
+</html>
+
+
+Console Object
+--------------
+"console" object provides access to the browser's debugging console
+
+The console is for testing/debugging purposes.
+
+Press F12 to view the console of browser
+
+console.info(message) -writes an informational message to the console.
+
+console.log(message) - writes a message to the console.
+
+console.error(..) - outputs an error message to the console
+
+console.warn(..) - outputs a warning message to the console
+
+console.debug(..) - check in Firefox browser
+
+console.clear() - to clear the console
+
+
+JavaScript Example
+------------------
+<html>
+   <body>
+      <script type="text/javascript">         
+         alert('Page Loaded!');
+      </script>
+   </body>
+</html>
+
+
+Comments in JavaScript
+----------------------
+
+Single line comments starts with  // or <!--
+
+Block comment starts with /* and ends with */
+
+
+
+
+External JavaScript
+-------------------
+An external Java Script file should be saved with the extension of ".js"
+
+Example:
+
+script_1.js
+-----------
+ console.log('Welcome to Java Script')
+ 
+External.html
+-------------
+<html>
+<head>
+ <script type="text/javascript" src="script_1.js">  
+ </script>
+</head>
+<body>
+ <h1>Welcome to Java Script</h1>
+</body>
+</html>
+
+
+
+JavaScript Variable
+-------------------
+A variable is a container to store data. 
+
+Variable Naming Rules:
+----------------------
+1) A variable name can have alpha-numeric characters(A-Z,a-z,0-9) , underscore(_) or dollar symbol ($)
+
+2) A variable name should start with a letter or _ or $ symbol
+
+3) No space is allowed between the characters of a variable name
+
+4) A variable name should not be a reserved keyword of Java Script
+
+5) Variable names are case sensitive   
+
+6) A Java Script variable is declared by using the script "var" or "let" or "const"
+
+Examples:
+ var firstName;
+ let last_name;
+ let _age;
+ var _$_;
+
+var firstName="Sunil";
+console.log(firstName);
+
+var Vs let
+==========
+1. var is function-scoped. let is block-scoped. This means that a variable declared with var is accessible within the entire function it is declared in, or globally if declared outside of any function.
+
+2. var allows redeclaration of variables within the same scope. "let" does not allow redeclaration of variables within the same scope. Doing so will result in a SyntaxError.
+
+3. "var" declarations are hoisted to the top of their scope (either function or global) with an initial value of undefined. This means you can access a var variable before its declaration line without causing an error, although its value will be undefined. 
+let declarations are also hoisted, but they are not initialized. Accessing a let variable before its declaration line results in a ReferenceError.
+
+
+ES6 - Template String / Backtick Operator
+
+
+Java Script Data Types
+----------------------
+Following are the data types in JavaScript. 
+
+1) String 
+ "Wipro", 'Wipro'
+
+2) Number 
+ 10 (or) 10.24
+
+3) Boolean  - Logical data type that can only be -> true or false
+
+4) Undefined - Data type of a variable that does not have a value
+
+5) null  (object)
+
+--> bigint    let n = 12n
+                    = (BigInt)12
+--> function
+ 
+
+Java Script have dynamic typing feature- means that we do not have to define the data type of a variable. 
+
+JS automatically finds the type of the variable , based on how it is set
+let n = 25; - type of n is "number"
+
+'typeof' operator is used to get the data type of a variable
+
+typeof n
+  OR
+typeof(n)
+
+
+
+
+Variable Mutation: - process of changing the value of a variable
+age = 'thirty five';
+job = 'Software Engineer';
+alert(firstName + ' is a ' + age + ' year old ' + job + '. Is he married? ' + isMarried);
+
+
+var lastName = prompt('What is his last Name?');
+console.log(firstName + ' ' + lastName);
+
+
+Difference between undefined and null
+-------------------------------------
+"undefined" means a variable has been declared but has not been assigned a value. 
+
+"null" is a value assigned to a variable, as a representation of no value. 
+
+"undefined" and "null" are two different types: 
+undefined is a type itself (undefined) while null is an object type.
+
+<script>
+let test1 = null;
+console.log(test1); //null
+console.log(typeof test1); //object
+
+let test2;
+console.log(test2); //undefined
+console.log(typeof test2);//undefined
+
+console.log(undefined == null); //true
+console.log(undefined === null); //false
+</script>
+
+
+
+
+JavaScript Operators
+--------------------
+Operators are used to perform some operations on data. 
+
+Operators are broadly classified into 3 categories:
+
+(a) Unary Operators - only one operand
+	n++
+(b) Binary Operators - two operands
+	a + b
+(c) Ternary Operator
+
+Different type of operators in Java Script are:
+
+1) Arithmetic Operators
+
+ +	-	*	/	%	
+
+var now, yearSunil;
+now = 2019;
+ageSunil = 35;
+yearSunil = now - ageSunil;
+console.log(yearSunil);
+
+
+var x, y;
+x = y = (3 + 5) * 4 - 6; 
+console.log(x, y);
+
+
+2) Increment & Decrement Operators
+	++	--
+
+
+
+3) Relation/Comparison Operators
+
+ ==	===	!=	!==	 >	>=	<	<=	
+
+Note:  == will check only for the content, not for the data type where as === will check for the content and also for the type
+
+null === undefined // false
+null == undefined  // true
+
+4)  Logical Operators - used for framing a compound condition
+
+&&	Logical AND	
+||	Logical OR	
+	
+((a>b) && (a>c))
+
+
+5)  Assignment Operators
+
+ =	+=	-=	*=	/=	 %=	
+
+   a+=b	-------	a=a+b
+
+
+
+
+6) Conditional or Ternary Operator
+
+	?:   
+
+
+7) String or Concatenation Operator
+	+
+
+8) Boolean Complement Operator	
+   !
+ !true	!false
+
+
+9) Bitwise Operators
+   &  Bitwise AND
+   |  Bitwise OR
+   ^  Bitwise XOR
+
+10) Shift Operators
+  <<   left shift
+  >>   right shift
+
+
+11) JavaScript Special Operators
+
+(a) , -	comma Operator allows multiple expressions to be evaluated as single statement.
+
+(b) delete - deletes a property from the object.
+
+(c) in	- checks if object has the given property
+
+(d) instanceof  - checks if the object is an instance of given type
+
+(e) new	- creates an instance (object)
+
+(f) typeof - checks the data type of variable.
+
+
+
+<script>
+ let a=10, b=20, c=30;
+ console.log(a,b,c); //10  20  30
+</script>
+
+
+
+<html>
+<body>      
+<script type="text/javascript">
+ let b = "String";
+       
+ result = (typeof b  == "string") ? "B is String" : "B is Numeric";
+ console.log("Result => "+result);
+
+</script>       
+</body>
+</html>
+
+
+
+
+Single quotes and double quotes are used to produce the same results.
+
+<script>
+ var msg="We are the \"Employees\" of ZettaMine"
+ document.write(msg)
+</script>
+
+O/P: We are the "Employees" of Zettamine
+
+\'	Single Quote
+\"	Double quote
+\\	back slash
+\n	new line
+\t	tab space
+\b	backspace
+
+
+Breakup a Line of Code:
+-----------------------
+We can break up a line of code with a back slash
+
+<script type="text/javascript">
+document.write("Hello \
+ World!")
+</script>
+
+Assignment:
+
+Mark and John are trying to compare their BMI (Body Mass Index), which is calculated using the formula: 
+BMI = mass / height^2 = mass / (height * height). (mass in kg and height in meter).
+
+1. Store Mark's and John's mass and height in variables
+2. Calculate both their BMIs
+3. Create a boolean variable containing information about whether Mark has a higher BMI than John.
+4. Print a string to the console containing the variable from step 3. (Something like "Is Mark's BMI higher than John's? true"). 
+
+var massMark = 78; // kg
+var heightMark = 1.69; // meters
+
+var massJohn = 92;
+var heightJohn = 1.95;
+
+var BMIMark = massMark / (heightMark * heightMark);
+var BMIJohn = massJohn / (heightJohn * heightJohn);
+console.log(BMIMark, BMIJohn);
+
+var markHigherBMI = BMIMark > BMIJohn;
+console.log('Is Mark\'s BMI higher than John\'s? ' + markHigherBMI);
+
+Document object - Each HTML document that gets loaded into a window becomes a document object.
+
+document.getElementsByTagName("li").length
+
+<script type="text/javascript">
+ window.onload = function(){ alert(document.getElementsByTagName("li").length); }
+</script>
+
+

@@ -1,0 +1,515 @@
+Condition Statements
+--------------------
+1) if statement
+2) switch statement
+
+Different type of if statements:
+1) Simple if statement
+2) if .. else statement
+3) nested if statement
+4) Ladder if statement
+ if... else if ... else if  ... else
+
+
+
+<html>
+<body>
+<script>
+let day = new Date().getDay();
+let dayName;    
+switch(day) {
+    case 0:
+     dayName='Sunday';
+     break;
+    case 1:
+     dayName='Monday';
+     break;      
+    case 2:
+     dayName='Tuesday';
+     break;       
+    case 3:
+     dayName='Wednesday';
+     break;        
+}
+console.log('Today is : '+dayName);    
+</script>    
+</body>
+</html>
+
+Control Statements / Loops
+--------------------------
+1) while
+2) do ... while
+3) for
+4) for-in loop - used to iterate the properties of an object/array.
+5) for..of loop
+
+
+
+JavaScript Functions
+--------------------
+A function is a reusable code block; which will be executed by a call to the function. 
+
+Functions are used for code reusability
+
+A function is defined by using the keyword - "function"
+
+- need of function 
+  - usecase - display first 10 natural numbers 3 times
+  - change to function
+
+
+1) Function Declaration
+-----------------------
+Syntax:
+ function <function_name>(parameters)
+ {  
+     //code to be executed  
+ }  
+
+- Function with no parameters
+function greet(){
+ console.log('Welcome to Wipro');
+}
+
+- Function with parameters
+function greetMe(name, age){
+ console.log(`Hello ${name}, You are ${age} years old`);
+}
+
+- Function with parameters and return type
+"return" script is used for returning a value back to the caller
+function sum(x,y)
+{
+ let sum = x+y
+ return sum
+}
+
+function printNumbers(start, end, increment) 
+{
+    let output = '';
+    for(let i=start; i<=end; i += increment){
+        output += `${i} `;
+    }
+    return output;
+}
+
+
+let result = printNumbers(1,20,1);
+console.log(result);
+
+- Object as Function parameters
+function printDetails(obj){
+ 
+}
+
+printDetails({name:'Sunil',age:35}
+
+- an array as a parameter
+function printArray(array){
+}
+
+
+- Function call with less number of arguments
+
+
+Note: it is possible for us to provide the default value for the function parameters [New feature of ES6]
+
+<script>
+function addNum(x=0,y=0){
+ let s = x+y
+ return s
+}    
+
+console.log(addNum(11,22)) -- 33
+console.log(addNum(10)) -- 10 
+console.log(addNum()) -- 0
+</script>
+
+
+
+Note: In JS , function names are unique. That means function overloading is not happening directly through function definition
+
+Function with Empty Return
+--------------------------
+If any function is returned with an empty value, then result of it will be "undefined"
+
+
+<script>
+function emptyReturn(name){
+ return;
+}
+
+console.log(emptyReturn('Sunil')); //undefined
+</script>
+
+
+
+
+To declare a function use:-
+ 1) a function declaration or 
+ 2) a function expression
+
+
+2) Function Expressions
+-----------------------
+This is a feature of functional programming. 
+
+Here we can assign the function itself as a value to a variable.
+
+It is also called as First class Function.
+JS contains many First Class Functions
+
+Example:
+<script>
+let add = function addNum(x=0 , y=0){
+    let sum = x + y;
+    console.log('Sum = '+sum);
+}
+
+add(11,22);
+add(10);
+add()
+</script> 
+In the above case we have created a variable "add" and assigned a function as a value to it; so that we can execute that function with the variable name "add()"
+
+
+
+
+let calc = function(op1, op2, operator){
+  let res=0
+  if(operator=='+')
+    res = op1+op2
+  else if(operator=='-')
+    res = op1-op2
+  ....
+  console.log(res)
+}
+
+calc(10,20,'+')
+
+
+
+
+
+
+Anonymous Function Expression
+-----------------------------
+Any function expression without a function name is called as Anonymous function expression
+
+<script>
+let add = function(x=0 , y=0){
+    let sum = x+y;
+    console.log('Result = '+sum);
+}
+
+add(11,22);
+</script> 
+
+let printStars = function(theNumber) {
+    let output = '';
+    for(let i =1 ; i<= theNumber ; i++){
+        for(let j =1; j<= i; j++){
+            output += '*';
+        }
+        output += '\n';
+    }
+    return output;
+};
+
+console.log(printStars(10));
+---------------------
+
+function inside an object
+let student = {
+  firstName: 'Sunil',
+  lastName: 'Joseph',
+  fullName: function(){
+    let name = this.firstName+" " + this.lastName
+    console.log(name)
+  }
+}
+
+student.fullName()
+
+----------------------------------
+
+Arrow Function
+--------------
+- new feature of ES-6 (ECMA Script --> European Computer Manufacturers Association)
+- it is similar to lamda expression in Java
+
+let calcNumbers = function(a,b,c){
+  let result = a+(b*c)
+  console.log(result)
+}
+
+calcNumbers(1,2,3)
+
+let calcNumbers = (a,b,c) => {
+  let result = a+(b*c)
+  console.log(result)
+}
+
+
+<script>
+let greet = () => {
+    alert('Welcome to Cognizant')
+}    
+
+let greet = () => alert('Welcome to Cognizant')
+ 
+
+let add = (x=0,y=0)=>{
+    console.log('Sum = '+(x+y))
+}
+</script>
+
+<script>
+ add(11,30)    
+ greet()    
+</script>
+
+
+let add = (x=0,y=0)=>(x+y)
+
+
+
+let displayNumbers = (endNumber) => {
+      let output = '';
+      for(let i = 1; i<= endNumber; i++){
+          output += `${i} `;
+      }
+      return output;
+};
+console.log(displayNumbers(10));
+
+--------------------
+
+Callback Function - 
+
+A JavaScript Callback Function is a function that is passed as a parameter to another JavaScript function, and the callback function is run inside of the function it was passed into.
+
+let sum = (a , b) => {
+    return a + b;
+};
+
+let mul = (a , b) => {
+    return a * b;
+};
+
+let calculate = (a , b, calc) => {
+    return calc(a , b);
+};
+
+console.log(calculate(10, 20, sum)); // 30
+console.log(calculate(10, 20, mul)); // 200
+console.log(calculate(10, 20, (a , b) => { return a - b}));
+
+--------------------
+
+Variable Scopes |
+Local Variables & Global Variables 
+----------------------------------
+Scope determines the accessibility or visibility of variables.
+
+In JavaScript there are two types of scope:
+1) Local Scope
+2) Global Scope
+
+Global variables are those declared outside of a function
+
+Local variables are those declared inside of a block or function
+
+A local variable is accessible within the function or block only; it becomes local to that.
+
+Local variables are created when a function starts, and deleted when the function is completed.
+
+A global variable has global scope- all scripts and functions on a web page can access it. 
+
+
+
+
+Note: If you assign a value to a variable inside a function, that has not been declared, it will automatically become a GLOBAL variable.
+
+function myFun(){
+  let x = 11; //local variable
+      y = 22; //global variable
+}
+
+
+Function parameters work as local variables inside functions.
+
+Example:
+<script>
+//initialize a global variable
+let x = 10;    
+
+function change(){
+ //initialize a local - function scoped variable
+ let x=20;
+ console.log(x);//20    
+}
+    
+console.log(x)//10    
+change();
+console.log(x);//10    
+</script>   
+
+
+If we attempt to use a variable before it has been declared and initialized, it will return "Uncaught ReferenceError: xx is not defined" 
+
+Case- 1:
+--------
+<script> 
+ console.log(y) //ReferenceError: can't access lexical declaration `y' before initialization
+ let y = 25
+</script>
+
+Case-2:
+-------
+<script>
+ console.log(y) //undefined
+ var y = 25
+</script>
+
+
+// Attempt to use a variable before declaring it
+console.log(x);
+// Variable assignment without var
+x = 100; //ReferenceError: x is not defined
+
+
+
+
+
+The newer version of JS - ES6 - "let" and "const" defined variables are block-scoped variables
+
+The "let" variable in the loop is available only inside the loop
+
+<script>
+for(var i=1;i<=5;i++)
+{
+ console.log(i);
+}
+console.log(i); //6
+</script>
+
+
+<script>
+for(let i=1;i<=5;i++)
+{
+ console.log(i);
+}
+console.log(i); //Uncaught ReferenceError: i is not defined
+</script>
+
+
+
+Note: Duplicate declaration of variables is possible with var,  and will throw an error with "let" and "const".
+
+Case-1
+var x = 10;
+var x = 20;
+console.log(x); //20
+
+Case-2
+let x = 10;
+let x = 20; //Uncaught SyntaxError: Identifier 'x' has already been declared
+console.log(x);
+
+
+"const" is a keyword of JavaScript , used for declaring a constant variable
+A variable whose value cannot be changed or that cannot be assigned is called as a constant variable
+
+<script type="text/javascript">
+ const age=35;
+ console.log("Age = "+age)
+ age=36;// Uncaught TypeError: Assignment to constant variable.
+ console.log("Age = "+age)    
+</script>    
+
+
+
+To declare a variable as global variable from inside a function, we need to use "window" object. For example:
+
+    window.value=90;  
+	OR
+	value = 90
+The variable "value" becomes a global variable, which can be accessed from anywhere
+
+
+
+JavaScript Dialog Boxes
+-----------------------
+JavaScript has three dialog boxes: 
+
+1) Message Dialog or Alert Dialog
+   alert("message")
+- returns void
+
+2) Confirmation Dialog
+   confirm("message")
+; this function return a boolean (true/false) value
+
+3) Input Dialog
+  prompt("message"[,"default text"])
+- used to input some data and it returns a string or null
+
+
+
+
+
+
+
+
+
+
+
+
+
+Example:
+<html>
+<head>
+<style>
+    button{
+        width:200px;
+        height:40px;
+        text-align:center;
+        background-color:blue;
+        font-size:20px;
+        border-radius:20px;
+        border:0px;
+        color:white;
+    }    
+</style>    
+<script type="text/javascript">
+function greetings(){
+  alert('Welcome to NIT!')  
+}    
+
+function fun1(){
+ var result = confirm('Do you want to close the window?');
+ console.log(result);   
+ if(result)
+    console.log('Browser is going to be closed');
+ else
+    console.log('Continue with the app.') 
+}    
+    
+function fun2(){
+ var name = prompt('enter your name: ', 'Naresh');  
+ console.log('Name = '+name)    
+}    
+</script>    
+</head>
+
+<body>
+ <button onclick="greetings()"> Message Dialog</button>   
+    
+ <button onclick="fun1()"> Confirmation Dialog</button>
+    
+<button onclick="fun2()"> Input  Dialog</button>    
+</body>    
+</html>
+
