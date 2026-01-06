@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let courses=["Core Java", "Adv Java", "Hibernate", "Spring", "Spring Boot", "Microservices"]; 
+        console.log(`no of courses = ${courses.length}`)
+        console.log(courses);
+        console.log(`${courses}`);
+        console.log();
+
+        //iteration on array
+        for(index in courses){
+            console.log(index + ": " + courses[index])
+        }
+        console.log();
+        
+        for(data of courses){
+            console.log(data)
+        }
+        console.log();
+        
+        courses.forEach((data, index) => {
+            console.log(index, data)
+        })
+    </script>
+</body>
+</html>

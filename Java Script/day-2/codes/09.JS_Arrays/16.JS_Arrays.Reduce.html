@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Arrays </title>
+</head>
+<body>
+    <div>
+        <h2>Java Script | Array reduce()</h2>
+    </div>
+
+    <script>
+        function reduceMethod(accumulatedValue, n){            
+            return accumulatedValue + n;
+        }
+
+        let data = [1,2,3,4,5];
+        //let total = data.reduce((acc, n) => acc + n);
+        let total = data.reduce(reduceMethod);
+        console.log(total)
+    </script>
+
+    <script>
+        const numbers = [175, 50, 25];
+        let result = numbers.reduce(myFunc)
+        console.log(result);
+
+        function myFunc(total, num) {
+            return total - num;
+        } 
+    </script>
+
+    <script>
+        const numbers1 = [15.5, 2.3, 1.1, 4.7];
+        console.log(numbers1.reduce(getSum, 0));
+
+        function getSum(total, num) {
+            console.log(total + "- " + num)
+            return total + Math.round(num);
+        }
+    </script>   
+
+    <script>
+        const numbers2 = [10, 20, 30];
+        const sum = numbers2.reduce((acc, num) => acc + num, 0);
+        console.log(sum);
+    </script>    
+</body>
+</html>

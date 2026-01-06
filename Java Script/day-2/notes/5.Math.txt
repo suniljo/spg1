@@ -1,0 +1,256 @@
+Math Object
+===========
+- useful for performing various mathematical operations
+
+Properties
+----------
+Math.E 		Returns Euler's number (approx. 2.718)
+
+Math.PI 	Returns PI (approx. 3.14 (or) 22/7)
+
+
+Math.LN2 	Returns the natural logarithm of 2 (approx. 0.693)
+
+Math.LN10  	Returns the natural logarithm of 10 (approx. 2.302)
+
+Math.LOG2E 	Returns the base-2 logarithm of E (approx. 1.442)
+
+Math.LOG10E 	Returns the base-10 logarithm of E (approx. 0.434)
+
+SQRT1_2 	Returns the square root of 1/2 (approx. 0.707)
+
+Math.SQRT2 	Returns the square root of 2 (approx. 1.414)
+etc
+
+Methods
+-------
+Math.abs(x) 	Returns the absolute value of x  
+
+Math.ceil(x) 	Returns the value, rounded upwards to the nearest integer  
+
+Math.floor(x) 	Returns the value, rounded downwards to the nearest integer
+
+Math.max(x,y,z,...,n) 	Returns the largest number in the list
+
+Math.min(x,y,z,...,n) 	Returns the smallest number in the list
+
+Math.pow(x,y) 	Returns the value of x to the power of y
+
+Math.random() 	Returns a random number between 0 and 1
+
+Math.round(x) 	Rounds x to the nearest integer   
+
+Math.sqrt(x) 	Returns the square root of x
+
+Math.exp(x) 	
+
+Math.sin(x)
+
+Math.cos(x) 
+etc
+
+<script>
+ console.log(Math.sqrt(25));
+ console.log(Math.random());
+ console.log(Math.round(Math.random()*10000))
+ console.log(Math.floor(Math.random()*10000))
+ console.log(Math.pow(3,4))
+ console.log(3 ** 4) ; //ES6 - exponential operator
+ console.log(Math.floor(4.6)) //4    
+ console.log(Math.ceil(4.6)) //5
+ console.log(Math.PI)
+</script>
+
+
+
+
+JavaScript Number Object
+------------------------
+JavaScript has only one type of number.
+
+Numbers can be written with, or without, decimals.
+
+let x = 34.0;
+ley y = 34;
+
+Any number prefixed with 0 is treated as octal decimal, that with 0x is hexadecimal and with 0b is treated as a binary number
+
+<script>
+ let n =12;
+ console.log(n); //12
+ n = 012;
+ console.log(n); //10
+ n = 0x12;
+ console.log(n); //18
+ n = 0b11;
+ console.log(n); //3
+</script>
+
+By default, Java Script displays numbers as base 10 decimals. But you can use the toString() method to output numbers as base 16 (hex), base 8 (octal), or base 2 (binary).
+<script>
+ n = 255    
+ console.log(n.toString(2)) //11111111           
+ console.log(n.toString(8)) //377  
+ console.log(n.toString(16)) //ff
+</script>
+
+
+
+Infinity
+---------
+Infinity or -Infinity is a number
+typeof(Infinity) - number.
+
+let x =  2 / 0; // Infinity
+let y = -2 / 0; // -Infinity 
+
+NaN - Not a Number
+------------------
+NaN is a JavaScript reserved word indicating that a value is not a number.
+
+Note: A number divided by a non-numeric string becomes NaN (Not a Number)
+
+let x = 100 / "ABC";  //NaN 
+console.log(100/"10") //10
+
+isNaN() - a global JavaScript function to find out if a value is a number or not.
+
+let x = 100 / "CTS";
+console.log(x+' - '+isNaN(x)); // NaN - true
+
+If we use "NaN" in a mathematical operation, the result will also be NaN
+<script>
+ let x = NaN;
+ let y = 5;
+ console.log(x + y) //NaN
+</script>
+
+<script>
+let x = NaN;
+let y = "5";
+let z = x + y; // z will be NaN5 
+console.log(z)
+</script>
+
+let x = 500;             
+let y = new Number(500);
+(x == y) is true because x and y have equal values 
+(x === y) is false because x and y have different types 
+x is number, y is object
+
+
+Objects cannot be compared:
+
+ let x = new Number(500);             
+ let y = new Number(500);
+
+// (x == y) is "false" because objects cannot be compared  (they compare the references)
+
+
+
+
+Number Object Properties
+------------------------
+
+Number.MAX_VALUE 
+Number.MIN_VALUE
+Number.NEGATIVE_INFINITY 
+Number.NaN
+Number.POSITIVE_INFINITY
+etc
+
+
+JavaScript Number Methods
+--------------------------
+1) toFixed() - returns a string, with the number written with a specified number of decimals:
+
+let x = 9.656;
+x.toFixed(0); // returns 10
+x.toFixed(2); // returns 9.66
+x.toFixed(4); // returns 9.6560
+x.toFixed(6); // returns 9.656000 
+
+
+2) parseInt() -parses a string and returns a whole  number. Spaces are allowed. Only the first number is returned:
+
+parseInt("10");         // 10
+parseInt("10.33");      // 10
+parseInt("10 20 30");   // 10
+parseInt("10 years");   // 10
+parseInt("years 10");   // NaN  
+parseInt("12A"); 	//12
+parseInt("A12A"); 	//NaN
+
+3) parseFloat()
+parseFloat("10");       // 10
+parseFloat("10.33");    // 10.33
+parseFloat("10 20 30"); // 10
+parseFloat("10 years"); // 10
+parseFloat("years 10"); // NaN 
+
+
+6) valueOf() - returns a number as a number.
+
+var x = 123;
+x.valueOf(); // returns 123 from variable x
+
+(123).valueOf();   // returns 123 from literal 123
+
+(100 + 23).valueOf();   // returns 123 from expression 100 + 23 
+
+
+
+JavaScript Boolean
+==================
+JavaScript booleans can have one of two values: true or false.
+
+You can use the Boolean() function to find out if an expression is true:
+
+var x=Boolean(10 > 9)   
+	OR
+var x=10>9
+alert(x+" - "+typeof(x));
+
+O/P : true - boolean
+
+toString() - converts a boolean value to a string, and returns the result
+
+valueOf() - returns the primitive value of a boolean
+
+var bool = true;
+var x = bool.toString()
+console.log(x);
+
+
+var bool = false;
+var x = bool.valueOf(); 
+
+
+---------------------- Practicals ---------------------------
+
+<script>
+console.log(`PI = ${Math.PI}`);
+console.log(`E = ${Math.E}`);
+
+console.log(`abs(-5) = ${Math.abs(-5)}`); //5
+console.log(`ceil(10.0) = ${Math.ceil(10.9)}`); //11
+console.log(`floor(10.9) = ${Math.floor(10.9)}`); //10
+
+console.log(`min(30,23,67) = ${Math.min(30,23,67)}`);
+console.log(`max(30,23,67) = ${Math.max(30,23,67)}`);
+
+console.log('pow(5,3) = '+ Math.pow(5,3));
+console.log(`pow(5,3) = ${5 ** 3}`) //ES6
+
+let rand = Math.random();
+console.log(`rand() = ${rand}`);
+otp = rand*10000;
+console.log(`OTP = ${Math.floor(otp)}`);
+
+console.log(`round() = ${Math.round(123.556)}`);
+
+console.log(`sqrt(25) = ${Math.sqrt(25)}`);
+
+console.log(`sin(0) = ${Math.sin(0)}`);
+console.log(`cos(0) = ${Math.cos(0)}`);
+</script>
