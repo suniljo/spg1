@@ -1,0 +1,927 @@
+Validations
+===========
+Case-1) to validate the username and password
+(a) username should be minimum 5 chars
+(b) password should not be empty
+; if the form is validated - then only it should be submitted to the server side
+
+<html>
+<head>
+<style>
+ table{
+  font-size:22px;    
+  border:0;
+  width:400px; 
+  background-color:orange;
+  border-radius:15px;
+  padding:10px;    
+ }
+ tr{
+     height:45px;    
+    }
+</style>    
+<script>
+function checkData(){
+  var txtUid = document.getElementById('txtUid')
+  var txtPwd = document.getElementById('txtPwd')
+  
+ //get the form data    
+ var uid = txtUid.value.trim();
+ var pwd = txtPwd.value.trim();
+     
+ if(uid.length<5){
+   alert('User Name should be min 5 chars')  
+   txtUid.focus();        
+   return false;
+ }
+ else if(pwd.length<=0){
+   alert('Password to be entered')
+   txtPwd.value='';     
+   txtPwd.focus();     
+   return false;     
+  }
+ }    
+</script>    
+</head>
+
+<body>
+<form action='register.jsp' method=get onsubmit='return checkData()'>
+<table>
+<tr>
+ <td>User Name:</td>    
+ <td><input type=text name=uid id="txtUid" size=25 autofocus="autofocus"></td>    
+</tr>  
+
+<tr>
+ <td>Password:</td>    
+ <td><input type=password name=pwd id="txtPwd" size=25></td>    
+</tr>      
+
+<tr>
+ <td colspan=2 align=center>
+   <input type=submit value=Login> 
+ </td>    
+</tr>    
+</table>    
+</form>    
+</body>    
+</html>
+
+
+
+
+Case-2) validate the age between 10 and 90 and age should not have alphabets and special characters
+
+<html>
+<head>
+<style>
+.error{
+  color:red;
+  font-size:14px;
+}    
+</style>    
+<script>
+function checkAge()
+{
+ //get the reference of age field
+ let txtAge = document.getElementById('txtAge');
+
+ // get the age field value    
+ let age = txtAge.value;
+    
+ //get the reference of span to show the error message
+ let err= document.getElementById('errAge')
+ 
+ err.innerHTML='';
+    
+ //validations
+ if(isNaN(age)){
+   err.innerHTML = 'Please enter only numbers!'
+   txtAge.focus();     
+    return false; 
+ }    
+ if(age<10 || age>90){  
+   err.innerHTML='Age is Invalid'
+    
+ //dont submit the form     
+  return false 
+ }    
+}    
+</script>    
+</head>
+
+<body>
+<form action='register.jsp' method=get onsubmit='return checkAge()'>
+<h2>
+Enter Age: 
+ <input type=text name=txtAge id=txtAge size=20>
+ <span id="errAge" class="error"></span>    
+ <br><br>
+ <input type=submit value=Register> 
+</h2>    
+</form>    
+</body>    
+</html>
+
+mystyle.css
+-----------
+body
+{
+ background-color:skyblue;
+ font-family:verdana;
+ font-size:20px;
+}
+table
+{
+ width:500px;
+ background-color:lightgreen;
+ padding:12px;
+}
+tr
+{
+ height:50;
+}
+
+
+**** Another Approach *****
+let frm = document.querySelector('#form_age')
+frm.addEventListener('submit',function(){
+   event.preventDefault()          
+   let s=  validateAge()
+   if(s)
+     frm.submit()
+})
+
+====================================
+
+Case-3) Project - Registration Form 
+
+Validations to be performed
+
+1) Username can't be blank
+2) Password can't be blank
+3) Confirm Password can't be blank
+4) Password & Confirm Password should match
+5) Amount should be between 1000 to 100000
+6) Payment mode should be specified
+7) Email should be in a proper format
+
+<html>
+
+<head>
+    <style>
+        .error {
+            color: red;
+            font-size: 17px;
+        }
+
+        input,
+        select {
+            font: 22px verdana;
+        }
+
+        tr {
+            height: 40px;
+        }
+
+        table {
+            width: 90%;
+            background-color: orange;
+            padding: 10px;
+            border-radius: 14px;
+            font: 22px verdana;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align:center"> Registration Form</h1>
+
+    <form action="register.jsp" id="form1" onsubmit="return validateData()">
+
+        <table>
+            <tr>
+                <td width="30%">User Name:</td>
+                <td><input type="text" name="txtUsername" id="txtUsername">
+                    <span id="spanUsername" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="txtPassword" id="txtPassword">
+                    <span id="spanPassword" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Confirm Password:</td>
+                <td><input type="password" name="txtConfirmPassword" id="txtConfirmPassword">
+                    <span id="spanConfirmPassword" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Amount:</td>
+                <td><input type="text" name="txtAmount" id="txtAmount">
+                    <span id="spanAmount" class="error"> </span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Payment Mode: </td>
+                <td><select name="txtPaymentMode" id="txtPaymentMode">
+                        <option value="">Select Payment Mode</option>
+                        <option value="DC">Debit Card</option>
+                        <option value="CC">Credit Card</option>
+                        <option value="NB">Net Banking</option>
+                    </select>
+                    <span id="spanPaymentMode" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="txtEmail" id="txtEmail">
+                    <span id="spanEmail" class="error"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan=2 align=center>
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <ul id="errorsList" style="color:red">
+    </ul>
+
+
+    <script type="text/javascript">
+        //to get span references
+        let spanUserName = document.getElementById("spanUsername")
+        let spanPassword = document.getElementById("spanPassword")
+
+        let spanConfirmPassword = document.getElementById("spanConfirmPassword")
+
+        let spanAmount = document.getElementById("spanAmount")
+
+        let spanPayment = document.getElementById("spanPaymentMode")
+
+        let spanEmail = document.getElementById("spanEmail")
+
+        //to get input and select references
+        let txtUserName = document.getElementById("txtUsername")
+
+        let txtPassword = document.getElementById("txtPassword")
+
+        let txtConfirmPassword = document.getElementById("txtConfirmPassword")
+
+        let txtAmount = document.getElementById("txtAmount")
+
+        let txtPaymentMode = document.getElementById("txtPaymentMode")
+
+        let txtEmail = document.getElementById("txtEmail")
+
+        function validateData() {
+            clearAllErrorFields();
+
+            //array to store error messages
+            let errors = [];
+
+            //get values from text boxes
+            let userName = txtUserName.value.trim();
+
+            let password = txtPassword.value.trim();
+
+            let confirmPassword = txtConfirmPassword.value.trim();
+            let amount = txtAmount.value.trim();
+
+            let paymentMode = txtPaymentMode.value
+
+            let email = txtEmail.value.trim();
+
+            //validation 1: Username can't be blank
+            if (userName.length <= 0 || userName == null) {
+                let errorMsg = "Username can't be blank";
+                errors.push(errorMsg);
+                //spanUserName.innerHTML = errorMsg;
+                spanUserName.innerHTML = "<img src=../images/wrong.png width=20px>"
+            }
+            else {
+                spanUserName.innerHTML = "<img src=../images/correct.png width=20px>"
+            }
+            //validation 2: Password can't be blank
+            if (password.length < 1 || password == null) {
+                var errorMsg = "Password can't be blank";
+                errors.push(errorMsg);
+                spanPassword.innerHTML = errorMsg;
+            }
+
+            //validation 3: Confirm Password can't be blank
+            if (confirmPassword.length <= 0 || confirmPassword == null) {
+                let errorMsg = "Confirm Password can't be blank";
+                errors.push(errorMsg);
+                spanConfirmPassword.innerHTML = errorMsg;
+            }
+
+            //validation 4: Password & Confirm Password must match
+            if (password != confirmPassword) {
+                let errorMsg = "Password and confirm Password not matching";
+                errors.push(errorMsg);
+                spanConfirmPassword.innerHTML += errorMsg;
+            }
+
+            //validation 5: Amount should be between 1000 to 100000
+            if (isNaN(amount) || amount < 1000 || amount > 100000) {
+                let errorMsg = "Amount should be in between 1000 and 100000.";
+                errors.push(errorMsg);
+                spanAmount.innerHTML = errorMsg;
+            }
+
+            //validation 6: Payment mode should be specified
+            if (paymentMode == "" || paymentMode == "none") {
+                let errorMsg = "Select any Payment Mode.";
+                errors.push(errorMsg);
+                spanPayment.innerHTML = errorMsg;
+            }
+
+            //validation 7: Email should be in proper format
+            var pattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/i;
+            if (pattern.test(email) == false) {
+                let errorMsg = "Email should be in proper format";
+                errors.push(errorMsg);
+                spanEmail.innerHTML += errorMsg;
+            }
+
+
+            let errorsList = document.getElementById("errorsList");
+
+            errorsList.innerHTML = "";
+
+            for (i = 0; i < errors.length; i++) {
+                errorsList.innerHTML += "<li>" + errors[i] + "</li>";
+            }
+            if (errors.length == 0) {
+                return true; //submit the form
+            }
+            else {
+                return false; //don't submit the form
+                //event.preventDefault(); //don't submit the form
+            }
+
+        }
+        //document.getElementById("form1") .addEventListener("submit", fun1);
+
+        function clearAllErrorFields() {
+            spanUserName.innerHTML = "";
+            spanPassword.innerHTML = "";
+            spanConfirmPassword.innerHTML = "";
+            spanAmount.innerHTML = "";
+            spanPayment.innerHTML = "";
+            spanEmail.innerHTML = "";
+        }    
+    </script>
+</body>
+
+</html>
+
+---------------------------------------------
+Constraint Validation DOM Methods
+---------------------------------
+
+1) checkValidity() - returns true if an input element contains valid data.
+
+2) setCustomValidity() - sets the validationMessage property of an input element.
+
+Example-1 : validation for number range
+
+<html>
+<body>
+<p>Enter a number and click OK:</p>
+
+Enter Daily Wage : <input id="dayWage" type="number" min="100" max="300" required>
+<button onclick="checkData()">OK</button>
+
+<p id="error" style=color:red;font-size:20px></p>
+
+<script>
+function checkData() {
+  let inpObj = document.getElementById("dayWage");
+  if (!inpObj.checkValidity()) {
+    document.getElementById("error").innerHTML = inpObj.validationMessage;
+  } 
+  else {
+    document.getElementById("error").innerHTML = "Valid Data";
+  } 
+} 
+</script>
+
+</body>
+</html>
+
+Validity Properties
+-------------------
+The validity property of an input element contains a number of properties related to the validity of data:
+
+1) rangeOverflow - set to true, if an element's value is greater than its "max" attribute.
+
+2) rangeUnderflow - set to true, if an element's value is less than its "min" attribute.
+
+3) stepMismatch - set to true, if an element's value is invalid per its "step" attribute.
+
+4) valid - set to true, if an element's value is valid.
+etc
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Validity Properties</title>
+</head>
+
+<body>
+    <nav>
+        <h2>Java Script | Validity Properties</h2>
+
+    </nav>
+    <section>
+        <article>
+            Enter Daily Wage : <input id="dayWage" type="number" min="100" max="300" required step="2">
+            <button onclick="checkData()">OK</button>
+
+            <p id="error" style=color:cyan;font-size:20px></p>
+        </article>
+
+        <script>
+            function checkData() {
+                let errorField = document.getElementById("error")
+                let inpObj = document.getElementById("dayWage")
+                let msg = ''
+                if (inpObj.validity.rangeOverflow) {
+                    msg = 'Rate is High'
+                }
+                else if (inpObj.validity.rangeUnderflow){
+                    msg = 'Rate is Less'
+                }
+                else if(inpObj.validity.stepMismatch){
+                    msg = 'Value in rage but step is not correct'
+                }
+                else{
+                    msg = 'Rate Approved'
+                }
+
+                errorField.innerText = msg
+            } 
+        </script>        
+    </section>
+</body>
+
+</html>
+
+
+===========================
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    .login-section{
+    box-shadow: 0 0 5px black;
+    width: 300px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: lightgoldenrodyellow;
+}
+input[type='text'] , input[type='email'] , input[type='password']{
+    font-size: 18px;
+    margin: 5px;
+    height: 35px;
+    border: 1px solid lightblue;
+    outline: none;
+    border-radius: 5px;
+}
+input[type=submit]{
+    font-size: 18px;
+    padding: 12px;
+    width: 210px;
+    margin: 5px;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+input[type='submit']:hover{
+    background-color: darkgray;
+    color: white;
+}
+#error-msg h3{
+    background-color: lightblue;
+    width: 300px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    color: white;
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+    <a href="#">JS Form Validation</a>
+</nav>
+
+<!-- Display Error Message -->
+<div id="error-msg">
+
+</div>
+
+<!-- Form Validation -->
+<section class="login-section">
+    <h2>Register Here</h2>
+    <form onsubmit="return validateForm()" class="login-form" id="login-form">
+        <input type="text" placeholder="User Name" id="username">
+        <br>
+        <input type="email" placeholder="Email" id="email">
+        <br>
+        <input type="password" placeholder="Password" id="password">
+        <br>
+        <input type="password" placeholder="Confirm Password" id="c_password">
+        <br>
+        <input type="submit" value="Register">
+    </form>
+
+</section>
+
+<script>
+let validateForm = (e) => {
+
+    let isFormValid = validateUserName()
+                      && validateEmail()
+                      && validatePassword()
+                      && validateConfirmPassword()
+                      && validatePasswordsMatch();
+
+    if(isFormValid){
+        alert('Form Submitted Successfully');
+        return true; // to send data to the server
+    }
+    else{
+        return false;
+    }
+};
+
+
+// validateUserName
+let validateUserName = () => {
+    let usernameField = document.querySelector('#username');
+    if(usernameField.value === ''){
+        applyColors(usernameField);
+        displayErrorMessage('User Name is Required');
+        return false;
+    }
+    else if(usernameField.value.length < 5){
+        applyColors(usernameField);
+        displayErrorMessage('Min 5 letters for User Name');
+        return false;
+    }
+    else if(!usernameField.value.match(/^[A-Za-z0-9_]{1,15}$/)){
+        applyColors(usernameField);
+        displayErrorMessage('No Special Characters for User Name');
+        return false;
+    }
+    else{
+        removeColors(usernameField);
+        return true;
+    }
+};
+
+// validateEmail
+let validateEmail = () => {
+    let emailField = document.querySelector('#email');
+    if(emailField.value === ''){
+        applyColors(emailField);
+        displayErrorMessage('Email is Required');
+        return false;
+    }
+    else{
+        removeColors(emailField);
+        return true;
+    }
+};
+
+// validatePassword
+let validatePassword = () => {
+    let passwordField = document.querySelector('#password');
+    if(passwordField.value === ''){
+        applyColors(passwordField);
+        displayErrorMessage('Password is Required');
+        return false;
+    }
+    else{
+        removeColors(passwordField);
+        return true;
+    }
+};
+
+// validateConfirmPassword
+let validateConfirmPassword = () => {
+    let confirmPasswordField = document.querySelector('#c_password');
+    if(confirmPasswordField.value === ''){
+        applyColors(confirmPasswordField);
+        displayErrorMessage('Confirm Password is Required');
+        return false;
+    }
+    else{
+        removeColors(confirmPasswordField);
+        return true;
+    }
+};
+
+// validate Passwords Match
+let validatePasswordsMatch = () => {
+    let passwordField = document.querySelector('#password');
+    let confirmPasswordField = document.querySelector('#c_password');
+    if(passwordField.value !== confirmPasswordField.value){
+        applyColors(passwordField);
+        applyColors(confirmPasswordField);
+        displayErrorMessage('Passwords are NOT Matched');
+        return false;
+    }
+    else{
+        removeColors(passwordField);
+        removeColors(confirmPasswordField);
+        return true;
+    }
+};
+
+// apply Colors
+let applyColors = (inputField) => {
+    inputField.style.border = '1px solid red';
+    inputField.style.boxShadow = '0 0 10px red';
+};
+
+// remove Colors
+let removeColors = (inputField) => {
+    inputField.style.border = '1px solid green';
+    inputField.style.boxShadow = '0 0 10px green';
+};
+
+
+// display Error Message
+let displayErrorMessage = (message) => {
+    let errorMsgElement = document.querySelector('#error-msg');
+    let h3Tag = document.createElement('h3');
+    h3Tag.innerText = message;
+    h3Tag.style.backgroundColor = 'orangered';
+    errorMsgElement.appendChild(h3Tag);
+    // to remove the error Message Element after 2 sec.
+    setTimeout(removeErrorMessage,2000);
+};
+
+// Remove Error Message
+let removeErrorMessage = () => {
+    document.querySelector('#error-msg h3').remove();
+};
+</script>
+</body>
+</html>
+===========================
+https://mockaroo.com/
+============================
+Regular Expressions in Java Script
+----------------------------------
+
+Employee Number : SIT_1001
+Indian Mobile No : [6-9]9digits
+Email ID: sunil@cognizant.co | sunil@cognizant.com | sunil@cognizant.co.in
+Usernames : 
+
+define a pattern and check a string with that pattern
+
+A regular expression is a sequence of characters that forms a search pattern.
+When you search for data in a text, you can use this search pattern to describe what you are searching for.
+
+A regular expression can be a single character or a more complicated pattern.
+
+Regular expressions can be used to perform all types of text search and text replace operations.
+
+A regular expression in JS is an object that describes a pattern of characters.
+
+The JavaScript "RegExp" class represents regular expressions, and both String and RegExp define methods that use regular expressions to perform powerful pattern-matching and search-and-replace functions on the text.
+
+www.regex101.com
+/abc/
+/[ABC]/
+/^[ABC]abc/
+/^[6-9][0-9][0-9][0-9]/
+/^[6-9][0-9][0-9][0-9]$/
+/^[6-9][0-9]{9}$/
+/^[6-9]\d{9}$/
+/^[A-Za-z]{5,10}$
+/^SIT_[0-9]{4}$/
+
+
+1) User name should have "SIT"
+
+let username = 
+let regex = /SIT/
+if(regex.test(username))
+   alert('Valid')
+else
+  alert('Invalid')
+
+
+2) 
+let regex = new RegExp("SIT")
+let regex = new RegExp("SIT","i")
+
+3) Character Sets and Ranges
+- the first character can be "s" or "d" or "p" followed by "imple"
+let regexp = /[sdp]imple/
+if(regexp.test(data))
+
+- the first character can be "a" to "p" followed "imple"
+let regexp = /[a-p]imple/   - check this pattern in the entire string
+
+- the first character can be 0 to 5 followed by abc any where in string
+let regexp = /[0-5]abc/ 
+
+
+- multiple character sets
+let regex = /[1-5]a[6-9]b/
+let regex = /[1-5]a[6-9][a-z]/
+
+- to exclude a character
+let regex = /[^1abc]abc/   - exclude "1","a",'b','c' as first character
+
+- mobile number validation (Indian Mobile No)
+
+let regex = /[6-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
+let regex = /[6-9][0-9]{9}/
+let regex = /[6-9]\d{9}/   - 
+
+\d match any digit from 0-9
+\w match any word character (a-z, A-Z, 0-9, _, & ....
+\s match white space (space and tabs
+\t - match a tab only
+
+
+let regex = /^[6-9]\d{9}$/   - 
+
+
+Java Script to validate Email using regular expression
+------------------------------------------------------
+  email : xx
+    1      2        3	   4      5     6      7
+email_name @   domain_name .  extension .  extension
+					   (optional)
+Example:
+sunil@cognizant.co.in
+sunil@cognizant.com 
+
+1 -> any letter, numbers, dot and / or hyphens 
+3 -> any letter, numbers and / or hyphens
+5 -> any letter (a-z)
+7 -> any letter (a-z)
+
+let pattern = /abc/
+let pattern = /^abc$/
+
+let pattern = /^([A-Za-z0-9\.-]+)@([A-Za-z0-9-]+).([a-z]{2,6})$/
+let pattern= /^([A-Za-z0-9\.-]+)@([A-Za-z0-9-]+).([a-z]{2,6})(.[a-z]{2,3})?$/;
+var patt1 = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/i;
+
+ let regex = /^([a-z]+)@([a-z]+).([a-z]{2,3})\.([a-z]{2})?$/
+
+
+[a-z]{40}- for accepting string with 40 lowercase alphabets
+^[6789]\d{9}$ - Indian mobile number 
+^[0-9]\d{2,4}-\d{6,8}$ - Indian landline phone number 
+
+
+if(pattern.test(email))
+
+<html>
+<head>
+<script type="text/javascript">
+function checkEmail()
+{
+var ema=document.getElementById("email")
+var err=document.getElementById("emailerr");
+
+var email=ema.value;
+
+var pattern= /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/i;
+
+if(pattern.test(email))
+{
+err.innerHTML= "";
+ema.style.backgroundColor = "#FFFFFF"; 
+return true;
+}
+else
+{
+err.innerHTML="Invalid E-Mail";
+ema.style.backgroundColor = "#ff0000"; 
+return false; 
+}
+}
+</script>
+
+</head>
+<body bgcolor=lightgreen>
+<form action="login.asp" onSubmit="return checkEmail()">
+			
+Email: <input type="text" name="email" id="email">
+
+<span id="emailerr" style="color:red"> </span>
+<br>
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+*****************************
+
+
+
+===========================
+JavaScript email validation
+---------------------------
+Conditions to be checked:
+
+(a)  email must contain the @ and . character
+(b)  there must be at least one character before and after the @
+(c) there must be at least two characters after the last . (dot) character
+
+Eg: sunil.nareshit@gmail.com
+
+<html>
+<head>
+<style>
+ table{
+  background-color:orange;
+  font:21px verdana; 
+  width:50%;
+  padding:10px;
+  border-radius:15px;
+ }   
+ span{
+  color:cyan;
+  font-size:14px;
+ }
+</style>    
+</head>
+<body>
+<form action="Register.jsp" method="get" onsubmit="return checkData()">
+ <table align=center>
+  <tr>
+   <td><label for=txtEmail> Enter Email</label>    </td>        
+   <td><input type=text name=email id=txtEmail>
+      <span id="emailErr"></span></td>     
+  </tr>   
+  
+ <tr>
+     <td colspan=2 align=center>
+      <input type=submit value="R e g i s  t e r"> 
+     </td>
+ </tr>     
+ </table>    
+</form> 
+    
+<script>
+let txtEmail = document.getElementById('txtEmail')    
+let emailErr = document.getElementById('emailErr')
+
+function checkData()
+{
+ let email = txtEmail.value.trim()
+ emailErr.innerHTML=''
+ 
+ let atposition = email.indexOf('@')
+ let dotposition = email.lastIndexOf('.')   
+ 
+ 
+ if(atposition < 1 || dotposition < atposition+2 || dotposition+3 >email.length)
+{ 
+ emailErr.innerHTML = 'Invalid email'    
+ alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition)
+ return false;  
+}  
+}
+</script>    
+</body>    
+</html>
+*****************************

@@ -1,0 +1,413 @@
+Browser Object Model
+====================
+BOM is used to interact with the browser.
+
+The default object of browser is "window"
+
+    window.alert("hello world");  
+	is same as:
+    alert("hello world");  
+
+Child objects of window - document , history , screen , navigator , location etc
+
+1) window Object
+----------------
+- is a browser object
+
+Methods of window object
+
+1) alert()
+2) confirm()
+3) prompt()
+4) open()	opens the new window.
+5) close()	closes the current window.
+6) setTimeout()	
+etc
+
+window.open() method
+--------------------
+ window.open(URL, name, specifications, replace)
+
+Arguments:
+1) URL - Optional. Specifies the URL of the page to open. If no URL is specified, a new window with about:blank is opened
+
+2) name 	Optional. Specifies the target attribute or the name of the window. The following values are supported:
+
+    _blank - URL is loaded into a new window. This is default
+    _parent - URL is loaded into the parent frame
+    _self - URL replaces the current page
+    _top - URL replaces any framesets that may be loaded
+    name - The name of the window 
+
+3) specs 	Optional. A comma-separated list of items. The following values are supported:
+
+height=pixels 	Min. value is 100
+
+width=pixels 	Min. value is 100
+
+scrollbars=yes|no|1|0  IE, Firefox & Opera only
+
+titlebar= yes | no | 1 | 0 	
+
+status=yes | no | 1 | 0 	
+
+resizable=yes | no | 1 | 0 	IE only
+
+menubar=yes | no | 1 | 0 	
+
+location=yes | no | 1 | 0	 Opera only
+
+left=pixels  -The left position of the window. Negative values are not allowed
+
+top=pixels - The top position of the window. Negative values are not allowed
+
+
+4) replace 	Optional. Specifies whether the URL creates a new entry or replaces the current entry in the history list. The following values are supported:
+
+    true - URL replaces the current document in the history list
+    false - URL creates a new entry in the history list
+
+
+Example-1) to open a blank page in a new window tab on the button click:
+
+<html>
+<body>
+ <button onclick="openWindow()">Open Window </button>
+
+<script>
+function openWindow()
+{
+  window.open();   
+}
+</script>
+</body>
+</html>
+
+
+Example-2) to open "Project.html" in a separate browser window on button click and to close that on another button click
+
+<html>
+<body>
+<button onclick="openWindow()">Open Window </button>
+
+<button onclick="closeWindow()">Close Window </button>
+<script>
+let winRef;    
+function openWindow()
+{
+ winRef = window.open("Project.html","", "width=600px, height=500px,left=400px,top=350px")  
+}
+    
+function closeWindow(){
+ if(winRef != null)
+    winRef.close(); 
+}    
+</script>
+</body>
+</html>
+
+
+
+Example-3) to open a new window with name "SIT", and to write some text into it:
+
+<script>
+let winRef;    
+function openWindow()
+{
+ winRef = window.open("","SIT","width=600px, height=500px")  
+    
+ winRef.document.write("<h1 style=color:red>  Welcome to Softwave IT</h1>")    
+ winRef.document.body.style.backgroundColor='aqua'
+}  
+</script>
+
+
+Example-4) to open the new window in the same browser location and to replace the content with new content
+
+<script> 
+function openWindow()
+{
+ let myWin = window.open("", "_self");
+ myWin.document.write("<h1>Replaced the current  window.</h1>");
+}  
+</script>
+
+
+Example-5) to open a new window for google site and to provide some specifications
+
+<html>
+<body>
+<button onclick="openGoogle()">Open Google</button>
+
+<script> 
+function openGoogle()
+{
+ window.open("https://www.google.com", "_blank", "toolbar=yes,scrollbars=0, resizable=no,top=500, left=500, width=400, height=400");
+}  
+</script>
+</body>
+</html>
+
+Example-6) to open multiple windows
+
+<script>
+let google = window.open("http://www.google.com/", "", "width=300,height=300");
+
+let gmail = window.open("http://www.gmail.com/","", "width=300,height=300,left=500");
+</script>
+
+
+Window Object Properties
+------------------------
+1) closed - returns a Boolean value indicating whether a window has been closed or not
+
+2) document - returns the Document object for the window 
+
+3) frameElement - returns the <iframe> element in which the current window is inserted
+
+4) frames - returns all <iframe> elements in the current window
+
+5) history - returns the History object for the window 
+
+6) innerHeight 	
+
+7) innerWidth 
+
+8) length - returns the number of <iframe> elements in the current window
+
+9) location - returns the Location object for the window 
+
+name 	Sets or returns the name of a window
+
+10) navigator - returns the Navigator object for the window
+ 
+11) outerHeight - returns the outer height of a window, including toolbars & scrollbars
+
+12) outerWidth 	- returns the outer width of a window, including toolbars & scrollbars
+
+etc
+
+- to get the properties of the window - like innerWidth/ height etc
+
+<html>
+<head>
+<script>
+function getDetails() 
+{
+ let w= window.innerWidth;
+ let h= window.innerHeight;
+ let s='Inner Width = '+w+'<br>Inner Height ='+h+'<br>';
+
+ let ow= window.outerWidth;
+ let oh= window.outerHeight;
+
+ s=s+'Outer Width = '+ow+ '<br>Outer Height= '+oh;
+
+ document.getElementById("details").innerHTML=s;	
+}
+</script>
+</head>
+
+<body>
+ <button onclick="getDetails()">Show width & height </button>
+
+<p id="details" style="font-family:verdana;font-size:25px;color:blue"> </p>
+</body>
+</html>
+
+
+
+JavaScript history Object
+=========================
+"history" object represents an array of URLs visited by the user. 
+
+By using history - we can load previous, forward or any particular page.
+
+   window.history  
+	OR
+   history  
+
+Methods: 
+--------
+1) forward() - loads the next page.
+2) back() - loads the previous page.
+3) go(number) - loads the given page number.
+
+    history.go(2);//for next 2nd page  
+    history.go(-2);//for previous 2nd page  
+
+Example to have a web page to show the number of pages in history and also to go to next and previous pages
+
+<html>
+<body>
+<button onclick="getHistoryDetails()">History Details</button>
+
+<button onclick="goBack()"> Back</button>
+
+<button onclick="goForward()"> Forward</button>
+
+<p id="details" style="font-family:verdana;font-size:25px; color:blue"></p>
+
+<script>
+function getHistoryDetails() {
+ let len=window.history.length;
+ document.getElementById("details").innerHTML ="No of URLS in History = "+len;	
+}
+
+function goBack(){    
+ history.back();
+}
+
+function goForward(){
+ history.forward();
+}
+</script>
+
+</body>
+</html>
+
+***************************
+JavaScript Navigator Object
+---------------------------
+The JavaScript navigator object is used for browser detection. It can be used to get browser information.
+
+   window.navigator  
+	OR
+    navigator  
+
+"javaEnabled()" is the method of navigator used to check whether java is enabled.
+
+- Example to check whether the cookies are enabled or not in the browser
+
+<html>
+<body>
+<button onclick="details()">Cookies</button>
+
+<script>
+function details() 
+{
+let status = navigator.cookieEnabled
+
+if(status)
+ alert('Cookies are Enabled');
+else
+ alert('Cookies are NOT enabled in the browser, kindly do enable it')    
+}
+</script>
+</body>
+</html>
+
+
+
+JavaScript navigator object properties:
+---------------------------------------
+1) appName	returns the name
+
+2) appVersion	returns the version
+
+3) appCodeName	returns the code name
+
+4) cookieEnabled	returns true if cookie is 		enabled otherwise false
+
+5) userAgent	returns the user agent
+
+6) language	returns the language. It is 		supported in Netscape and Firefox 	only.
+
+7) userLanguage	returns the user language. 		It is supported in IE only.
+
+8) plugins		returns the plugins. It is 		supported in Netscape and 		Firefox only.
+
+9) systemLanguage	- returns the system language. It is supported in IE only.
+
+10) mimeTypes[]	returns the array of mime type. It is supported in Netscape and Firefox only.
+
+11) platform	returns the platform e.g. 			Win32.
+
+12) online		returns true if browser is online otherwise false.
+
+navigator.online
+navigator.platform
+
+Program to test the navigator object properties
+
+<html>
+<body>
+<button onclick="details()">Navigator Properties </button>
+
+<p id="demo" style="font-family:verdana;font-size:25px;color:blue"></p>
+
+<script>
+function details() 
+{
+var s="App Code Name : "+navigator.appCodeName+ '<br>'+              "App Name: "+navigator.appName+'<br>'+ "App Version: "+navigator.appVersion+'<br>'+ "Cookie Enabled : "+navigator.cookieEnabled+'<br>'+ "Language: "+navigator.language+'<br>'+ "User Agent: "+navigator.userAgent+'<br>'+"Platform: "+navigator.platform+'<br>'+ "on Line: "+navigator.onLine;  
+
+document.getElementById("demo").innerHTML =s;	
+}
+</script>
+</body>
+</html>
+
+********************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JavaScript screen Object
+------------------------
+The JavaScript screen object holds information of browser screen. It can be used to display screen width, height, colorDepth, pixelDepth etc.
+
+The screen object is the window property, so it can be accessed by:
+
+    window.screen  
+	OR
+            screen  
+
+Properties of JavaScript screen object
+
+1) width	returns the width of the screen
+
+2) height	returns the height of the screen
+
+3) availWidth  -returns the available width
+
+4) availHeight -returns the available height
+
+5) colorDepth	returns the color depth
+
+6) pixelDepth	returns the pixel depth.
+
+Program to get the screen properties
+
+<html>
+<body>
+<button onclick="details()">Screen Properties </button>
+
+<p id="demo" style="font-family:verdana;font-size:25px;color:blue"></p>
+
+<script>
+function details() 
+{
+var s="Width: "+screen.width+'<br>'+ 
+"Height: "+screen.height+'<br>'+
+ "Available Width: "+screen.availWidth +'<br>'+ 
+"Avilable Height : "+screen.availHeight+'<br>'+ 
+"Color Depth: "+screen.colorDepth+'<br>'+ 
+"Pixel Depth : "+screen.pixelDepth;  
+
+document.getElementById("demo").innerHTML =s;	
+}
+</script>
+</body>
+</html>
+
