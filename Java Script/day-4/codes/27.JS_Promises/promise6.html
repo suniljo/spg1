@@ -1,0 +1,19 @@
+<!-- using fetch API - used to retrieve and send data asynchronously-->
+
+<script>
+ fetch('https://api.github.com/users/mojombo')
+    .then(response => {
+        //document.write(response+'<br>')
+        return response.json();
+    })
+    .then(user => {
+        //console.log(user)
+        //document.write(user+'<hr>')
+        let {id, login, followers} = user;
+        document.write(`ID: ${id}  |  LOGIN: ${login} | FOLLOWERS: ${followers}<br>`)
+    })
+    .catch(err => {
+        console.error(err)
+        document.write(`<p style=color:red>${err}</p>`)
+    })
+</script>

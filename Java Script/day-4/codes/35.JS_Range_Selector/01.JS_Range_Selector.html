@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        div{
+            margin:50px;
+            font-size:20px;
+        }
+    </style>
+    <title>Range</title> 
+</head>
+
+<body>
+    <nav>
+        <h2>Java Script | Range Selector</h2>
+    </nav>
+    <div>
+        Select Salary: 
+        5000
+        <input type="range" min=5000 max=50000 id="salary">
+        50000
+    </div>
+    <div id="selectedSal">&#8377; </div>
+
+    <script>
+        let salaryElement = document.querySelector('#salary')
+        let selectedSal = document.querySelector('#selectedSal')
+
+        salaryElement.addEventListener('input', function(){
+            let sal = salaryElement.value
+            sal = new Intl.NumberFormat('en-IN',{maximumSignificantDigits:3}).format(sal)
+
+            selectedSal.innerHTML = `&#8377  ${sal}`
+        })
+    </script>
+</body>
+</html>

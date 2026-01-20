@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            a: 10,
+            b: 20
+        };
+
+        let { a, ...rest } = obj;
+        console.log(rest);
+    </script>
+
+
+    <script>
+        const arr = [10, 20, 30];
+        const newArr = [...arr, 40];
+        console.log(newArr);
+    </script>
+
+    <script>
+        const numbers = [10, 20, 30];
+        const sum = numbers.reduce((acc, num) => acc + num, 0);
+        console.log(sum);
+    </script>
+
+    <script>
+        const person = { name: "John", age: 30 };
+        const { name, ...rest1} = person;
+        console.log(rest1);
+    </script>
+
+    <script>
+        const object = { a: 1, b: 2 };
+        const cloned = { ...object, b: 3 };
+        console.log(cloned);
+    </script>
+
+    <script>
+        let str = "Wipro Technologies";
+        console.log(str.slice(-6, -1));
+    </script>
+
+    <script>
+        function sum(...args) {
+            return args.reduce((acc, curr) => acc + curr, 0);
+        }
+        console.log(sum(1, 2, 3, 4));
+    </script>
+</body>
+
+</html>

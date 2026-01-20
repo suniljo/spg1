@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        class Mobile {
+            constructor(brand, price, color) {
+                this.brand = brand;
+                this.price = price;
+                this.color = color;
+            }
+        }
+        */
+       let Mobile = class {
+            constructor(brand, price, color) {
+                this.brand = brand;
+                this.price = price;
+                this.color = color;
+            }
+        }
+        console.log('Class Name = ' + Mobile.name);
+        
+        let mobileObj = new Mobile('Apple', 25750.5, 'Blue');
+        console.log(mobileObj);
+        
+
+        class Rectangle{
+            constructor(len, bre){
+                this.length = len;
+                this.breadth = bre;
+            }
+
+            calculateArea(){
+                return this.length * this.breadth;
+            }
+        }
+
+        let rectObj = new Rectangle(10, 8);
+        console.log("area = " + rectObj.calculateArea());
+        console.log();
+        
+        let vehicleSet = [
+            {
+                brand: 'Hyundai',
+                model: 'i10',
+                autoGear: true,
+                rating: 4,
+                displayProperties(){
+                    document.write(`BRAND: ${this.brand}<br>`);
+                    document.write(`MODEL: ${this.model}<br>`);
+                    document.write(`AUTO-GEAR: ${this.autoGear}<br>`);
+                    document.write(`RATING: ${this.rating}<br><hr/>`);
+                }
+            },
+
+            {
+                brand: 'Honda',
+                model: 'Zest',
+                autoGear: false,
+                rating: 3.5,
+                displayProperties(){
+                    document.write(`BRAND: ${this.brand}<br>`);
+                    document.write(`MODEL: ${this.model}<br>`);
+                    document.write(`AUTO-GEAR: ${this.autoGear}<br>`);
+                    document.write(`RATING: ${this.rating}<br>`);
+                }
+            }            
+        ];
+    </script>
+    <script>
+        for(let i=0; i<vehicleSet.length; i++){
+            vehicleSet[i].displayProperties();
+        }
+    </script>
+
+<script>
+    class Customer{
+        constructor(custId, custName, city){
+            this.customerId = custId;
+            this.customerName = custName;
+            this.customerCity = city;
+        }
+
+        displayCustomer(){
+            document.write(`<br>ID: ${this.customerId} | NAME: ${this.customerName} | CITY: ${this.customerCity}`)
+        }
+    }
+
+    class RetailCustomer extends Customer{
+        constructor(custId, custName, city, retailerRegId){
+            super(custId, custName, city);
+            this.retailerRegistrationId = retailerRegId;
+        }
+        displayCustomer(){
+            super.displayCustomer();
+            document.write(` | RETAILER ID: ${this.retailerRegistrationId}`)
+        }        
+    }
+</script>
+
+<script>
+    let customerObj = new Customer(10001, 'Sanjay Patil', 'Mumbai');
+    customerObj.displayCustomer();
+
+    let customerObj1 = new RetailCustomer(10001, 'Sanjay Patil', 'Mumbai', 'RET-9237346');
+    customerObj1.displayCustomer();    
+</script>
+</body>
+
+</html>
